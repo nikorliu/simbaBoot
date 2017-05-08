@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wx>
+	<device_events>
+		<event type="subscribe_status" parser="com.simba.interfaces.impl.DeviceEventParse" dealMethod="subscribeStatus" />
+		<event type="unsubscribe_status " parser="com.simba.interfaces.impl.DeviceEventParse" dealMethod="unsubscribeStatus" />
+	</device_events>
+</wx>
