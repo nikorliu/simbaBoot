@@ -56,7 +56,7 @@ public class UeditorController {
 	 * @return
 	 * @throws Exception
 	 */
-	@RequestMapping(value = "/getRemoteImage.do")
+	@RequestMapping(value = "/getRemoteImage")
 	public String getRemoteImage(HttpServletRequest request, ModelMap model) throws Exception {
 		String url = request.getParameter("upfile");
 		String state = "远程图片抓取成功";
@@ -113,7 +113,7 @@ public class UeditorController {
 	 * @return
 	 * @throws Exception
 	 */
-	@RequestMapping(value = "/getMovie.do")
+	@RequestMapping(value = "/getMovie")
 	public String getMovie(HttpServletRequest request, ModelMap model) throws Exception {
 		StringBuffer readOneLineBuff = new StringBuffer();
 		String content = "";
@@ -149,7 +149,7 @@ public class UeditorController {
 	 * @return
 	 * @throws Exception
 	 */
-	@RequestMapping(value = "/fileUp.do")
+	@RequestMapping(value = "/fileUp")
 	public String fileUp(HttpServletRequest request, ModelMap model) throws Exception {
 		Uploader up = new Uploader(request);
 		up.setAllowFiles(ATTACHTYPE);
@@ -167,7 +167,7 @@ public class UeditorController {
 	 * @return
 	 * @throws Exception
 	 */
-	@RequestMapping(value = "/scrawlUp.do")
+	@RequestMapping(value = "/scrawlUp")
 	public String scrawlUp(HttpServletRequest request, ModelMap model) throws Exception {
 		String message = null;
 
@@ -193,7 +193,7 @@ public class UeditorController {
 	 * @return
 	 * @throws Exception
 	 */
-	@RequestMapping(value = "/imageUp.do")
+	@RequestMapping(value = "/imageUp")
 	public String imageUp(HttpServletRequest request, ModelMap model) throws Exception {
 		Uploader up = new Uploader(request);
 		up.setAllowFiles(IMGTYPE);

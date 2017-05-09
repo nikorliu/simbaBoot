@@ -19,6 +19,39 @@
         <dependent-module archiveName="simba-database-2.0.0-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/simba-database/simba-database">
             <dependency-type>uses</dependency-type>
         </dependent-module>
+        <dependent-module archiveName="simba-web-2.0.0-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/simba-web/simba-web">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="simba-common-2.0.0-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/simba-common/simba-common">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="simba-constant-2.0.0-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/simba-constant/simba-constant">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="simba-json-2.0.0-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/simba-json/simba-json">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="simba-exception-2.0.0-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/simba-exception/simba-exception">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="simba-distributed-2.0.0-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/simba-distributed/simba-distributed">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="simba-cache-2.0.0-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/simba-cache/simba-cache">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="simba-zookeeper-2.0.0-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/simba-zookeeper/simba-zookeeper">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="simba-framework-util-2.0.0-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/simba-framework-util/simba-framework-util">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="simba-schedule-2.0.0-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/simba-schedule/simba-schedule">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="simba-fastdfs-2.0.0-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/simba-fastdfs/simba-fastdfs">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
         <property name="java-output-path" value="/simba-user/target/classes"/>
         <property name="context-root" value="simba-user"/>
     </wb-module>

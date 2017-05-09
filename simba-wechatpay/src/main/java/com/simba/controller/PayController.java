@@ -65,7 +65,7 @@ public class PayController {
 		SimpleDateFormat format = new SimpleDateFormat("yyyyMMddHHmmss");
 		req.setTime_start(format.format(now));
 		if (StringUtils.isEmpty(req.getNotify_url())) {
-			req.setNotify_url(wxPayDomain + "/payCallback/receive.do");
+			req.setNotify_url(wxPayDomain + "/payCallback/receive");
 		}
 		if (StringUtils.isEmpty(req.getOpenid())) {
 			String openid = (String) request.getSession().getAttribute("openid");
