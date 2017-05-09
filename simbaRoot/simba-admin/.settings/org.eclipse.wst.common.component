@@ -64,6 +64,12 @@
         <dependent-module archiveName="simba-database-2.0.0-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/simba-database/simba-database">
             <dependency-type>uses</dependency-type>
         </dependent-module>
+        <dependent-module archiveName="simba-adminlte-2.0.0-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/simba-adminlte/simba-adminlte">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="simba-menu-2.0.0-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/simba-menu/simba-menu">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
         <property name="java-output-path" value="/simba-admin/target/classes"/>
         <property name="context-root" value="simba-admin"/>
     </wb-module>

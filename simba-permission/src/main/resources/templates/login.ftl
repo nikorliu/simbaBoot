@@ -16,7 +16,7 @@
 			</div>
 			</#if>
 			<div class="form row">
-				<form class="form-horizontal col-sm-offset-3 col-md-offset-3" id="login_form" action="${request.getContextPath()}/login/login.do">
+				<form class="form-horizontal col-sm-offset-3 col-md-offset-3" id="login_form" action="${request.getContextPath()}/login/login.do" method="post">
 					<h3 class="form-title">登录系统</h3>
 					<div class="col-sm-9 col-md-9">
 						<div class="form-group">

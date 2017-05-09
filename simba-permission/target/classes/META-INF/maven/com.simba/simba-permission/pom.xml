@@ -35,6 +35,11 @@
 			<artifactId>simba-database</artifactId>
 			<version>${simba.version}</version>
 		</dependency>
+		<dependency>
+			<groupId>com.simba</groupId>
+			<artifactId>simba-adminlte</artifactId>
+			<version>${simba.version}</version>
+		</dependency>
 	</dependencies>
 
 	<distributionManagement>

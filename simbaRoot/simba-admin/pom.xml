@@ -35,6 +35,11 @@
 			<artifactId>simba-permission</artifactId>
 			<version>${simba.version}</version>
 		</dependency>
+		<dependency>
+			<groupId>com.simba</groupId>
+			<artifactId>simba-menu</artifactId>
+			<version>${simba.version}</version>
+		</dependency>
 	</dependencies>
 
 	<build>

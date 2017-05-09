@@ -38,10 +38,17 @@ public class Menu implements Serializable {
 	private int orderNo;
 
 	// ///扩展属性////
-	/**
-	 * 树节点状态,easyUI使用
-	 */
 	private String state;
+
+	private String icon;
+
+	public String getIcon() {
+		return icon;
+	}
+
+	public void setIcon(String icon) {
+		this.icon = icon;
+	}
 
 	public String getState() {
 		return state;
@@ -74,8 +81,6 @@ public class Menu implements Serializable {
 	public void setUrl(String url) {
 		this.url = url;
 	}
-	
-	
 
 	public int getId() {
 		return id;
