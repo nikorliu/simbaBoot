@@ -1,1 +1,0 @@
-<#assign callback = request.getParameter("callback")><#if callback??>${callback!}(</#if>${message!}<#if callback??>)</#if>

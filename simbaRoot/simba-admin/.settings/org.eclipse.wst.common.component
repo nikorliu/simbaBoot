@@ -49,6 +49,9 @@
         <dependent-module archiveName="simba-fastdfs-2.0.0-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/simba-fastdfs/simba-fastdfs">
             <dependency-type>uses</dependency-type>
         </dependent-module>
+        <dependent-module archiveName="simba-oss-2.0.0-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/simba-oss/simba-oss">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
         <dependent-module archiveName="simba-permission-2.0.0-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/simba-permission/simba-permission">
             <dependency-type>uses</dependency-type>
         </dependent-module>
@@ -68,6 +71,9 @@
             <dependency-type>uses</dependency-type>
         </dependent-module>
         <dependent-module archiveName="simba-menu-2.0.0-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/simba-menu/simba-menu">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="simba-freemarker-2.0.0-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/simba-freemarker/simba-freemarker">
             <dependency-type>uses</dependency-type>
         </dependent-module>
         <property name="java-output-path" value="/simba-admin/target/classes"/>

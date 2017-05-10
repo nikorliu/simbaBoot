@@ -65,8 +65,8 @@
 		</dependency>
 		<dependency>
 			<groupId>com.simba</groupId>
-			<artifactId>simba-aliyun-oss</artifactId>
-			<version>1.0.0-RELEASE</version>
+			<artifactId>simba-oss</artifactId>
+			<version>${simba.version}</version>
 		</dependency>
 	</dependencies>
 

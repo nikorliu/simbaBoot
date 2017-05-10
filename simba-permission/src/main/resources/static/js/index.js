@@ -23,8 +23,20 @@ function initMenu() {
 
 }
 
-function forwardMenu(url){
-	if(!!url){
-		$("#contentiframe").attr("src",url);
+function forwardMenu(url) {
+	if(!!url) {
+		$("#contentiframe").attr("src", url);
 	}
+}
+
+function logout() {
+	window.self.location.href = contextPath + "/login/logout";
+}
+
+function toModifyInfo() {
+
+}
+
+function toModifyPwd() {
+
 }

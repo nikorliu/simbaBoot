@@ -1,6 +1,7 @@
 package com.simba.model.pay.result;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.xml.parsers.ParserConfigurationException;
@@ -12,9 +13,8 @@ import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.xml.sax.SAXException;
 
-import com.google.common.collect.Lists;
-import com.thoughtworks.xstream.annotations.XStreamAlias;
 import com.simba.framework.util.common.XmlUtil;
+import com.thoughtworks.xstream.annotations.XStreamAlias;
 
 /**
  * 支付结果通知对象
@@ -465,9 +465,10 @@ public class PayResult {
 	 * @throws SAXException
 	 * @throws ParserConfigurationException
 	 */
-	public void composeCoupons(String xml) throws DOMException, XPathExpressionException, ParserConfigurationException, SAXException, IOException {
+	public void composeCoupons(String xml)
+			throws DOMException, XPathExpressionException, ParserConfigurationException, SAXException, IOException {
 		if (this.coupon_count != null && this.coupon_count > 0) {
-			this.coupons = Lists.newArrayList();
+			this.coupons = new ArrayList<>();
 			Document doc = XmlUtil.parseXMLContent(xml);
 			Element root = doc.getDocumentElement();
 			for (int i = 0; i < this.coupon_count; i++) {

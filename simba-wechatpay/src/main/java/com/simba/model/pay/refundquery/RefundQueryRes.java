@@ -1,6 +1,7 @@
 package com.simba.model.pay.refundquery;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.xml.parsers.ParserConfigurationException;
@@ -12,9 +13,8 @@ import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.xml.sax.SAXException;
 
-import com.google.common.collect.Lists;
-import com.thoughtworks.xstream.annotations.XStreamAlias;
 import com.simba.framework.util.common.XmlUtil;
+import com.thoughtworks.xstream.annotations.XStreamAlias;
 
 /**
  * 退款查询响应对象
@@ -270,31 +270,47 @@ public class RefundQueryRes {
 	 * @throws SAXException
 	 * @throws ParserConfigurationException
 	 */
-	public void composeRefundRecords(String xml) throws DOMException, XPathExpressionException, ParserConfigurationException, SAXException, IOException {
+	public void composeRefundRecords(String xml)
+			throws DOMException, XPathExpressionException, ParserConfigurationException, SAXException, IOException {
 		if (this.refund_count != null && this.refund_count > 0) {
-			this.refundRecords = Lists.newArrayList();
+			this.refundRecords = new ArrayList<>();
 			Document doc = XmlUtil.parseXMLContent(xml);
 			Element root = doc.getDocumentElement();
 			for (int i = 0; i < this.refund_count; i++) {
 				RefundRecord refundRecord = new RefundRecord();
 				this.refundRecords.add(refundRecord);
-				refundRecord.setOut_refund_no(((Element) XmlUtil.selectSingleNode("/xml/out_refund_no_" + i, root)).getTextContent());
-				refundRecord.setRefund_id(((Element) XmlUtil.selectSingleNode("/xml/refund_id_" + i, root)).getTextContent());
-				refundRecord.setRefund_channel(((Element) XmlUtil.selectSingleNode("/xml/refund_channel_" + i, root)).getTextContent());
-				refundRecord.setRefund_fee(NumberUtils.toInt(((Element) XmlUtil.selectSingleNode("/xml/refund_fee_" + i, root)).getTextContent()));
-				refundRecord.setSettlement_refund_fee(NumberUtils.toInt(((Element) XmlUtil.selectSingleNode("/xml/settlement_refund_fee_" + i, root)).getTextContent()));
-				refundRecord.setCoupon_type(((Element) XmlUtil.selectSingleNode("/xml/coupon_type_" + i, root)).getTextContent());
-				refundRecord.setCoupon_refund_fee(NumberUtils.toInt(((Element) XmlUtil.selectSingleNode("/xml/coupon_refund_fee_" + i, root)).getTextContent()));
-				refundRecord.setCoupon_refund_count(NumberUtils.toInt(((Element) XmlUtil.selectSingleNode("/xml/coupon_refund_count_" + i, root)).getTextContent()));
-				refundRecord.setRefund_status(((Element) XmlUtil.selectSingleNode("/xml/refund_status_" + i, root)).getTextContent());
-				refundRecord.setRefund_recv_accout(((Element) XmlUtil.selectSingleNode("/xml/refund_recv_accout_" + i, root)).getTextContent());
+				refundRecord.setOut_refund_no(
+						((Element) XmlUtil.selectSingleNode("/xml/out_refund_no_" + i, root)).getTextContent());
+				refundRecord.setRefund_id(
+						((Element) XmlUtil.selectSingleNode("/xml/refund_id_" + i, root)).getTextContent());
+				refundRecord.setRefund_channel(
+						((Element) XmlUtil.selectSingleNode("/xml/refund_channel_" + i, root)).getTextContent());
+				refundRecord.setRefund_fee(NumberUtils
+						.toInt(((Element) XmlUtil.selectSingleNode("/xml/refund_fee_" + i, root)).getTextContent()));
+				refundRecord.setSettlement_refund_fee(
+						NumberUtils.toInt(((Element) XmlUtil.selectSingleNode("/xml/settlement_refund_fee_" + i, root))
+								.getTextContent()));
+				refundRecord.setCoupon_type(
+						((Element) XmlUtil.selectSingleNode("/xml/coupon_type_" + i, root)).getTextContent());
+				refundRecord.setCoupon_refund_fee(NumberUtils.toInt(
+						((Element) XmlUtil.selectSingleNode("/xml/coupon_refund_fee_" + i, root)).getTextContent()));
+				refundRecord.setCoupon_refund_count(NumberUtils.toInt(
+						((Element) XmlUtil.selectSingleNode("/xml/coupon_refund_count_" + i, root)).getTextContent()));
+				refundRecord.setRefund_status(
+						((Element) XmlUtil.selectSingleNode("/xml/refund_status_" + i, root)).getTextContent());
+				refundRecord.setRefund_recv_accout(
+						((Element) XmlUtil.selectSingleNode("/xml/refund_recv_accout_" + i, root)).getTextContent());
 				if (refundRecord.getCoupon_refund_count() == 0) {
 					continue;
 				}
-				List<RefundRecord.RefundCoupon> coupons = Lists.newArrayList();
+				List<RefundRecord.RefundCoupon> coupons = new ArrayList<>();
 				for (int j = 0; j < refundRecord.getCoupon_refund_count(); j++) {
-					coupons.add(new RefundRecord.RefundCoupon(((Element) XmlUtil.selectSingleNode("/xml/coupon_refund_id_" + i + "_" + j, root)).getTextContent(),
-							NumberUtils.toInt(((Element) XmlUtil.selectSingleNode("/xml/coupon_refund_fee_" + i + "_" + j, root)).getTextContent())));
+					coupons.add(new RefundRecord.RefundCoupon(
+							((Element) XmlUtil.selectSingleNode("/xml/coupon_refund_id_" + i + "_" + j, root))
+									.getTextContent(),
+							NumberUtils.toInt(
+									((Element) XmlUtil.selectSingleNode("/xml/coupon_refund_fee_" + i + "_" + j, root))
+											.getTextContent())));
 				}
 			}
 		}
