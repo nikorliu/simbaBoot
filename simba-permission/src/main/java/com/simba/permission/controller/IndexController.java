@@ -15,7 +15,7 @@ public class IndexController {
 
 	@RequestMapping("/")
 	public String index() {
-		return "redirect:/login/toLogin.do";
+		return "redirect:/login/toLogin";
 	}
 
 }

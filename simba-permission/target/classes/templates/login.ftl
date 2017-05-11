@@ -11,12 +11,12 @@
 	<body>
 		<div class="container">
 			<#if errMsg??>
-			<div class="alert alert-danger alert-dismissible" role="alert" id="errDiv">
-				<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button> ${errMsg!}
-			</div>
+				<div class="alert alert-danger alert-dismissible" role="alert" id="errDiv">
+					<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button> ${errMsg!}
+				</div>
 			</#if>
 			<div class="form row">
-				<form class="form-horizontal col-sm-offset-3 col-md-offset-3" id="login_form" action="${request.getContextPath()}/login/login.do" method="post">
+				<form class="form-horizontal col-sm-offset-3 col-md-offset-3" id="login_form" action="${request.getContextPath()}/login/login" method="post">
 					<h3 class="form-title">登录系统</h3>
 					<div class="col-sm-9 col-md-9">
 						<div class="form-group">
@@ -43,14 +43,17 @@
 		</div>
 	</body>
 	<script type="text/javascript">
+		if(window.parent != window) {
+			top.location.href = contextPath + "/login/toLogin";
+		}
 		$(document).ready(function() {
 			var errMsg = "${errMsg!}";
 			if(!!errMsg) {
-				setTimeout("closeErrDiv()",1500);
+				setTimeout("closeErrDiv()", 1500);
 			}
 		});
-		
-		function closeErrDiv(){
+
+		function closeErrDiv() {
 			$("#errDiv").fadeOut();
 		}
 	</script>

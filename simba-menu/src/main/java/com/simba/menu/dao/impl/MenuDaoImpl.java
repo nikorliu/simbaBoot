@@ -4,6 +4,8 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.cache.annotation.CacheEvict;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Repository;
 
 import com.simba.framework.util.jdbc.Jdbc;
@@ -28,6 +30,7 @@ public class MenuDaoImpl implements MenuDao {
 	private static final String table = "menu";
 
 	@Override
+	@CacheEvict(cacheNames = { "menus", "menucount" })
 	public void add(Menu menu) {
 		String sql = null;
 		if ("mysql".equalsIgnoreCase(dbType)) {
@@ -41,24 +44,28 @@ public class MenuDaoImpl implements MenuDao {
 	}
 
 	@Override
+	@CacheEvict(cacheNames = { "menus", "menucount" })
 	public void update(Menu menu) {
 		String sql = "update " + table + " set text =? ,parentID=?,url=?,orderNo=? where id = ?  ";
 		jdbc.updateForBoolean(sql, menu.getText(), menu.getParentID(), menu.getUrl(), menu.getOrderNo(), menu.getId());
 	}
 
 	@Override
+	@CacheEvict(cacheNames = { "menus", "menucount" })
 	public void delete(int id) {
 		String sql = "delete from " + table + " where id = ? ";
 		jdbc.updateForBoolean(sql, id);
 	}
 
 	@Override
+	@Cacheable(cacheNames = "menus", key = "#p0")
 	public List<Menu> listChildren(int parentID) {
 		String sql = "select * from " + table + " where parentID = ? order by orderNo";
 		return jdbc.queryForList(sql, Menu.class, parentID);
 	}
 
 	@Override
+	@Cacheable(cacheNames = "menucount", key = "#p0")
 	public int countChildren(int parentID) {
 		String sql = "select count(*) from " + table + " where parentID = ? ";
 		return jdbc.queryForInt(sql, parentID);

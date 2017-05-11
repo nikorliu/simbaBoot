@@ -23,7 +23,7 @@ public class PermissionController {
 	@Autowired
 	private PermissionService permissionService;
 
-	@RequestMapping("/list.do")
+	@RequestMapping("/list")
 	public String list(Integer parentID,ModelMap model) {
 		if (parentID == null) {
 			parentID = ConstantData.TREE_ROOT_ID;
@@ -51,7 +51,7 @@ public class PermissionController {
 	 * @param request
 	 * @return
 	 */
-	@RequestMapping("/listChildrenPermission.do")
+	@RequestMapping("/listChildrenPermission")
 	public String listChildrenPermission(Integer node, Integer id, Boolean showRoot, ModelMap model, HttpServletRequest request) {
 		int parentID = ConstantData.TREE_ROOT_ID;
 		if (node != null) {
@@ -77,21 +77,21 @@ public class PermissionController {
 		return root;
 	}
 
-	@RequestMapping("/toAdd.do")
+	@RequestMapping("/toAdd")
 	public String toAdd(Integer parentID, ModelMap model) {
 		model.put("parentID", parentID);
 		model.put("rootID", ConstantData.TREE_ROOT_ID);
 		return "permission/addPermission";
 	}
 
-	@RequestMapping("/add.do")
+	@RequestMapping("/add")
 	public String add(Permission permission, ModelMap model) {
 		permissionService.add(permission);
 		model.put("message", new JsonResult().toJson());
 		return "message";
 	}
 
-	@RequestMapping("/toUpdate.do")
+	@RequestMapping("/toUpdate")
 	public String toUpdate(int id, ModelMap model) {
 		Permission permission = permissionService.get(id);
 		model.put("rootID", ConstantData.TREE_ROOT_ID);
@@ -99,14 +99,14 @@ public class PermissionController {
 		return "permission/updatePermission";
 	}
 
-	@RequestMapping("/update.do")
+	@RequestMapping("/update")
 	public String update(Permission permission, ModelMap model) {
 		permissionService.update(permission);
 //		model.put("message", JsonUtil.successJson());
 		return "message";
 	}
 
-	@RequestMapping("/batchDelete.do")
+	@RequestMapping("/batchDelete")
 	public String batchDelete(Integer[] ids, ModelMap model) {
 		List<Integer> idList = Arrays.asList(ids);
 		permissionService.batchDelete(idList);
@@ -114,21 +114,21 @@ public class PermissionController {
 		return "message";
 	}
 
-	@RequestMapping("/delete.do")
+	@RequestMapping("/delete")
 	public String delete(int id, ModelMap model) {
 		permissionService.delete(id);
 //		model.put("message", JsonUtil.successJson());
 		return "message";
 	}
 
-	@RequestMapping("/show.do")
+	@RequestMapping("/show")
 	public String show(int id, ModelMap model) {
 		Permission permission = permissionService.get(id);
 		model.put("permission", permission);
 		return "permission/show";
 	}
 
-	@RequestMapping("/get.do")
+	@RequestMapping("/get")
 	public String get(int id, ModelMap model) {
 		Permission permission = permissionService.get(id);
 //		model.put("message", new JsonResult(permission).toJson());

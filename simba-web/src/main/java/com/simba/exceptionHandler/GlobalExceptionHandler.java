@@ -1,6 +1,5 @@
 package com.simba.exceptionHandler;
 
-import javax.security.auth.login.LoginException;
 import javax.servlet.http.HttpServletRequest;
 
 import org.apache.commons.logging.Log;
@@ -10,6 +9,7 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.simba.exception.ForbidException;
+import com.simba.exception.LoginException;
 import com.simba.framework.util.json.JsonResult;
 
 @ControllerAdvice

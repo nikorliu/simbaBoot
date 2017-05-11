@@ -5,7 +5,7 @@ $(document).ready(function() {
 
 function changeFrameHeight() {
 	var ifm = document.getElementById("contentiframe");
-	ifm.height = document.documentElement.clientHeight - 108;
+	ifm.height = document.documentElement.clientHeight - 38 - $(".main-header").height() - $(".main-footer").height();
 }
 
 window.onresize = function() { changeFrameHeight(); }

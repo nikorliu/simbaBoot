@@ -48,7 +48,7 @@ public class UserController {
 	@Autowired
 	private OrgService orgService;
 
-	@RequestMapping("/list.do")
+	@RequestMapping("/list")
 	public String list(Integer orgID, ModelMap model) {
 		Map<String, String> desc = UserExtDesc.getAllDesc();
 		List<String> keys = new ArrayList<>(desc.size());
@@ -120,7 +120,7 @@ public class UserController {
 		return "message";
 	}
 
-	@RequestMapping("/toAdd.do")
+	@RequestMapping("/toAdd")
 	public String toAdd(Integer orgID, ModelMap model) {
 		Map<String, String> desc = UserExtDesc.getAllDesc();
 		List<Map<String, Object>> descs = new ArrayList<>(desc.size());
@@ -137,7 +137,7 @@ public class UserController {
 		return "permission/addUser";
 	}
 
-	@RequestMapping("/add.do")
+	@RequestMapping("/add")
 	public String add(User user, Integer[] orgID, HttpServletRequest request, ModelMap model) {
 		UserExt userExt = new UserExt();
 		Map<String, String> extMap = new HashMap<>();
@@ -159,7 +159,7 @@ public class UserController {
 		return "message";
 	}
 
-	@RequestMapping("/toUpdate.do")
+	@RequestMapping("/toUpdate")
 	public String toUpdate(String account, HttpServletRequest request, ModelMap model) throws UnsupportedEncodingException {
 		User loginUser = SessionUtil.getUser(request.getSession());
 		User user = null;
@@ -197,7 +197,7 @@ public class UserController {
 		return "permission/updateUser";
 	}
 
-	@RequestMapping("/update.do")
+	@RequestMapping("/update")
 	public String update(User user, Integer[] orgID, HttpServletRequest request, ModelMap model) {
 		UserExt userExt = new UserExt();
 		Map<String, String> extMap = new HashMap<>();
@@ -219,7 +219,7 @@ public class UserController {
 		return "message";
 	}
 
-	@RequestMapping("/batchDelete.do")
+	@RequestMapping("/batchDelete")
 	public String batchDelete(String[] accounts, ModelMap model) {
 		List<String> accountList = Arrays.asList(accounts);
 		userService.batchDelete(accountList);
@@ -227,19 +227,19 @@ public class UserController {
 		return "message";
 	}
 
-	@RequestMapping("/resetPwd.do")
+	@RequestMapping("/resetPwd")
 	public String resetPwd(String account, ModelMap model) {
 		userService.resetPwd(account);
 		model.put("message", new JsonResult().toJson());
 		return "message";
 	}
 
-	@RequestMapping("/toModifyPwd.do")
+	@RequestMapping("/toModifyPwd")
 	public String toModifyPwd() {
 		return "user/modifyPwd";
 	}
 
-	@RequestMapping("/modifyPwd.do")
+	@RequestMapping("/modifyPwd")
 	public String modifyPwd(HttpServletRequest request, String oldPwd, String newPwd, String confirmPwd, ModelMap model) {
 		if (!confirmPwd.equals(newPwd)) {
 			throw new RuntimeException("确认密码和新密码不一致");
@@ -253,7 +253,7 @@ public class UserController {
 		return "message";
 	}
 
-	@RequestMapping("/toModifyInfo.do")
+	@RequestMapping("/toModifyInfo")
 	public String toModifyInfo(HttpServletRequest request, ModelMap model) {
 		User loginUser = SessionUtil.getUser(request.getSession());
 		UserExt userExt = userService.getUserExt(loginUser.getAccount());
@@ -272,7 +272,7 @@ public class UserController {
 		return "user/modifyInfo";
 	}
 
-	@RequestMapping("/modifyInfo.do")
+	@RequestMapping("/modifyInfo")
 	public String modifyInfo(HttpServletRequest request, ModelMap model) {
 		User loginUser = SessionUtil.getUser(request.getSession());
 		UserExt userExt = new UserExt();
@@ -290,7 +290,7 @@ public class UserController {
 		return "message";
 	}
 
-	@RequestMapping("/toAssignRole.do")
+	@RequestMapping("/toAssignRole")
 	public String toAssignRole(String account, ModelMap model) {
 		List<Role> allRoleList = roleService.listAll();
 		List<Role> assignRoleList = userService.listRoleByAccount(account);
@@ -300,7 +300,7 @@ public class UserController {
 		return "permission/assignRole";
 	}
 
-	@RequestMapping("/assignRole.do")
+	@RequestMapping("/assignRole")
 	public String assignRole(String[] roleName, String account, ModelMap model) {
 		if (roleName == null || roleName.length == 0) {
 			throw new RuntimeException("角色不能为空");

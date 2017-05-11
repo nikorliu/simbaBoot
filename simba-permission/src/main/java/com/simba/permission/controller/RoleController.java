@@ -25,7 +25,7 @@ public class RoleController {
 	@Autowired
 	private RoleService roleService;
 
-	@RequestMapping("/list.do")
+	@RequestMapping("/list")
 	public String list(ModelMap model) {
 		model.put("rootID", ConstantData.TREE_ROOT_ID);
 		return "permission/listRole";
@@ -42,19 +42,19 @@ public class RoleController {
 		return "message";
 	}
 
-	@RequestMapping("/toAdd.do")
+	@RequestMapping("/toAdd")
 	public String toAdd() {
 		return "permission/addRole";
 	}
 
-	@RequestMapping("/add.do")
+	@RequestMapping("/add")
 	public String add(Role role, ModelMap model) {
 		roleService.add(role);
 		model.put("message", new JsonResult().toJson());
 		return "message";
 	}
 
-	@RequestMapping("/toUpdate.do")
+	@RequestMapping("/toUpdate")
 	public String toUpdate(String name, ModelMap model) throws UnsupportedEncodingException {
 		name = URLDecoder.decode(name, ConstantData.DEFAULT_CHARSET);
 		Role role = roleService.get(name);
@@ -62,21 +62,21 @@ public class RoleController {
 		return "permission/updateRole";
 	}
 
-	@RequestMapping("/update.do")
+	@RequestMapping("/update")
 	public String update(Role role, ModelMap model) {
 		roleService.update(role);
 		model.put("message", new JsonResult().toJson());
 		return "message";
 	}
 
-	@RequestMapping("/batchDelete.do")
+	@RequestMapping("/batchDelete")
 	public String batchDelete(String[] roleNames, ModelMap model) {
 		roleService.batchDelete(Arrays.asList(roleNames));
 		model.put("message", new JsonResult().toJson());
 		return "message";
 	}
 
-	@RequestMapping("/assignPermission.do")
+	@RequestMapping("/assignPermission")
 	public String assignPermission(Integer[] permissionID, String roleName, ModelMap model) {
 		if (permissionID.length == 0) {
 			throw new RuntimeException("权限不能为空");
@@ -86,7 +86,7 @@ public class RoleController {
 		return "message";
 	}
 
-	@RequestMapping("/getPermissionByRoleName.do")
+	@RequestMapping("/getPermissionByRoleName")
 	public String getPermissionByRoleName(String roleName, ModelMap model) {
 		List<Permission> list = roleService.listByRole(roleName);
 		List<Integer> permissionIDList = new ArrayList<Integer>(list.size());
