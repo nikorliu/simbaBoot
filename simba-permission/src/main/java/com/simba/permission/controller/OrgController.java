@@ -13,9 +13,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.simba.framework.util.jdbc.Pager;
-import com.simba.framework.util.json.FastJsonUtil;
+import com.simba.bootstrap.model.TreeViewData;
 import com.simba.framework.util.json.JsonResult;
 import com.simba.model.constant.ConstantData;
 import com.simba.permission.controller.vo.OrgVo;
@@ -33,68 +33,50 @@ public class OrgController {
 
 	@RequestMapping("/list")
 	public String list(Integer parentID, ModelMap model) {
-		Map<String, String> desc = OrgExtDesc.getAllDesc();
-		List<String> keys = new ArrayList<>(desc.size());
-		List<Map<String, String>> descs = new ArrayList<>(desc.size());
-		desc.forEach((key, value) -> {
-			keys.add(key);
-			Map<String, String> m = new HashMap<>(2);
-			m.put("key", key);
-			m.put("value", value);
-			descs.add(m);
-		});
+		String parentName = null;
 		if (parentID == null) {
 			parentID = ConstantData.TREE_ROOT_ID;
-		}
-		String parentName = "机构树";
-		if (parentID != ConstantData.TREE_ROOT_ID) {
+			parentName = "机构树";
+		} else {
 			parentName = orgService.get(parentID).getText();
 		}
-		model.put("keys", keys);
-		model.put("descs", descs);
-		model.put("rootID", ConstantData.TREE_ROOT_ID);
+		Map<String, String> desc = OrgExtDesc.getAllDesc();
+		model.put("values", desc.values());
 		model.put("parentID", parentID);
 		model.put("parentName", parentName);
 		return "permission/listOrg";
 	}
 
-	/**
-	 * 获取子机构数据
-	 * 
-	 * @param node
-	 *            ext会使用这个参数来传递父节点id
-	 * @param id
-	 *            easyui会使用这个参数来传递父节点id
-	 * @param showRoot
-	 *            是否显示根节点
-	 * @param model
-	 * @param request
-	 * @return
-	 */
-	@RequestMapping("/listChildrenOrg")
-	public String listChildrenOrg(Integer node, Integer id, Boolean showRoot, ModelMap model,
-			HttpServletRequest request) {
-		int parentID = ConstantData.TREE_ROOT_ID;
-		if (node != null) {
-			parentID = node;
-		} else if (id != null) {
-			parentID = id;
-		} else if (showRoot != null && showRoot) {
-			Org root = buildRootOrg();
-			// model.put("message", JsonUtil.toJson(Arrays.asList(root)));
-			return "message";
-		}
-		List<Org> list = orgService.listChildren(parentID);
-		model.put("message", FastJsonUtil.toJson(list));
-		return "message";
+	@ResponseBody
+	@RequestMapping("/getOrgTree")
+	public List<TreeViewData> getOrgTree() {
+		TreeViewData root = new TreeViewData();
+		root.setId(ConstantData.TREE_ROOT_ID);
+		root.setText("机构树");
+		root.setTags(ConstantData.TREE_ROOT_ID + "");
+		List<Org> allOrgs = orgService.listAll();
+		Map<Integer, TreeViewData> nodeMap = new HashMap<>();
+		allOrgs.forEach((Org org) -> {
+			TreeViewData node = new TreeViewData();
+			node.setId(org.getId());
+			node.setText(org.getText());
+			node.setTags(org.getId() + "");
+			node.setParentID(org.getParentID());
+			nodeMap.put(org.getId(), node);
+		});
+		nodeMap.put(root.getId(), root);
+		allOrgs.forEach((Org org) -> {
+			TreeViewData node = nodeMap.get(org.getId());
+			TreeViewData parentNode = nodeMap.get(org.getParentID());
+			parentNode.addChildren(node);
+		});
+		List<TreeViewData> list = new ArrayList<>(1);
+		list.add(root);
+		return list;
 	}
 
-	@RequestMapping
-	public String listChildrenFullOrg(Integer id, String forSimple, ModelMap model) {
-		int parentID = ConstantData.TREE_ROOT_ID;
-		if (id != null) {
-			parentID = id;
-		}
+	@RequestMapping("/getOrgList")
+	public String getOrgList(int parentID, ModelMap model) {
 		List<Org> orgList = orgService.listBy("parentID", parentID);
 		List<OrgVo> voList = new ArrayList<>(orgList.size());
 		orgList.forEach((org) -> {
@@ -103,51 +85,23 @@ public class OrgController {
 			vo.setOrgExt(orgService.getOrgExt(org.getId()));
 			voList.add(vo);
 		});
-		if ("true".equals(forSimple)) {
-			List<Map<String, Object>> mapList = new ArrayList<>(orgList.size());
-			voList.forEach((vo) -> {
-				Map<String, Object> map = new HashMap<>();
-				map.put("id", vo.getOrg().getId());
-				map.put("orderNo", vo.getOrg().getOrderNo());
-				map.put("parentID", vo.getOrg().getParentID());
-				map.put("text", vo.getOrg().getText());
-				map.putAll(vo.getOrgExt().getExtMap());
-				mapList.add(map);
+		Map<String, String> desc = OrgExtDesc.getAllDesc();
+		List<Map<String, Object>> mapList = new ArrayList<>(orgList.size());
+		voList.forEach((vo) -> {
+			Map<String, Object> map = new HashMap<>();
+			map.put("id", vo.getOrg().getId());
+			map.put("orderNo", vo.getOrg().getOrderNo());
+			map.put("parentID", vo.getOrg().getParentID());
+			map.put("text", vo.getOrg().getText());
+			List<String> exts = new ArrayList<>();
+			desc.keySet().forEach((String key) -> {
+				exts.add(vo.getOrgExt().getExtMap().get(key));
 			});
-			model.put("message", FastJsonUtil.toJson(mapList));
-		} else {
-			model.put("message", FastJsonUtil.toJson(voList));
-		}
-		return "message";
-	}
-
-	private Org buildRootOrg() {
-		Org root = new Org();
-		root.setId(ConstantData.TREE_ROOT_ID);
-		root.setText("机构树");
-		root.setState("closed");
-		return root;
-	}
-
-	@RequestMapping("/listDataOfExt")
-	public String listDataOfExt(ModelMap model, int start, int limit) {
-		Pager page = new Pager(start, limit);
-		List<Org> list = orgService.page(page);
-		// String message = new JsonResult(new ExtPageGrid(list,
-		// page.getTotalCount())).toJson();
-		// model.put("message", message);
-		return "message";
-	}
-
-	@RequestMapping("/listDataOfEasyUI")
-	public String listDataOfEasyUI(ModelMap model) {
-		// Pager page = new Pager((form.getPage() - 1) * form.getRows(),
-		// form.getRows());
-		// List<Org> list = orgService.page(page);
-		// String message = JsonUtil.toJson(new PageGrid(page.getTotalCount(),
-		// list));
-		// model.put("message", message);
-		return "message";
+			map.put("exts", exts);
+			mapList.add(map);
+		});
+		model.put("list", mapList);
+		return "permission/orgTable";
 	}
 
 	@RequestMapping("/toAdd")
@@ -161,17 +115,21 @@ public class OrgController {
 			m.put("required", key.endsWith("_r"));
 			descs.add(m);
 		});
+		String parentName = null;
 		if (parentID == null) {
 			parentID = ConstantData.TREE_ROOT_ID;
+			parentName = "机构树";
+		} else {
+			parentName = orgService.get(parentID).getText();
 		}
 		model.put("parentID", parentID);
-		model.put("rootID", ConstantData.TREE_ROOT_ID);
+		model.put("parentName", parentName);
 		model.put("descs", descs);
 		return "permission/addOrg";
 	}
 
 	@RequestMapping("/add")
-	public String add(Org org, HttpServletRequest request, ModelMap model) {
+	public String add(Org org, HttpServletRequest request) {
 		OrgExt orgExt = new OrgExt();
 		Map<String, String> extMap = new HashMap<>();
 		orgExt.setExtMap(extMap);
@@ -180,8 +138,7 @@ public class OrgController {
 			extMap.put(key, request.getParameter(key));
 		});
 		orgService.add(org, orgExt);
-		model.put("message", new JsonResult().toJson());
-		return "message";
+		return "redirect:/org/list?parentID=" + org.getParentID();
 	}
 
 	@RequestMapping("/toUpdate")
@@ -198,14 +155,20 @@ public class OrgController {
 			m.put("required", key.endsWith("_r"));
 			descs.add(m);
 		});
+		String parentName = null;
+		if (org.getParentID() == ConstantData.TREE_ROOT_ID) {
+			parentName = "机构树";
+		} else {
+			parentName = orgService.get(org.getParentID()).getText();
+		}
 		model.put("descs", descs);
 		model.put("org", org);
-		model.put("rootID", ConstantData.TREE_ROOT_ID);
+		model.put("parentName", parentName);
 		return "permission/updateOrg";
 	}
 
 	@RequestMapping("/update")
-	public String update(Org org, HttpServletRequest request, ModelMap model) {
+	public String update(Org org, HttpServletRequest request) {
 		OrgExt orgExt = new OrgExt();
 		Map<String, String> extMap = new HashMap<>();
 		orgExt.setExtMap(extMap);
@@ -215,37 +178,22 @@ public class OrgController {
 			extMap.put(key, request.getParameter(key));
 		});
 		orgService.update(org, orgExt);
-		// model.put("message", FastJsonUtil.successJson());
-		return "message";
+		return "redirect:/org/list?parentID=" + org.getParentID();
 	}
 
+	@ResponseBody
 	@RequestMapping("/batchDelete")
-	public String batchDelete(Integer[] ids, ModelMap model) {
+	public JsonResult batchDelete(Integer[] ids) {
 		List<Integer> idList = Arrays.asList(ids);
 		orgService.batchDelete(idList);
-		model.put("message", new JsonResult().toJson());
-		return "message";
+		return new JsonResult();
 	}
 
+	@ResponseBody
 	@RequestMapping("/delete")
-	public String delete(int id, ModelMap model) {
+	public JsonResult delete(int id) {
 		orgService.delete(id);
-		// model.put("message", JsonUtil.successJson());
-		return "message";
-	}
-
-	@RequestMapping("/show")
-	public String show(int id, ModelMap model) {
-		Org org = orgService.get(id);
-		model.put("org", org);
-		return "permission/showOrg";
-	}
-
-	@RequestMapping("/get")
-	public String get(int id, ModelMap model) {
-		Org org = orgService.get(id);
-		model.put("message", new JsonResult(org).toJson());
-		return "message";
+		return new JsonResult();
 	}
 
 }

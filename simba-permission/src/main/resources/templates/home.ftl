@@ -4,7 +4,7 @@
 	<head>
 		<meta charset="utf-8" />
 		<title>系统</title>
-		<#include "bootstrap.ftl">
+		<#include "bootstrap.ftl"/>
 	</head>
 
 	<body>

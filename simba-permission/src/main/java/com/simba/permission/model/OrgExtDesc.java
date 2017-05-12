@@ -10,6 +10,7 @@ import java.util.Map;
  *
  */
 public class OrgExtDesc {
+
 	private static Map<String, String> descMap = new HashMap<>();
 
 	public static void put(String key, String desc) {

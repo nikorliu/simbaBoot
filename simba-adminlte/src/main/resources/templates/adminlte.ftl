@@ -1,4 +1,4 @@
-<#include "bootstrap.ftl">
+<#include "bootstrap.ftl"/>
 <link rel="stylesheet" href="${base}/css/font-awesome.min.css">
 <link rel="stylesheet" href="${base}/css/ionicons.min.css">
 <link rel="stylesheet" href="${base}/css/AdminLTE.min.css">

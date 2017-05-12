@@ -2,6 +2,7 @@ package com.simba.exceptionHandler;
 
 import javax.servlet.http.HttpServletRequest;
 
+import org.apache.commons.lang.StringUtils;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.springframework.web.bind.annotation.ControllerAdvice;
@@ -25,7 +26,12 @@ class GlobalExceptionHandler {
 		ModelAndView model = new ModelAndView();
 		if (isJsonException(req)) {
 			model.setViewName("message");
-			model.addObject("message", new JsonResult(e.getMessage(), 400).toJson());
+			String message = new JsonResult(e.getMessage(), 400).toJson();
+			String callback = req.getParameter("callback");
+			if (StringUtils.isNotEmpty(callback)) {
+				message = callback + "(" + message + ")";
+			}
+			model.addObject("message", message);
 		} else if (e instanceof LoginException) {
 			model.addObject("top", true);
 			model.setViewName("login");

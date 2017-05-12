@@ -4,14 +4,14 @@
 	<head>
 		<meta charset="utf-8" />
 		<title>系统登录页</title>
-		<#include "bootstrap.ftl">
+		<#include "bootstrap.ftl"/>
 			<link href="${request.getContextPath()}/css/login.css" rel="stylesheet">
 	</head>
 
 	<body>
 		<div class="container">
 			<#if errMsg??>
-				<div class="alert alert-danger alert-dismissible" role="alert" id="errDiv">
+				<div class="alert alert-danger alert-dismissible" role="alert" id="errDiv" style="position:fixed;margin: 0 auto;width:70%;">
 					<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button> ${errMsg!}
 				</div>
 			</#if>

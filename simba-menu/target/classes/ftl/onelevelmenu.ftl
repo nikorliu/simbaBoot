@@ -1,1 +1,0 @@
- <li><a href="javascript:void(0);" onclick="forwardMenu('${menu.url!}');"><i class="fa ${menu.icon!}"></i><span>${menu.text!}</span></a></li>

@@ -52,10 +52,12 @@ public class TreeViewData {
 
 	private String value;
 
+	private int parentID;
+
 	/**
 	 * 节点的初始状态
 	 */
-	private TreeViewState state;
+	private TreeViewState state = new TreeViewState();
 
 	/**
 	 * 子节点
@@ -64,6 +66,14 @@ public class TreeViewData {
 
 	public void addChildren(TreeViewData node) {
 		nodes.add(node);
+	}
+
+	public int getParentID() {
+		return parentID;
+	}
+
+	public void setParentID(int parentID) {
+		this.parentID = parentID;
 	}
 
 	public String getText() {

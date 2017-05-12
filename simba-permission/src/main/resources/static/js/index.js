@@ -40,3 +40,13 @@ function toModifyInfo() {
 function toModifyPwd() {
 
 }
+
+function showInfo(info) {
+	$("#errInfo").html(info);
+	$("#errDiv").fadeIn();
+	setTimeout("hideInfo();", 1500);
+}
+
+function hideInfo() {
+	$("#errDiv").fadeOut();
+}

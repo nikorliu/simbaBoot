@@ -11,10 +11,15 @@
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<simba.version>2.0.0-SNAPSHOT</simba.version>
 	</properties>
 
 	<dependencies>
-
+		<dependency>
+			<groupId>com.simba</groupId>
+			<artifactId>simba-jquery</artifactId>
+			<version>${simba.version}</version>
+		</dependency>
 	</dependencies>
 
 	<distributionManagement>

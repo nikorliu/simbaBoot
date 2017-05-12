@@ -6,11 +6,12 @@
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
 		<title>系统首页</title>
-		<#include "../adminlte.ftl">
-			<link rel="stylesheet" href="${base}/js/plugins/iCheck/flat/blue.css">
-			<script type="text/javascript" src="${base}/js/plugins/bootstrap-treeview.min.js"></script>
-			<script type="text/javascript" src="${base}/js/plugins/iCheck/icheck.min.js"></script>
-			<script type="text/javascript" src="${base}/js/common/table.js"></script>
+		<#include "../adminlte.ftl"/>
+		<#include "../iCheck.ftl"/>
+		<script type="text/javascript" src="${base}/js/plugins/bootstrap-treeview.min.js"></script>
+		<script type="text/javascript" src="${base}/js/common/checkbox.js"></script>
+		<script type="text/javascript" src="${base}/js/util/treeviewutil.js"></script>
+		<script type="text/javascript" src="${base}/js/permission/user.js"></script>
 	</head>
 
 	<body>

@@ -6,13 +6,12 @@
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
 		<title>系统首页</title>
-		<#include "adminlte.ftl">
+		<#include "adminlte.ftl"/>
 			<script type="text/javascript" src="${base}/js/index.js"></script>
 	</head>
 
 	<body class="hold-transition skin-green-light sidebar-mini">
 		<div class="wrapper">
-
 			<header class="main-header">
 				<!-- Logo -->
 				<a href="#" class="logo">
@@ -30,7 +29,10 @@
 						<span class="icon-bar"></span>
 						<span class="icon-bar"></span>
 					</a>
-
+					<div class="alert alert-danger alert-dismissible" role="alert" id="errDiv" style="position:fixed;margin: 0 auto;width:65%;height:5%;display: none;">
+						<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+						<div id="errInfo"></div>
+					</div>
 					<div class="navbar-custom-menu">
 						<ul class="nav navbar-nav">
 							<!-- User Account: style can be found in dropdown.less -->
