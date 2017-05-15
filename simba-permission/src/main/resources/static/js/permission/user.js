@@ -133,21 +133,66 @@ var User = {
 	},
 
 	"checkForm": function() {
-
+		var account = $("#account").val();
+		if(!account) {
+			parent.showInfo("账号不能为空");
+			return false;
+		}
+		var name = $("#name").val();
+		if(!name) {
+			parent.showInfo("用户名不能为空");
+			return false;
+		}
+		var orgID = $("#orgID").val();
+		if(!orgID) {
+			parent.showInfo("所属机构不能为空");
+			return false;
+		}
 		return true;
 	},
 
 	"toList": function() {
-		window.self.location.href = contextPath + "/user/list?orgID=" + ("#orgID").val();
+		var orgID = $("#orgID").val();
+		window.self.location.href = contextPath + "/user/list?orgID=" + orgID.split(",")[0];
 	},
 
 	"initSelectOrgTree": function(ids, texts) {
 		TreeViewUtil.initMultiTree("tree", contextPath + "/org/getOrgTree", function(data) {
-
+			var id = data.id;
+			var text = data.text;
+			var orgID = $("#orgID").val();
+			var orgName = $("#orgName").val();
+			if(orgID == "") {
+				$("#orgID").val(id);
+				$("#orgName").val(text);
+			} else {
+				$("#orgID").val(orgID + "," + id);
+				$("#orgName").val(orgName + "," + text);
+			}
 		}, function(data) {
-
+			var id = data.id;
+			var text = data.text;
+			var orgID = $("#orgID").val();
+			var orgName = $("#orgName").val();
+			if(orgID == id) {
+				$("#orgID").val("");
+				$("#orgName").val("");
+			} else {
+				var orgIDArray = orgID.split(",");
+				var orgNameArray = orgName.split(",");
+				var newOrgIDArray = new Array();
+				var newOrgNameArray = new Array();
+				for(var i = 0; i < orgIDArray.length; i++) {
+					if(id != orgIDArray[i]) {
+						newOrgIDArray.push(orgIDArray[i]);
+						newOrgNameArray.push(orgNameArray[i]);
+					}
+				}
+				$("#orgID").val(newOrgIDArray.join(","));
+				$("#orgName").val(newOrgNameArray.join(","));
+			}
 		}, function() {
-			if(!!id && !!text) {
+			if(!!ids && !!texts) {
 				TreeViewUtil.checkTreeNode("tree", ids, texts);
 			}
 		});

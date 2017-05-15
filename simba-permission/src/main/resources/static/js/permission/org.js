@@ -4,7 +4,7 @@ var Org = {
 		TreeViewUtil.initTree("tree", contextPath + "/org/getOrgTree", function(data) {
 			$("#parentName").val(data.text);
 			$("#parentID").val(data.id);
-			$('#tree').hide();
+			$('#tree').fadeOut();
 		}, function() {
 			if(!!id && !!text) {
 				TreeViewUtil.selectTreeNode("tree", id, text);

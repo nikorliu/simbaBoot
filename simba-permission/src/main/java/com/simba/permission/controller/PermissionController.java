@@ -1,16 +1,18 @@
 package com.simba.permission.controller;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
-
-import javax.servlet.http.HttpServletRequest;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.simba.framework.util.json.FastJsonUtil;
+import com.simba.bootstrap.model.TreeViewData;
 import com.simba.framework.util.json.JsonResult;
 import com.simba.model.constant.ConstantData;
 import com.simba.permission.model.Permission;
@@ -24,7 +26,7 @@ public class PermissionController {
 	private PermissionService permissionService;
 
 	@RequestMapping("/list")
-	public String list(Integer parentID,ModelMap model) {
+	public String list(Integer parentID, ModelMap model) {
 		if (parentID == null) {
 			parentID = ConstantData.TREE_ROOT_ID;
 		}
@@ -34,105 +36,94 @@ public class PermissionController {
 		}
 		model.put("parentID", parentID);
 		model.put("parentName", parentName);
-		model.put("rootID", ConstantData.TREE_ROOT_ID);
 		return "permission/listPermission";
 	}
 
-	/**
-	 * 获取子权限数据
-	 * 
-	 * @param node
-	 *            ext会使用这个参数来传递父节点id
-	 * @param id
-	 *            easyui会使用这个参数来传递父节点id
-	 * @param showRoot
-	 *            是否显示根节点
-	 * @param model
-	 * @param request
-	 * @return
-	 */
-	@RequestMapping("/listChildrenPermission")
-	public String listChildrenPermission(Integer node, Integer id, Boolean showRoot, ModelMap model, HttpServletRequest request) {
-		int parentID = ConstantData.TREE_ROOT_ID;
-		if (node != null) {
-			parentID = node;
-		} else if (id != null) {
-			parentID = id;
-		} else if (showRoot != null && showRoot) {
-			Permission permission = buildRootPermission();
-//			model.put("message", JsonUtil.toJson(Arrays.asList(permission)));
-			return "message";
-		}
-		List<Permission> list = permissionService.listChildren(parentID);
-		model.put("message", FastJsonUtil.toJson(list));
-		return "message";
-	}
-
-	private Permission buildRootPermission() {
-		Permission root = new Permission();
+	@ResponseBody
+	@RequestMapping("/getPermissionTree")
+	public List<TreeViewData> getPermissionTree() {
+		TreeViewData root = new TreeViewData();
 		root.setId(ConstantData.TREE_ROOT_ID);
 		root.setText("权限树");
-//		root.setLeaf(false); 
-		root.setState("closed");
-		return root;
+		root.setTags(ConstantData.TREE_ROOT_ID + "");
+		List<Permission> allPermissions = permissionService.listAll();
+		Map<Integer, TreeViewData> nodeMap = new HashMap<>();
+		allPermissions.forEach((Permission permission) -> {
+			TreeViewData node = new TreeViewData();
+			node.setId(permission.getId());
+			node.setText(permission.getText());
+			node.setTags(permission.getId() + "");
+			node.setParentID(permission.getParentID());
+			nodeMap.put(permission.getId(), node);
+		});
+		nodeMap.put(root.getId(), root);
+		allPermissions.forEach((Permission permission) -> {
+			TreeViewData node = nodeMap.get(permission.getId());
+			TreeViewData parentNode = nodeMap.get(permission.getParentID());
+			parentNode.addChildren(node);
+		});
+		List<TreeViewData> list = new ArrayList<>(1);
+		list.add(root);
+		return list;
+	}
+
+	@RequestMapping("/getPermissionList")
+	public String getPermissionList(int parentID, ModelMap model) {
+		List<Permission> list = permissionService.listChildren(parentID);
+		model.put("list", list);
+		return "permission/permissionTable";
 	}
 
 	@RequestMapping("/toAdd")
 	public String toAdd(Integer parentID, ModelMap model) {
+		String parentName = "权限树";
+		if (parentID != ConstantData.TREE_ROOT_ID) {
+			parentName = permissionService.get(parentID).getText();
+		}
 		model.put("parentID", parentID);
-		model.put("rootID", ConstantData.TREE_ROOT_ID);
+		model.put("parentName", parentName);
 		return "permission/addPermission";
 	}
 
 	@RequestMapping("/add")
-	public String add(Permission permission, ModelMap model) {
+	public String add(Permission permission) {
 		permissionService.add(permission);
-		model.put("message", new JsonResult().toJson());
-		return "message";
+		return "redirect:/permission/list?parentID=" + permission.getParentID();
 	}
 
 	@RequestMapping("/toUpdate")
 	public String toUpdate(int id, ModelMap model) {
 		Permission permission = permissionService.get(id);
-		model.put("rootID", ConstantData.TREE_ROOT_ID);
+		String parentName = "权限树";
+		int parentID = permission.getParentID();
+		if (parentID != ConstantData.TREE_ROOT_ID) {
+			parentName = permissionService.get(parentID).getText();
+		}
+		model.put("parentID", parentID);
+		model.put("parentName", parentName);
 		model.put("permission", permission);
 		return "permission/updatePermission";
 	}
 
 	@RequestMapping("/update")
-	public String update(Permission permission, ModelMap model) {
+	public String update(Permission permission) {
 		permissionService.update(permission);
-//		model.put("message", JsonUtil.successJson());
-		return "message";
+		return "redirect:/permission/list?parentID=" + permission.getParentID();
 	}
 
+	@ResponseBody
 	@RequestMapping("/batchDelete")
-	public String batchDelete(Integer[] ids, ModelMap model) {
+	public JsonResult batchDelete(Integer[] ids) {
 		List<Integer> idList = Arrays.asList(ids);
 		permissionService.batchDelete(idList);
-//		model.put("message", new JsonResult().toJson());
-		return "message";
+		return new JsonResult();
 	}
 
+	@ResponseBody
 	@RequestMapping("/delete")
-	public String delete(int id, ModelMap model) {
+	public JsonResult delete(int id) {
 		permissionService.delete(id);
-//		model.put("message", JsonUtil.successJson());
-		return "message";
-	}
-
-	@RequestMapping("/show")
-	public String show(int id, ModelMap model) {
-		Permission permission = permissionService.get(id);
-		model.put("permission", permission);
-		return "permission/show";
-	}
-
-	@RequestMapping("/get")
-	public String get(int id, ModelMap model) {
-		Permission permission = permissionService.get(id);
-//		model.put("message", new JsonResult(permission).toJson());
-		return "message";
+		return new JsonResult();
 	}
 
 }

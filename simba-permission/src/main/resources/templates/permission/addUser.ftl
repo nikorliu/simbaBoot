@@ -38,7 +38,7 @@
 										<div class="form-group">
 											<label for="parentName">所属机构</label>
 											<input type="hidden" id="orgID" name="orgID" value="${orgID}" />
-											<input type="text" onclick="$('#tree').show();" class="form-control" id="orgName" name="orgName" value="${orgName}" placeholder="请选择所属机构">
+											<input type="text" onclick="$('#tree').fadeToggle();" class="form-control" id="orgName" name="orgName" value="${orgName}" placeholder="请选择所属机构">
 											<div id="tree" style="display: none;"></div>
 										</div>
 										<#list descs as ext>

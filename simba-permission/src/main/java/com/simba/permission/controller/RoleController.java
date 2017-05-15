@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.simba.framework.util.json.FastJsonUtil;
 import com.simba.framework.util.json.JsonResult;
@@ -27,19 +28,9 @@ public class RoleController {
 
 	@RequestMapping("/list")
 	public String list(ModelMap model) {
-		model.put("rootID", ConstantData.TREE_ROOT_ID);
+		List<Role> list = roleService.listAll();
+		model.put("list", list);
 		return "permission/listRole";
-	}
-
-	@RequestMapping
-	public String listDataOfEasyUI(ModelMap model) {
-		// Pager pager = new Pager((form.getPage() - 1) * form.getRows(),
-		// form.getRows());
-		// List<Role> list = roleService.page(pager);
-		//// String message = FastJsonUtil.toJson(new
-		// PageGrid(pager.getTotalCount(), list));
-		// model.put("message", message);
-		return "message";
 	}
 
 	@RequestMapping("/toAdd")
@@ -48,10 +39,9 @@ public class RoleController {
 	}
 
 	@RequestMapping("/add")
-	public String add(Role role, ModelMap model) {
+	public String add(Role role) {
 		roleService.add(role);
-		model.put("message", new JsonResult().toJson());
-		return "message";
+		return "redirect:/role/list";
 	}
 
 	@RequestMapping("/toUpdate")
@@ -63,17 +53,16 @@ public class RoleController {
 	}
 
 	@RequestMapping("/update")
-	public String update(Role role, ModelMap model) {
+	public String update(Role role) {
 		roleService.update(role);
-		model.put("message", new JsonResult().toJson());
-		return "message";
+		return "redirect:/role/list";
 	}
 
+	@ResponseBody
 	@RequestMapping("/batchDelete")
-	public String batchDelete(String[] roleNames, ModelMap model) {
+	public JsonResult batchDelete(String[] roleNames) {
 		roleService.batchDelete(Arrays.asList(roleNames));
-		model.put("message", new JsonResult().toJson());
-		return "message";
+		return new JsonResult();
 	}
 
 	@RequestMapping("/assignPermission")

@@ -9,6 +9,7 @@ import java.util.List;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,8 +18,8 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.simba.framework.util.collection.ListUtil;
 import com.simba.framework.util.jdbc.Pager;
-import com.simba.framework.util.json.FastJsonUtil;
 import com.simba.framework.util.json.JsonResult;
 import com.simba.model.constant.ConstantData;
 import com.simba.permission.controller.vo.UserVo;
@@ -174,15 +175,23 @@ public class UserController {
 			descs.add(m);
 		});
 		List<UserOrg> userOrgList = userOrgService.listBy("userAccount", account);
-		List<Integer> orgIDs = new ArrayList<Integer>(userOrgList.size());
+		List<String> orgIDs = new ArrayList<>(userOrgList.size());
+		List<String> orgNames = new ArrayList<>(userOrgList.size());
 		userOrgList.forEach((userOrg) -> {
-			orgIDs.add(userOrg.getOrgID());
+			orgIDs.add(userOrg.getOrgID() + "");
+			String orgName = null;
+			if (userOrg.getOrgID() == ConstantData.TREE_ROOT_ID) {
+				orgName = "机构树";
+			} else {
+				orgName = orgService.get(userOrg.getOrgID()).getText();
+			}
+			orgNames.add(orgName);
 		});
 		model.put("descs", descs);
 		model.put("self", self);
 		model.put("user", user);
-		model.put("rootID", ConstantData.TREE_ROOT_ID);
-		model.put("orgIDs", FastJsonUtil.toJson(orgIDs));
+		model.put("orgID", ListUtil.join(orgIDs));
+		model.put("orgName", ListUtil.join(orgNames));
 		return "permission/updateUser";
 	}
 
@@ -276,6 +285,7 @@ public class UserController {
 			extMap.put(key, request.getParameter(key));
 		});
 		userService.update(loginUser, userExt);
+		SessionUtil.setUser(request.getSession(), loginUser);
 		return new JsonResult();
 	}
 
@@ -297,6 +307,15 @@ public class UserController {
 		}
 		userService.assignRoles(account, Arrays.asList(roleName));
 		return new JsonResult();
+	}
+
+	@ResponseBody
+	@RequestMapping("/getCurrentUserInfo")
+	public JsonResult getCurrentUserInfo(HttpSession session) {
+		Map<String, Object> info = new HashMap<>();
+		info.put("isAdmin", SessionUtil.isAdmin(session));
+		info.put("userName", SessionUtil.getUser(session).getName());
+		return new JsonResult(info);
 	}
 
 }

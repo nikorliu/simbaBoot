@@ -41,7 +41,6 @@ var TreeViewUtil = {
 			async: true,
 			type: "get",
 			success: function(data) {
-				debugger;
 				if(!treeProps) {
 					treeProps = {
 						"data": data,
@@ -100,8 +99,30 @@ var TreeViewUtil = {
 	/**
 	 * 选中多选树中的节点
 	 */
-	"checkTreeNode": function(tree, ids, texts) {
-
+	"checkTreeNode": function(treeId, ids, texts) {
+		var idArray = ids.split(",");
+		var textArray = texts.split(",");
+		for(var i = 0; i < idArray.length; i++) {
+			var id = idArray[i];
+			var text = textArray[i];
+			var nodes = $('#' + treeId).treeview('search', [text, { ignoreCase: false, exactMatch: false }]);
+			if(!nodes || nodes.length == 0) {
+				continue;
+			}
+			var node = null;
+			if(nodes.length == 1) {
+				node = nodes[0];
+			} else {
+				var l = nodes.length;
+				for(var i = 0; i < l; i++) {
+					if(nodes[i].id == id) {
+						node = nodes[i];
+						break;
+					}
+				}
+			}
+			$('#' + treeId).treeview('toggleNodeChecked', [node, { silent: true }]);
+		}
 	},
 
 	"end": null

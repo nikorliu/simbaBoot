@@ -13,6 +13,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.simba.framework.util.code.EncryptUtil;
 import com.simba.framework.util.jdbc.Pager;
+import com.simba.model.constant.ConstantData;
 import com.simba.permission.dao.OrgDao;
 import com.simba.permission.dao.OrgExtDao;
 import com.simba.permission.dao.RoleDao;
@@ -203,7 +204,14 @@ public class UserServiceImpl implements UserService {
 		List<UserOrg> userOrgList = userOrgDao.listBy("userAccount", userAccount);
 		List<Org> orgList = new ArrayList<>(userOrgList.size());
 		userOrgList.forEach((userOrg) -> {
-			Org org = orgDao.get(userOrg.getOrgID());
+			Org org = null;
+			if (userOrg.getOrgID() != ConstantData.TREE_ROOT_ID) {
+				org = orgDao.get(userOrg.getOrgID());
+			} else {
+				org = new Org();
+				org.setId(ConstantData.TREE_ROOT_ID);
+				org.setText("机构树");
+			}
 			orgList.add(org);
 		});
 		return orgList;
@@ -214,7 +222,13 @@ public class UserServiceImpl implements UserService {
 		List<UserOrg> userOrgList = userOrgDao.listBy("userAccount", userAccount);
 		List<OrgExt> orgExtList = new ArrayList<>(userOrgList.size());
 		userOrgList.forEach((userOrg) -> {
-			OrgExt orgExt = orgExtDao.get(userOrg.getOrgID());
+			OrgExt orgExt = null;
+			if (userOrg.getOrgID() != ConstantData.TREE_ROOT_ID) {
+				orgExt = orgExtDao.get(userOrg.getOrgID());
+			} else {
+				orgExt = new OrgExt();
+				orgExt.setId(ConstantData.TREE_ROOT_ID);
+			}
 			orgExtList.add(orgExt);
 		});
 		return orgExtList;

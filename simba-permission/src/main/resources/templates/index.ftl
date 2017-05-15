@@ -11,6 +11,27 @@
 	</head>
 
 	<body class="hold-transition skin-green-light sidebar-mini">
+
+		<!-- Button trigger modal -->
+		<button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#modalDialog" style="display: none;" id="modalButton">
+		  触发模态窗口的按钮
+		</button>
+
+		<!-- Modal -->
+		<div class="modal fade bs-example-modal-lg" id="modalDialog" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+			<div class="modal-dialog" role="document">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+						<h4 class="modal-title" id="myModalLabel">Modal title</h4>
+					</div>
+					<div class="modal-body" id="modalBody">
+						<iframe id="modalbodyiframe" style="border-top-width: 0px; border-left-width: 0px; border-bottom-width: 0px;border-right-width: 0px;width: 100%;height:500px;" src="" frameborder="0" scrolling="auto"></iframe>
+					</div>
+				</div>
+			</div>
+		</div>
+
 		<div class="wrapper">
 			<header class="main-header">
 				<!-- Logo -->
@@ -33,7 +54,7 @@
 						<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
 						<div id="errInfo"></div>
 					</div>
-					<div class="alert alert-success alert-dismissible" role="alert" id="successDiv" style="position:fixed;margin: 0 auto;width:65%;height:5%;display: none;">
+					<div class="alert alert-info alert-dismissible" role="alert" id="successDiv" style="position:fixed;margin: 0 auto;width:65%;height:5%;display: none;">
 						<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
 						<div id="successInfo"></div>
 					</div>
@@ -43,11 +64,11 @@
 							<li class="dropdown user user-menu">
 								<a href="#" class="dropdown-toggle" data-toggle="dropdown">
 									<img src="${base}/img/user2-160x160.jpg" class="user-image" alt="User Image">
-									<span class="hidden-xs">超级管理员</span>
+									<span class="hidden-xs" id="loginName"></span>
 								</a>
 								<ul class="dropdown-menu">
 									<!-- Menu Footer-->
-									<li class="user-footer">
+									<li class="user-footer" id="profile">
 										<div class="pull-left">
 											<a href="#" class="btn btn-default btn-flat" onclick="toModifyInfo();">个人信息</a>
 										</div>
