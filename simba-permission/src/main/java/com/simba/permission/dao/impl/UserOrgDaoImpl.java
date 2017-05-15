@@ -15,7 +15,7 @@ import com.simba.permission.model.UserOrg;
  * 
  * 
  * @author caozj
- *  
+ * 
  */
 @Repository
 public class UserOrgDaoImpl implements UserOrgDao {
@@ -28,13 +28,13 @@ public class UserOrgDaoImpl implements UserOrgDao {
 	@Override
 	public void add(UserOrg userOrg) {
 		String sql = "insert into " + table + "( userAccount, orgID) values(?,?)";
-		jdbc.updateForBoolean(sql, userOrg.getUserAccount(),userOrg.getOrgID());
+		jdbc.updateForBoolean(sql, userOrg.getUserAccount(), userOrg.getOrgID());
 	}
 
 	@Override
 	public void update(UserOrg userOrg) {
 		String sql = "update " + table + " set  userAccount = ? , orgID = ?  where id = ?  ";
-		jdbc.updateForBoolean(sql,userOrg.getUserAccount(),userOrg.getOrgID(), userOrg.getId());
+		jdbc.updateForBoolean(sql, userOrg.getUserAccount(), userOrg.getOrgID(), userOrg.getId());
 	}
 
 	@Override
@@ -50,15 +50,15 @@ public class UserOrgDaoImpl implements UserOrgDao {
 	}
 
 	@Override
-	public List<UserOrg> listAll(){
+	public List<UserOrg> listAll() {
 		String sql = "select * from " + table;
 		return jdbc.queryForList(sql, UserOrg.class);
 	}
 
 	@Override
-	public int count(){
+	public int count() {
 		String sql = "select count(*) from " + table;
-		return jdbc.queryForInt(sql); 
+		return jdbc.queryForInt(sql);
 	}
 
 	@Override
@@ -66,7 +66,7 @@ public class UserOrgDaoImpl implements UserOrgDao {
 		String sql = "select * from " + table + " where id = ? ";
 		return jdbc.query(sql, UserOrg.class, id);
 	}
-	
+
 	@Override
 	public UserOrg getBy(String field, Object value) {
 		String sql = "select * from " + table + " where " + field + " = ? ";
@@ -134,6 +134,11 @@ public class UserOrgDaoImpl implements UserOrgDao {
 		String sql = "delete from " + table + " where userAccount = ? ";
 		jdbc.updateForBoolean(sql, account);
 	}
-	
+
+	@Override
+	public int countBy(String field, Object value) {
+		String sql = "select count(*) from " + table + " where " + field + " = ? ";
+		return jdbc.queryForInt(sql, value);
+	}
 
 }

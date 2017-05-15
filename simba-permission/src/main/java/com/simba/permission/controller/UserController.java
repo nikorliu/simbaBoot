@@ -15,11 +15,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.simba.framework.util.jdbc.Pager;
 import com.simba.framework.util.json.FastJsonUtil;
 import com.simba.framework.util.json.JsonResult;
 import com.simba.model.constant.ConstantData;
-import com.simba.permission.controller.form.UserSearchForm;
 import com.simba.permission.controller.vo.UserVo;
 import com.simba.permission.model.Role;
 import com.simba.permission.model.User;
@@ -50,74 +51,56 @@ public class UserController {
 
 	@RequestMapping("/list")
 	public String list(Integer orgID, ModelMap model) {
-		Map<String, String> desc = UserExtDesc.getAllDesc();
-		List<String> keys = new ArrayList<>(desc.size());
-		List<Map<String, String>> descs = new ArrayList<>(desc.size());
-		desc.forEach((key, value) -> {
-			keys.add(key);
-			Map<String, String> m = new HashMap<>(2);
-			m.put("key", key);
-			m.put("value", value);
-			descs.add(m);
-		});
-		if (orgID == null) {
-			orgID = ConstantData.TREE_ROOT_ID;
-		}
 		String orgName = "机构树";
-		if (orgID != ConstantData.TREE_ROOT_ID) {
+		if (orgID == null || orgID == ConstantData.TREE_ROOT_ID) {
+			orgID = ConstantData.TREE_ROOT_ID;
+		} else {
 			orgName = orgService.get(orgID).getText();
 		}
-		model.put("keys", keys);
-		model.put("descs", descs);
-		model.put("orgID", orgID);
-		model.put("orgName", orgName);
-		model.put("rootID", ConstantData.TREE_ROOT_ID);
+		Map<String, String> desc = UserExtDesc.getAllDesc();
+		model.put("parentID", orgID);
+		model.put("parentName", orgName);
+		model.put("values", desc.values());
 		return "permission/listUser";
 	}
 
-	@RequestMapping
-	public String listFull(UserSearchForm form, String forSimple, ModelMap model) {
-		List<UserVo> voList = new ArrayList<>();
-		int total = 0;
-		if (StringUtils.isNotEmpty(form.getAccount())) {
-			User user = userService.get(form.getAccount());
-			if (user != null) {
-				total = 1;
-				UserVo vo = new UserVo();
-				vo.setUser(user);
-				vo.setUserExt(userService.getUserExt(user.getAccount()));
-				voList.add(vo);
-			}
-		} else if (form.getOrgID() != null) {
-//			Pager pager = new Pager((page.getPage() - 1) * page.getRows(), page.getRows());
-//			List<UserOrg> userOrgList = userOrgService.pageBy("orgID", form.getOrgID(), pager);
-//			total = pager.getTotalCount();
-//			List<User> userList = new ArrayList<User>(userOrgList.size());
-//			for (UserOrg userOrg : userOrgList) {
-//				User user = userService.get(userOrg.getUserAccount());
-//				userList.add(user);
-//			}
-//			userList.forEach((user) -> {
-//				UserVo vo = new UserVo();
-//				vo.setUser(user);
-//				vo.setUserExt(userService.getUserExt(user.getAccount()));
-//				voList.add(vo);
-//			});
+	@RequestMapping("/getUserList")
+	public String getUserList(int orgID, Pager pager, ModelMap model) {
+		List<UserOrg> userOrgList = userOrgService.pageBy("orgID", orgID, pager);
+		List<User> userList = new ArrayList<User>(userOrgList.size());
+		List<UserVo> voList = new ArrayList<>(userOrgList.size());
+		for (UserOrg userOrg : userOrgList) {
+			User user = userService.get(userOrg.getUserAccount());
+			userList.add(user);
 		}
-		if ("true".equals(forSimple)) {
-			List<Map<String, Object>> mapList = new ArrayList<>(voList.size());
-			voList.forEach((vo) -> {
-				Map<String, Object> map = new HashMap<>();
-				map.put("account", vo.getUser().getAccount());
-				map.put("name", vo.getUser().getName());
-				map.putAll(vo.getUserExt().getExtMap());
-				mapList.add(map);
+		userList.forEach((user) -> {
+			UserVo vo = new UserVo();
+			vo.setUser(user);
+			vo.setUserExt(userService.getUserExt(user.getAccount()));
+			voList.add(vo);
+		});
+		Map<String, String> desc = UserExtDesc.getAllDesc();
+		List<Map<String, Object>> mapList = new ArrayList<>(userOrgList.size());
+		voList.forEach((vo) -> {
+			Map<String, Object> map = new HashMap<>();
+			map.put("account", vo.getUser().getAccount());
+			map.put("name", vo.getUser().getName());
+			List<String> exts = new ArrayList<>();
+			desc.keySet().forEach((String key) -> {
+				exts.add(vo.getUserExt().getExtMap().get(key));
 			});
-//			model.put("message", FastJsonUtil.toJson(new PageGrid(total, mapList)));
-		} else {
-//			model.put("message", FastJsonUtil.toJson(new PageGrid(total, voList)));
-		}
-		return "message";
+			map.put("exts", exts);
+			mapList.add(map);
+		});
+		model.put("list", mapList);
+		return "permission/userTable";
+	}
+
+	@ResponseBody
+	@RequestMapping("/countUser")
+	public JsonResult countUser(int orgID) {
+		int count = userOrgService.countBy("orgID", orgID);
+		return new JsonResult(count, "", 200);
 	}
 
 	@RequestMapping("/toAdd")
@@ -131,9 +114,15 @@ public class UserController {
 			m.put("required", key.endsWith("_r"));
 			descs.add(m);
 		});
-		model.put("descs", descs);
+		String orgName = null;
+		if (orgID == ConstantData.TREE_ROOT_ID) {
+			orgName = "机构树";
+		} else {
+			orgName = orgService.get(orgID).getText();
+		}
 		model.put("orgID", orgID);
-		model.put("rootID", ConstantData.TREE_ROOT_ID);
+		model.put("orgName", orgName);
+		model.put("descs", descs);
 		return "permission/addUser";
 	}
 
@@ -155,12 +144,12 @@ public class UserController {
 			userOrgList.add(userOrg);
 		}
 		userService.add(user, userExt, userOrgList);
-		model.put("message", new JsonResult().toJson());
-		return "message";
+		return "redirect:/user/list?orgID=" + orgID[0];
 	}
 
 	@RequestMapping("/toUpdate")
-	public String toUpdate(String account, HttpServletRequest request, ModelMap model) throws UnsupportedEncodingException {
+	public String toUpdate(String account, HttpServletRequest request, ModelMap model)
+			throws UnsupportedEncodingException {
 		User loginUser = SessionUtil.getUser(request.getSession());
 		User user = null;
 		boolean self = true;
@@ -215,23 +204,22 @@ public class UserController {
 			userOrgList.add(userOrg);
 		}
 		userService.update(user, userExt, userOrgList);
-		model.put("message", new JsonResult().toJson());
-		return "message";
+		return "redirect:/user/list?orgID=" + orgID[0];
 	}
 
+	@ResponseBody
 	@RequestMapping("/batchDelete")
-	public String batchDelete(String[] accounts, ModelMap model) {
+	public JsonResult batchDelete(String[] accounts) {
 		List<String> accountList = Arrays.asList(accounts);
 		userService.batchDelete(accountList);
-		model.put("message", new JsonResult().toJson());
-		return "message";
+		return new JsonResult();
 	}
 
+	@ResponseBody
 	@RequestMapping("/resetPwd")
-	public String resetPwd(String account, ModelMap model) {
+	public JsonResult resetPwd(String account, ModelMap model) {
 		userService.resetPwd(account);
-		model.put("message", new JsonResult().toJson());
-		return "message";
+		return new JsonResult();
 	}
 
 	@RequestMapping("/toModifyPwd")
@@ -239,8 +227,10 @@ public class UserController {
 		return "user/modifyPwd";
 	}
 
+	@ResponseBody
 	@RequestMapping("/modifyPwd")
-	public String modifyPwd(HttpServletRequest request, String oldPwd, String newPwd, String confirmPwd, ModelMap model) {
+	public JsonResult modifyPwd(HttpServletRequest request, String oldPwd, String newPwd, String confirmPwd,
+			ModelMap model) {
 		if (!confirmPwd.equals(newPwd)) {
 			throw new RuntimeException("确认密码和新密码不一致");
 		}
@@ -249,8 +239,7 @@ public class UserController {
 		}
 		User user = SessionUtil.getUser(request.getSession());
 		userService.updatePwd(user.getAccount(), oldPwd, newPwd);
-		model.put("message", new JsonResult().toJson());
-		return "message";
+		return new JsonResult();
 	}
 
 	@RequestMapping("/toModifyInfo")
@@ -272,8 +261,9 @@ public class UserController {
 		return "user/modifyInfo";
 	}
 
+	@ResponseBody
 	@RequestMapping("/modifyInfo")
-	public String modifyInfo(HttpServletRequest request, ModelMap model) {
+	public JsonResult modifyInfo(HttpServletRequest request, ModelMap model) {
 		User loginUser = SessionUtil.getUser(request.getSession());
 		UserExt userExt = new UserExt();
 		Map<String, String> extMap = new HashMap<>();
@@ -286,8 +276,7 @@ public class UserController {
 			extMap.put(key, request.getParameter(key));
 		});
 		userService.update(loginUser, userExt);
-		model.put("message", new JsonResult().toJson());
-		return "message";
+		return new JsonResult();
 	}
 
 	@RequestMapping("/toAssignRole")
@@ -300,14 +289,14 @@ public class UserController {
 		return "permission/assignRole";
 	}
 
+	@ResponseBody
 	@RequestMapping("/assignRole")
-	public String assignRole(String[] roleName, String account, ModelMap model) {
+	public JsonResult assignRole(String[] roleName, String account, ModelMap model) {
 		if (roleName == null || roleName.length == 0) {
 			throw new RuntimeException("角色不能为空");
 		}
 		userService.assignRoles(account, Arrays.asList(roleName));
-		model.put("message", new JsonResult().toJson());
-		return "message";
+		return new JsonResult();
 	}
 
 }

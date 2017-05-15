@@ -47,4 +47,6 @@ public interface UserOrgDao {
 
 	void deleteByUserAccount(String account);
 
+	int countBy(String field, Object value);
+
 }

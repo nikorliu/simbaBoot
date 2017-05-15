@@ -34,7 +34,7 @@ public class OrgController {
 	@RequestMapping("/list")
 	public String list(Integer parentID, ModelMap model) {
 		String parentName = null;
-		if (parentID == null) {
+		if (parentID == null || parentID == ConstantData.TREE_ROOT_ID) {
 			parentID = ConstantData.TREE_ROOT_ID;
 			parentName = "机构树";
 		} else {
@@ -116,7 +116,7 @@ public class OrgController {
 			descs.add(m);
 		});
 		String parentName = null;
-		if (parentID == null) {
+		if (parentID == null || parentID == ConstantData.TREE_ROOT_ID) {
 			parentID = ConstantData.TREE_ROOT_ID;
 			parentName = "机构树";
 		} else {

@@ -4,6 +4,8 @@ import java.util.List;
 
 import org.apache.commons.lang3.math.NumberUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.CacheEvict;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Repository;
 
 import com.simba.framework.util.jdbc.Jdbc;
@@ -27,9 +29,11 @@ public class OrgDaoImpl implements OrgDao {
 	private static final String table = "org";
 
 	@Override
+	@CacheEvict(cacheNames = { "allOrg", "org" }, allEntries = true)
 	public int add(Org org) {
 		String sql = "insert into " + table + "( text, parentID,orderNo) values(?,?,?)";
-		return NumberUtils.toInt(jdbc.updateForGeneratedKey(sql, org.getText(), org.getParentID(), org.getOrderNo()) + "");
+		return NumberUtils
+				.toInt(jdbc.updateForGeneratedKey(sql, org.getText(), org.getParentID(), org.getOrderNo()) + "");
 	}
 
 	@Override
@@ -51,6 +55,7 @@ public class OrgDaoImpl implements OrgDao {
 	}
 
 	@Override
+	@Cacheable(key = "'allOrg'", cacheNames = "allOrg")
 	public List<Org> listAll() {
 		String sql = "select * from " + table + " order by orderNo";
 		return jdbc.queryForList(sql, Org.class);
@@ -63,6 +68,7 @@ public class OrgDaoImpl implements OrgDao {
 	}
 
 	@Override
+	@Cacheable(key = "#p0", cacheNames = "org")
 	public Org get(int id) {
 		String sql = "select * from " + table + " where id = ? ";
 		return jdbc.query(sql, Org.class, id);

@@ -58,14 +58,14 @@ public class UserOrgServiceImpl implements UserOrgService {
 	public void update(UserOrg userOrg) {
 		userOrgDao.update(userOrg);
 	}
-	
+
 	@Override
 	public void batchDelete(List<Integer> idList) {
 		for (Integer id : idList) {
 			this.delete(id);
 		}
 	}
-	
+
 	@Override
 	public UserOrg getBy(String field, Object value) {
 		return userOrgDao.getBy(field, value);
@@ -109,5 +109,10 @@ public class UserOrgServiceImpl implements UserOrgService {
 	@Override
 	public List<UserOrg> pageByOr(String field1, Object value1, String field2, Object value2, Pager page) {
 		return userOrgDao.pageByOr(field1, value1, field2, value2, page);
+	}
+
+	@Override
+	public int countBy(String field, Object value) {
+		return userOrgDao.countBy(field, value);
 	}
 }

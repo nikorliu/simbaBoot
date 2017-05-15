@@ -1,4 +1,4 @@
-package  com.simba.permission.service;
+package com.simba.permission.service;
 
 import java.util.List;
 
@@ -22,12 +22,14 @@ public interface UserOrgService {
 	List<UserOrg> listAll();
 
 	int count();
-	
+
 	List<UserOrg> page(Pager page);
 
 	UserOrg get(int id);
-	
+
 	void batchDelete(List<Integer> idList);
+
+	int countBy(String field, Object value);
 
 	UserOrg getBy(String field, Object value);
 

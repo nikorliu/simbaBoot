@@ -50,3 +50,13 @@ function showInfo(info) {
 function hideInfo() {
 	$("#errDiv").fadeOut();
 }
+
+function showSuccessInfo(info) {
+	$("#successInfo").html(info);
+	$("#successDiv").fadeIn();
+	setTimeout("hideSuccessInfo();", 1500);
+}
+
+function hideSuccessInfo() {
+	$("#successDiv").fadeOut();
+}

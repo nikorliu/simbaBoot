@@ -7,7 +7,7 @@
 		<meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
 		<title>系统首页</title>
 		<#include "adminlte.ftl"/>
-			<script type="text/javascript" src="${base}/js/index.js"></script>
+		<script type="text/javascript" src="${base}/js/index.js"></script>
 	</head>
 
 	<body class="hold-transition skin-green-light sidebar-mini">
@@ -32,6 +32,10 @@
 					<div class="alert alert-danger alert-dismissible" role="alert" id="errDiv" style="position:fixed;margin: 0 auto;width:65%;height:5%;display: none;">
 						<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
 						<div id="errInfo"></div>
+					</div>
+					<div class="alert alert-success alert-dismissible" role="alert" id="successDiv" style="position:fixed;margin: 0 auto;width:65%;height:5%;display: none;">
+						<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+						<div id="successInfo"></div>
 					</div>
 					<div class="navbar-custom-menu">
 						<ul class="nav navbar-nav">

@@ -30,7 +30,7 @@ public class MenuDaoImpl implements MenuDao {
 	private static final String table = "menu";
 
 	@Override
-	@CacheEvict(cacheNames = { "menus", "menucount" })
+	@CacheEvict(cacheNames = { "menus", "menucount" }, allEntries = true)
 	public void add(Menu menu) {
 		String sql = null;
 		if ("mysql".equalsIgnoreCase(dbType)) {
@@ -44,14 +44,14 @@ public class MenuDaoImpl implements MenuDao {
 	}
 
 	@Override
-	@CacheEvict(cacheNames = { "menus", "menucount" })
+	@CacheEvict(cacheNames = { "menus", "menucount" }, allEntries = true)
 	public void update(Menu menu) {
 		String sql = "update " + table + " set text =? ,parentID=?,url=?,orderNo=? where id = ?  ";
 		jdbc.updateForBoolean(sql, menu.getText(), menu.getParentID(), menu.getUrl(), menu.getOrderNo(), menu.getId());
 	}
 
 	@Override
-	@CacheEvict(cacheNames = { "menus", "menucount" })
+	@CacheEvict(cacheNames = { "menus", "menucount" }, allEntries = true)
 	public void delete(int id) {
 		String sql = "delete from " + table + " where id = ? ";
 		jdbc.updateForBoolean(sql, id);

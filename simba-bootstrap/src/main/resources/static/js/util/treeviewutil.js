@@ -32,6 +32,48 @@ var TreeViewUtil = {
 	},
 
 	/**
+	 * 初始化多选的treeview树
+	 */
+	"initMultiTree": function(treeId, url, selectNodeFn, unselectNodeFn, initFn, treeProps) {
+		$.ajax({
+			url: url,
+			dataType: "json",
+			async: true,
+			type: "get",
+			success: function(data) {
+				debugger;
+				if(!treeProps) {
+					treeProps = {
+						"data": data,
+						"multiSelect": true,
+						"showCheckbox": true
+					};
+				} else {
+					treeProps.data = data;
+					treeProps.multiSelect = true;
+					treeProps.showCheckbox = true;
+				}
+				$('#' + treeId).treeview(treeProps);
+				if(!!initFn) {
+					initFn();
+				}
+				if(!!selectNodeFn) {
+					$('#' + treeId).on('nodeChecked', function(event,
+						node) {
+						selectNodeFn(node);
+					});
+				}
+				if(!!unselectNodeFn) {
+					$('#' + treeId).on('nodeUnchecked', function(event,
+						node) {
+						unselectNodeFn(node);
+					});
+				}
+			}
+		});
+	},
+
+	/**
 	 * 选中树中的节点
 	 */
 	"selectTreeNode": function(treeId, id, text) {
@@ -53,6 +95,13 @@ var TreeViewUtil = {
 			}
 		}
 		$('#' + treeId).treeview('toggleNodeSelected', [node, { silent: true }]);
+	},
+
+	/**
+	 * 选中多选树中的节点
+	 */
+	"checkTreeNode": function(tree, ids, texts) {
+
 	},
 
 	"end": null
