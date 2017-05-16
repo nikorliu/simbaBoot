@@ -11,5 +11,9 @@
 	<name>simba-model</name>
 	<url>http://maven.apache.org</url>
 	<dependencies>
+		<dependency>
+			<groupId>com.simba</groupId>
+			<artifactId>simba-codegenerate</artifactId>
+		</dependency>
 	</dependencies>
 </project>

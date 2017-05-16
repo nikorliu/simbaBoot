@@ -77,4 +77,10 @@ public class MenuDaoImpl implements MenuDao {
 		return jdbc.query(sql, Menu.class, id);
 	}
 
+	@Override
+	public List<Menu> listAll() {
+		String sql = "select * from " + table + " order by orderNo";
+		return jdbc.queryForList(sql, Menu.class);
+	}
+
 }

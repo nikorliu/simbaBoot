@@ -68,4 +68,9 @@ public class MenuServiceImpl implements MenuService {
 		return menuDao.get(id);
 	}
 
+	@Override
+	public List<Menu> listAll() {
+		return menuDao.listAll();
+	}
+
 }

@@ -24,4 +24,6 @@ public interface MenuDao {
 
 	Menu get(int id);
 
+	List<Menu> listAll();
+
 }

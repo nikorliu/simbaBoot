@@ -1,6 +1,7 @@
 package com.simba.menu.controller;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -17,8 +18,8 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.simba.bootstrap.model.TreeViewData;
 import com.simba.framework.util.freemarker.FreemarkerUtil;
-import com.simba.framework.util.json.FastJsonUtil;
 import com.simba.framework.util.json.JsonResult;
 import com.simba.menu.model.Menu;
 import com.simba.menu.service.MenuService;
@@ -103,47 +104,42 @@ public class MenuController {
 		}
 		model.put("parentID", parentID);
 		model.put("parentName", parentName);
-		model.put("rootID", ConstantData.TREE_ROOT_ID);
 		return "menu/list";
 	}
 
-	/**
-	 * 获取子菜单数据
-	 * 
-	 * @param node
-	 *            ext会使用这个参数来传递父节点id
-	 * @param id
-	 *            easyui会使用这个参数来传递父节点id
-	 * @param dealMenu
-	 *            是否对菜单数据进行处理(对url处理，对权限过滤)
-	 * @param showRoot
-	 *            是否显示根节点
-	 * @param model
-	 * @param request
-	 * @return
-	 */
-	@RequestMapping("/listChildrenMenu")
-	public String listChildrenMenu(Integer node, Integer id, Boolean dealMenu, Boolean showRoot, ModelMap model,
-			HttpServletRequest request) {
-		int parentID = ConstantData.TREE_ROOT_ID;
-		if (node != null) {
-			parentID = node;
-		} else if (id != null) {
-			parentID = id;
-		} else if (showRoot != null && showRoot) {
-			Menu root = buildRootMenu();
-			model.put("message", FastJsonUtil.toJson(Arrays.asList(root)));
-			return "message";
-		}
-		if (dealMenu == null) {
-			dealMenu = true;
-		}
+	@ResponseBody
+	@RequestMapping("/getMenuTree")
+	public List<TreeViewData> getMenuTree() {
+		TreeViewData root = new TreeViewData();
+		root.setId(ConstantData.TREE_ROOT_ID);
+		root.setText("菜单树");
+		root.setTags(ConstantData.TREE_ROOT_ID + "");
+		List<Menu> allMenus = menuService.listAll();
+		Map<Integer, TreeViewData> nodeMap = new HashMap<>();
+		allMenus.forEach((Menu menu) -> {
+			TreeViewData node = new TreeViewData();
+			node.setId(menu.getId());
+			node.setText(menu.getText());
+			node.setTags(menu.getId() + "");
+			node.setParentID(menu.getParentID());
+			nodeMap.put(menu.getId(), node);
+		});
+		nodeMap.put(root.getId(), root);
+		allMenus.forEach((Menu menu) -> {
+			TreeViewData node = nodeMap.get(menu.getId());
+			TreeViewData parentNode = nodeMap.get(menu.getParentID());
+			parentNode.addChildren(node);
+		});
+		List<TreeViewData> list = new ArrayList<>(1);
+		list.add(root);
+		return list;
+	}
+
+	@RequestMapping("/getMenuList")
+	public String getMenuList(int parentID, ModelMap model) {
 		List<Menu> list = menuService.listChildren(parentID);
-		if (dealMenu) {
-			dealMenus(request, list);
-		}
-		model.put("message", FastJsonUtil.toJson(list));
-		return "message";
+		model.put("list", list);
+		return "menu/menuTable";
 	}
 
 	private void dealMenus(HttpServletRequest request, List<Menu> list) {
@@ -174,14 +170,6 @@ public class MenuController {
 		return false;
 	}
 
-	private Menu buildRootMenu() {
-		Menu menu = new Menu();
-		menu.setId(ConstantData.TREE_ROOT_ID);
-		menu.setText("菜单树");
-		menu.setState("closed");
-		return menu;
-	}
-
 	private String dealUrl(String url, String contextPath) {
 		if (StringUtils.isBlank(url)) {
 			return StringUtils.EMPTY;
@@ -199,48 +187,52 @@ public class MenuController {
 	 * @return
 	 */
 	@RequestMapping("/add")
-	public String add(Menu menu, ModelMap model) {
+	public String add(Menu menu) {
 		menuService.add(menu);
-		model.put("message", new JsonResult().toJson());
-		return "message";
+		return "redirect:/menu/list?parentID=" + menu.getParentID();
 	}
 
 	@RequestMapping("/toAdd")
-	public String toAdd(Integer parentID, ModelMap model) {
-		if (parentID == null) {
-			parentID = ConstantData.TREE_ROOT_ID;
+	public String toAdd(int parentID, ModelMap model) {
+		String parentName = "菜单树";
+		if (parentID != ConstantData.TREE_ROOT_ID) {
+			parentName = menuService.get(parentID).getText();
 		}
 		model.put("parentID", parentID);
-		model.put("rootID", ConstantData.TREE_ROOT_ID);
+		model.put("parentName", parentName);
 		return "menu/add";
 	}
 
 	@RequestMapping("/toUpdate")
 	public String toUpdate(int id, ModelMap model) {
 		Menu menu = menuService.get(id);
+		String parentName = "菜单树";
+		int parentID = menu.getParentID();
+		if (parentID != ConstantData.TREE_ROOT_ID) {
+			parentName = menuService.get(parentID).getText();
+		}
 		model.put("menu", menu);
-		model.put("rootID", ConstantData.TREE_ROOT_ID);
+		model.put("parentName", parentName);
 		return "menu/update";
 	}
 
 	@RequestMapping("/update")
-	public String update(Menu menu, ModelMap model) {
+	public String update(Menu menu) {
 		menuService.update(menu);
-		model.put("message", new JsonResult().toJson());
-		return "message";
+		return "redirect:/menu/list?parentID=" + menu.getParentID();
 	}
 
+	@ResponseBody
 	@RequestMapping("/delete")
-	public String delete(int id, ModelMap model) {
+	public JsonResult delete(int id, ModelMap model) {
 		menuService.delete(id);
-		model.put("message", new JsonResult().toJson());
-		return "message";
+		return new JsonResult();
 	}
 
+	@ResponseBody
 	@RequestMapping("/batchDelete")
-	public String batchDelete(Integer[] id, ModelMap model) {
+	public JsonResult batchDelete(Integer[] id, ModelMap model) {
 		menuService.batchDelete(Arrays.asList(id));
-		model.put("message", new JsonResult().toJson());
-		return "message";
+		return new JsonResult();
 	}
 }

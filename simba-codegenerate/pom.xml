@@ -15,7 +15,11 @@
 	</properties>
 
 	<dependencies>
-
+		<dependency>
+			<groupId>com.simba</groupId>
+			<artifactId>simba-freemarker</artifactId>
+			<version>${simba.version}</version>
+		</dependency>
 	</dependencies>
 
 	<distributionManagement>

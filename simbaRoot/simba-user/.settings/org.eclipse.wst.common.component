@@ -13,6 +13,12 @@
         <dependent-module archiveName="simba-model-2.0.0-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/simba-model/simba-model">
             <dependency-type>uses</dependency-type>
         </dependent-module>
+        <dependent-module archiveName="simba-codegenerate-2.0.0-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/simba-codegenerate/simba-codegenerate">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="simba-freemarker-2.0.0-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/simba-freemarker/simba-freemarker">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
         <dependent-module archiveName="simba-util-2.0.0-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/simba-util/simba-util">
             <dependency-type>uses</dependency-type>
         </dependent-module>

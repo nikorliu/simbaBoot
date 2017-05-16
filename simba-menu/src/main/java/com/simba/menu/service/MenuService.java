@@ -24,4 +24,6 @@ public interface MenuService {
 
 	Menu get(int id);
 
+	List<Menu> listAll();
+
 }
