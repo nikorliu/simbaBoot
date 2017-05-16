@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.simba.framework.util.jdbc.Pager;
+import com.simba.model.constant.ConstantData;
 import com.simba.permission.dao.PermissionDao;
 import com.simba.permission.dao.RoleDao;
 import com.simba.permission.dao.RolePermissionDao;
@@ -87,7 +88,15 @@ public class RoleServiceImpl implements RoleService {
 		List<RolePermission> rolePermissionList = rolePermissionDao.listBy("roleName", roleName);
 		List<Permission> permissionList = new ArrayList<Permission>(rolePermissionList.size());
 		for (RolePermission rolePermission : rolePermissionList) {
-			Permission permission = permissionDao.get(rolePermission.getPermissionID());
+			int permissionId = rolePermission.getPermissionID();
+			Permission permission = null;
+			if (permissionId != ConstantData.TREE_ROOT_ID) {
+				permission = permissionDao.get(permissionId);
+			} else {
+				permission = new Permission();
+				permission.setId(permissionId);
+				permission.setText("权限树");
+			}
 			permissionList.add(permission);
 		}
 		return permissionList;

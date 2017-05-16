@@ -57,7 +57,63 @@ var Role = {
 	},
 
 	"toAssignPermission": function(name) {
-		window.self.location.href = contextPath + "/user/toAssignPermission?name=" + name;
+		top.showModal("分配权限", contextPath + "/role/toAssignPermission?name=" + name, 700);
+	},
+
+	"assignPermission": function() {
+		var permissionids = $("#permissionids").val();
+		if(!permissionids) {
+			showInfo("请选择要分配的权限");
+			return false;
+		}
+		$.ajax({
+			type: "post",
+			url: contextPath + "/role/assignPermission",
+			async: true,
+			dataType: "json",
+			data: {
+				"permissionID": permissionids,
+				"roleName": $("#roleName").val()
+			},
+			success: function(data) {
+				if(data.code == 200) {
+					top.hideModal();
+				} else {
+					showInfo(data.msg);
+				}
+			}
+		});
+	},
+
+	"initSelectPermissionTree": function(ids, texts) {
+		TreeViewUtil.initMultiTree("tree", contextPath + "/permission/getPermissionTree", function(data) {
+			var id = data.id;
+			var permissionids = $("#permissionids").val();
+			if(permissionids == "") {
+				$("#permissionids").val(id);
+			} else {
+				$("#permissionids").val(permissionids + "," + id);
+			}
+		}, function(data) {
+			var id = data.id;
+			var permissionids = $("#permissionids").val();
+			if(permissionids == id) {
+				$("#permissionids").val("");
+			} else {
+				var idArray = permissionids.split(",");
+				var newIDArray = new Array();
+				for(var i = 0; i < idArray.length; i++) {
+					if(id != idArray[i]) {
+						newIDArray.push(idArray[i]);
+					}
+				}
+				$("#permissionids").val(newIDArray.join(","));
+			}
+		}, function() {
+			if(!!ids && !!texts) {
+				TreeViewUtil.checkTreeNode("tree", ids, texts);
+			}
+		});
 	},
 
 	"toList": function() {
@@ -65,7 +121,12 @@ var Role = {
 	},
 
 	"checkForm": function() {
-
+		var name = $("#name").val();
+		if(!name) {
+			parent.showInfo("名称不能为空");
+			return false;
+		}
+		return true;
 	},
 
 	"end": null

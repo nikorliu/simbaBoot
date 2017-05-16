@@ -107,7 +107,37 @@ var User = {
 	},
 
 	"toAssignRole": function(account) {
-		window.self.location.href = contextPath + "/user/toAssignRole?account=" + account;
+		top.showModal("分配角色", contextPath + "/user/toAssignRole?account=" + account, 700);
+	},
+
+	"assignRole": function() {
+		var ids = new Array();
+		$("input[name='role']").each(function() {
+			if(true == $(this).is(':checked')) {
+				ids.push($(this).val());
+			}
+		});
+		if(ids.length == 0) {
+			showInfo("请选择要分配的角色");
+			return false;
+		}
+		$.ajax({
+			type: "post",
+			url: contextPath + "/user/assignRole",
+			data: {
+				"roleName": ids.join(","),
+				"account": $("#account").val()
+			},
+			async: true,
+			dataType: "json",
+			success: function(data) {
+				if(data.code == 200) {
+					top.hideModal();
+				} else {
+					showInfo(data.msg);
+				}
+			}
+		});
 	},
 
 	"resetPwd": function(account) {

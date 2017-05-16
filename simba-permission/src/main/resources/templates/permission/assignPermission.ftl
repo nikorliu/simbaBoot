@@ -7,38 +7,35 @@
 		<meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
 		<title>系统首页</title>
 		<#include "../adminlte.ftl"/>
+		<script type="text/javascript" src="${base}/js/plugins/bootstrap-treeview.min.js"></script>
+		<script type="text/javascript" src="${base}/js/util/treeviewutil.js"></script>
 		<script type="text/javascript" src="${base}/js/permission/role.js"></script>
 	</head>
 
 	<body>
+		<input type="hidden" id="roleName" name="roleName" value="${roleName}" />
+		<input type="hidden" id="permissionids" name="permissionids" value="${ids!}" />
+
 		<div>
 			<!-- Content Wrapper. Contains page content -->
 			<div class=" ">
 				<section class="content">
 					<div class="row">
+
 						<!-- /.col -->
 						<div class="col-md-12">
 							<div class="box box-primary">
-								<div class="box-header with-border">
-									<h3 class="box-title">修改角色</h3>
+								<div class="box-body">
+									<div class="form-group">
+										<div id="tree"></div>
+									</div>
 								</div>
-								<form role="form" onsubmit="return Role.checkForm();" id="form" action="${base}/role/update">
-									<div class="box-body">
-										<div class="form-group">
-											<label for="text">名称</label>
-											<input type="text" class="form-control" id="name" name="name" placeholder="请输入名称" readonly="true" value="${role.name}">
-										</div>
-										<div class="form-group">
-											<label for="text">描述</label>
-											<input type="text" class="form-control" id="description" name="description" placeholder="请输入描述" value="${role.description}">
-										</div>
-									</div>
-									<!-- /.box-body -->
-									<div class="box-footer">
-										<button type="submit" class="btn btn-success">提交</button>
-										<button type="button" class="btn" onclick="Role.toList();">取消</button>
-									</div>
-								</form>
+								<!-- /.box-body -->
+
+								<div class="box-footer">
+									<button type="submit" class="btn btn-success" onclick="Role.assignPermission();">分配</button>
+									<button type="button" class="btn" onclick="top.hideModal();">取消</button>
+								</div>
 
 							</div>
 						</div>
@@ -47,6 +44,7 @@
 					<!-- /.col -->
 			</div>
 			<!-- /.row -->
+			<div id="errInfo" style="color: red;"></div>
 			</section>
 			<!-- /.content -->
 
@@ -60,8 +58,18 @@
 	</body>
 	<script type="text/javascript">
 		$(document).ready(function() {
-
+			Role.initSelectPermissionTree("${ids!}", "${texts!}");
 		});
+
+		function showInfo(info) {
+			$("#errInfo").html(info);
+			$("#errInfo").fadeIn();
+			setTimeout("hideInfo();", 1500);
+		}
+
+		function hideInfo() {
+			$("#errInfo").fadeOut();
+		}
 	</script>
 
 </html>

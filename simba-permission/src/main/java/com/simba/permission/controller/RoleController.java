@@ -12,7 +12,7 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.simba.framework.util.json.FastJsonUtil;
+import com.simba.framework.util.collection.ListUtil;
 import com.simba.framework.util.json.JsonResult;
 import com.simba.model.constant.ConstantData;
 import com.simba.permission.model.Permission;
@@ -65,24 +65,29 @@ public class RoleController {
 		return new JsonResult();
 	}
 
+	@RequestMapping("/toAssignPermission")
+	public String toAssignPermission(String name, ModelMap model) {
+		List<Permission> list = roleService.listByRole(name);
+		List<String> ids = new ArrayList<>(list.size());
+		List<String> texts = new ArrayList<>(list.size());
+		list.forEach((Permission permission) -> {
+			ids.add(permission.getId() + "");
+			texts.add(permission.getText());
+		});
+		model.put("ids", ListUtil.join(ids));
+		model.put("texts", ListUtil.join(texts));
+		model.put("roleName", name);
+		return "permission/assignPermission";
+	}
+
+	@ResponseBody
 	@RequestMapping("/assignPermission")
-	public String assignPermission(Integer[] permissionID, String roleName, ModelMap model) {
+	public JsonResult assignPermission(Integer[] permissionID, String roleName) {
 		if (permissionID.length == 0) {
 			throw new RuntimeException("权限不能为空");
 		}
 		roleService.assignPermission(roleName, Arrays.asList(permissionID));
-		model.put("message", new JsonResult().toJson());
-		return "message";
+		return new JsonResult();
 	}
 
-	@RequestMapping("/getPermissionByRoleName")
-	public String getPermissionByRoleName(String roleName, ModelMap model) {
-		List<Permission> list = roleService.listByRole(roleName);
-		List<Integer> permissionIDList = new ArrayList<Integer>(list.size());
-		list.forEach((p) -> {
-			permissionIDList.add(p.getId());
-		});
-		model.put("message", FastJsonUtil.toJson(permissionIDList));
-		return "message";
-	}
 }
