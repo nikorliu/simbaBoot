@@ -126,7 +126,10 @@ public class SessionUtil {
 		Set<String> permissionUrlSet = new HashSet<String>();
 		for (Permission permission : permissionList) {
 			String url = permission.getUrl();
-			String[] urls = url.split(",");
+			if (StringUtils.isEmpty(url)) {
+				continue;
+			}
+			String[] urls = url.trim().split(",");
 			for (String regUrl : urls) {
 				if (StringUtils.isNotEmpty(regUrl)) {
 					permissionUrlSet.add(regUrl);

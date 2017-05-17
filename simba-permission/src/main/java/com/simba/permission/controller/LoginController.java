@@ -3,6 +3,7 @@ package com.simba.permission.controller;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.annotation.PostConstruct;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
@@ -46,11 +47,23 @@ public class LoginController {
 	@Value("${key}")
 	private String key;
 
+	@Value("${page.index}")
+	private String indexPage;
+
+	@Value("${page.login}")
+	private String loginPage;
+
 	@Autowired
 	private UserService userService;
 
 	@Autowired
 	private RoleService roleService;
+
+	@PostConstruct
+	private void init() {
+		indexPage = StringUtils.defaultIfEmpty(indexPage, "index");
+		loginPage = StringUtils.defaultIfEmpty(loginPage, "login");
+	}
 
 	/**
 	 * 进入登陆界面
@@ -60,10 +73,10 @@ public class LoginController {
 	@RequestMapping("/toLogin")
 	public String toLogin(HttpServletRequest request, ModelMap model) {
 		if (SessionUtil.isLogin(request.getSession())) {
-			return "index";
+			return indexPage;
 		}
 		model.put("captchaEnabled", captchaEnabled);
-		return "login";
+		return loginPage;
 	}
 
 	/**
@@ -78,19 +91,19 @@ public class LoginController {
 	@RequestMapping("/login")
 	public String login(String userName, String password, ModelMap model, HttpServletRequest request) {
 		if (SessionUtil.isLogin(request.getSession())) {
-			return "index";
+			return indexPage;
 		}
 		String view = null;
 		if ("true".equals(captchaEnabled) && !checkCaptcha(request)) {
-			view = "login";
+			view = loginPage;
 			model.put("errMsg", "验证码错误");
 		} else if (StringUtils.isEmpty(userName) || StringUtils.isEmpty(password)) {
-			view = "login";
+			view = loginPage;
 			model.put("errMsg", "用户名和密码不能为空");
 		} else if (checkAccount(userName, password, request.getSession())) {
-			view = "index";
+			view = indexPage;
 		} else {
-			view = "login";
+			view = loginPage;
 			model.put("errMsg", "用户名或者密码错误");
 		}
 		model.put("userName", userName);
@@ -119,7 +132,7 @@ public class LoginController {
 	public String logout(HttpServletRequest request, ModelMap model) {
 		SessionUtil.clearSession(request.getSession());
 		model.put("captchaEnabled", captchaEnabled);
-		return "login";
+		return loginPage;
 	}
 
 	/**

@@ -1,16 +1,19 @@
 package com.simba.exceptionHandler;
 
+import javax.annotation.PostConstruct;
 import javax.servlet.http.HttpServletRequest;
 
 import org.apache.commons.lang.StringUtils;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.simba.exception.ForbidException;
 import com.simba.exception.LoginException;
+import com.simba.framework.util.common.ExceptionUtil;
 import com.simba.framework.util.json.JsonResult;
 
 @ControllerAdvice
@@ -19,6 +22,22 @@ class GlobalExceptionHandler {
 	private static final Log logger = LogFactory.getLog(GlobalExceptionHandler.class);
 
 	public static final String DEFAULT_ERROR_VIEW = "error";
+
+	@Value("${page.login}")
+	private String loginPage;
+
+	@Value("${page.error}")
+	private String errorPage;
+
+	@Value("${page.forbid}")
+	private String forbidPage;
+
+	@PostConstruct
+	private void init() {
+		loginPage = StringUtils.defaultIfEmpty(loginPage, "login");
+		errorPage = StringUtils.defaultIfEmpty(errorPage, "error/error");
+		forbidPage = StringUtils.defaultIfEmpty(forbidPage, "error/forbid");
+	}
 
 	@ExceptionHandler(value = Throwable.class)
 	public ModelAndView defaultErrorHandler(HttpServletRequest req, Exception e) throws Exception {
@@ -34,12 +53,12 @@ class GlobalExceptionHandler {
 			model.addObject("message", message);
 		} else if (e instanceof LoginException) {
 			model.addObject("top", true);
-			model.setViewName("login");
+			model.setViewName(loginPage);
 		} else if (e instanceof ForbidException) {
-			model.setViewName("error/forbid");
+			model.setViewName(forbidPage);
 		} else {
-			model.setViewName("error/error");
-			model.addObject("message", e.getMessage());
+			model.setViewName(errorPage);
+			model.addObject("message", ExceptionUtil.getStackTrace(e));
 		}
 		return model;
 	}
