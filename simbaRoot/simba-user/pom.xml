@@ -28,7 +28,6 @@
 		<dependency>
 			<groupId>com.simba</groupId>
 			<artifactId>simba-web</artifactId>
-			<version>${simba.version}</version>
 		</dependency>
 	</dependencies>
 

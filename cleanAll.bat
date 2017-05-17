@@ -106,6 +106,9 @@ cd ../
 cd simba-permission
 call mvn clean -U 
 cd ../
+cd simba-registry
+call mvn clean -U 
+cd ../
 cd simba-menu
 call mvn clean -U 
 cd ../

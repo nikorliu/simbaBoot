@@ -106,6 +106,9 @@ cd ../
 cd simba-permission
 call mvn clean -U deploy
 cd ../
+cd simba-registry
+call mvn clean -U deploy
+cd ../
 cd simba-menu
 call mvn clean -U deploy
 cd ../

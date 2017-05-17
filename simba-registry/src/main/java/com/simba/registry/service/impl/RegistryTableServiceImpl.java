@@ -5,7 +5,6 @@ import java.util.List;
 import javax.annotation.PostConstruct;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -34,9 +33,6 @@ public class RegistryTableServiceImpl implements RegistryTableService {
 
 	@Autowired
 	private DistributedUtil distributedUtil;
-
-	@Value("${session.isEnableDistributedSession}")
-	private String distributedEnable;
 
 	@Override
 	public void add(RegistryTable registryTable) {
@@ -149,14 +145,7 @@ public class RegistryTableServiceImpl implements RegistryTableService {
 	}
 
 	private void executeCluster(RegistryTableClusterData clustData) {
-		if (!"true".equalsIgnoreCase(distributedEnable)) {
-			if (clustData.getMethod().equals("add")) {
-				RegistryTableData.getInstance().add(clustData.getCode(), clustData.getValue());
-			} else if (clustData.getMethod().equals("remove")) {
-				RegistryTableData.getInstance().remove(clustData.getCode());
-			}
-		} else {
-			distributedUtil.executeInCluster(new ClusterMessage(RegistryTableClusterExecute.class.getCanonicalName(), clustData));
-		}
+		distributedUtil
+				.executeInCluster(new ClusterMessage(RegistryTableClusterExecute.class.getCanonicalName(), clustData));
 	}
 }
