@@ -32,16 +32,16 @@
 			<button type="button" class="btn btn-default btn-sm" onclick="Job.deleteJob(${job.id});"><i class="fa fa-remove"></i>删除</button>
 			
 			<#if job.status=="waiting">
-			<button type="button" class="btn btn-default btn-sm" onclick="Job.stopJob(${job.id});"><i class="fa fa-remove"></i>暂停</button>
+			<button type="button" class="btn btn-default btn-sm" onclick="Job.stopJob(${job.id});"><i class="fa fa-ban"></i>暂停</button>
 			</#if>
 			<#if job.status=="running">
-			<button type="button" class="btn btn-default btn-sm" onclick="Job.stopJob(${job.id});"><i class="fa fa-remove"></i>暂停</button>
+			<button type="button" class="btn btn-default btn-sm" onclick="Job.stopJob(${job.id});"><i class="fa fa-ban"></i>暂停</button>
 			</#if>
 			<#if job.status=="error">
-			<button type="button" class="btn btn-default btn-sm" onclick="Job.stopJob(${job.id});"><i class="fa fa-remove"></i>暂停</button>
+			<button type="button" class="btn btn-default btn-sm" onclick="Job.stopJob(${job.id});"><i class="fa fa-ban"></i>暂停</button>
 			</#if>
 			<#if job.status=="suspend">
-			<button type="button" class="btn btn-default btn-sm" onclick="Job.startJob(${job.id});"><i class="fa fa-remove"></i>启动</button>
+			<button type="button" class="btn btn-default btn-sm" onclick="Job.startJob(${job.id});"><i class="fa fa-rocket"></i>启动</button>
 			</#if>
 		</td>
 	</tr>

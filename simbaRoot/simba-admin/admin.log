@@ -1,0 +1,1309 @@
+2017-05-18 11:34:52.039  INFO 7352 --- [main] com.simba.SimbaApplication               : Starting SimbaApplication on caozhejun with PID 7352 (D:\simbaBoot\simbaRoot\simba-admin\target\classes started by caozhejun in D:\simbaBoot\simbaRoot\simba-admin)
+2017-05-18 11:34:52.054  INFO 7352 --- [main] com.simba.SimbaApplication               : The following profiles are active: dev
+2017-05-18 11:34:52.101  INFO 7352 --- [main] ationConfigEmbeddedWebApplicationContext : Refreshing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@5e316c74: startup date [Thu May 18 11:34:52 CST 2017]; root of context hierarchy
+2017-05-18 11:34:53.053  INFO 7352 --- [main] o.s.b.f.s.DefaultListableBeanFactory     : Overriding bean definition for bean 'filterRegistrationBean' with a different definition: replacing [Root bean: class [null]; scope=; abstract=false; lazyInit=false; autowireMode=3; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=sessionConfig; factoryMethodName=filterRegistrationBean; initMethodName=null; destroyMethodName=(inferred); defined in class path resource [com/simba/framework/session/config/SessionConfig.class]] with [Root bean: class [null]; scope=; abstract=false; lazyInit=false; autowireMode=3; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=druidConfiguration; factoryMethodName=filterRegistrationBean; initMethodName=null; destroyMethodName=(inferred); defined in class path resource [com/simba/framework/util/jdbc/DruidConfiguration.class]]
+2017-05-18 11:34:53.288  INFO 7352 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2017-05-18 11:34:54.161  INFO 7352 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$351da318] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2017-05-18 11:34:54.318  INFO 7352 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.cache.annotation.ProxyCachingConfiguration' of type [org.springframework.cache.annotation.ProxyCachingConfiguration$$EnhancerBySpringCGLIB$$7e2fd936] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2017-05-18 11:34:54.349  INFO 7352 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.boot.autoconfigure.cache.CacheAutoConfiguration' of type [org.springframework.boot.autoconfigure.cache.CacheAutoConfiguration$$EnhancerBySpringCGLIB$$72a39dda] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2017-05-18 11:34:54.396  INFO 7352 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'spring.cache-org.springframework.boot.autoconfigure.cache.CacheProperties' of type [org.springframework.boot.autoconfigure.cache.CacheProperties] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2017-05-18 11:34:54.412  INFO 7352 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'cacheManagerCustomizers' of type [org.springframework.boot.autoconfigure.cache.CacheManagerCustomizers] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2017-05-18 11:34:54.412  INFO 7352 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.boot.autoconfigure.cache.RedisCacheConfiguration' of type [org.springframework.boot.autoconfigure.cache.RedisCacheConfiguration$$EnhancerBySpringCGLIB$$23353a34] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2017-05-18 11:34:54.427  INFO 7352 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.boot.autoconfigure.data.redis.RedisAutoConfiguration$RedisConfiguration' of type [org.springframework.boot.autoconfigure.data.redis.RedisAutoConfiguration$RedisConfiguration$$EnhancerBySpringCGLIB$$7ac028a5] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2017-05-18 11:34:54.459  INFO 7352 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'spring.redis-org.springframework.boot.autoconfigure.data.redis.RedisProperties' of type [org.springframework.boot.autoconfigure.data.redis.RedisProperties] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2017-05-18 11:34:54.474  INFO 7352 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.boot.autoconfigure.data.redis.RedisAutoConfiguration$RedisConnectionConfiguration' of type [org.springframework.boot.autoconfigure.data.redis.RedisAutoConfiguration$RedisConnectionConfiguration$$EnhancerBySpringCGLIB$$c917ca27] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2017-05-18 11:34:54.537  INFO 7352 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'redisConnectionFactory' of type [org.springframework.data.redis.connection.jedis.JedisConnectionFactory] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2017-05-18 11:34:54.599  INFO 7352 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'redisTemplate' of type [org.springframework.data.redis.core.RedisTemplate] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2017-05-18 11:34:54.739  INFO 7352 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'cacheManager' of type [org.springframework.data.redis.cache.RedisCacheManager] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2017-05-18 11:34:54.755  INFO 7352 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'cacheAutoConfigurationValidator' of type [org.springframework.boot.autoconfigure.cache.CacheAutoConfiguration$CacheManagerValidator] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2017-05-18 11:34:55.317  INFO 7352 --- [main] s.b.c.e.t.TomcatEmbeddedServletContainer : Tomcat initialized with port(s): 8888 (http)
+2017-05-18 11:34:55.332  INFO 7352 --- [main] o.apache.catalina.core.StandardService   : Starting service Tomcat
+2017-05-18 11:34:55.332  INFO 7352 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet Engine: Apache Tomcat/8.5.14
+2017-05-18 11:34:55.461  INFO 7352 --- [localhost-startStop-1] o.a.c.c.C.[Tomcat].[localhost].[/admin]  : Initializing Spring embedded WebApplicationContext
+2017-05-18 11:34:55.461  INFO 7352 --- [localhost-startStop-1] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 3360 ms
+2017-05-18 11:34:55.477  INFO 7352 --- [localhost-startStop-1] c.s.f.session.config.SessionConfig       : =====================init session listener Configuration==============================
+2017-05-18 11:34:55.524  INFO 7352 --- [localhost-startStop-1] c.s.f.util.jdbc.DruidConfiguration       : =====================init Druid filter Configuration 
+2017-05-18 11:34:55.571  INFO 7352 --- [localhost-startStop-1] c.s.f.util.jdbc.DruidConfiguration       : =====================init Druid Servlet Configuration 
+2017-05-18 11:34:56.039  INFO 7352 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'metricsFilter' to: [/*]
+2017-05-18 11:34:56.039  INFO 7352 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'characterEncodingFilter' to: [/*]
+2017-05-18 11:34:56.039  INFO 7352 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2017-05-18 11:34:56.039  INFO 7352 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'httpPutFormContentFilter' to: [/*]
+2017-05-18 11:34:56.039  INFO 7352 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'requestContextFilter' to: [/*]
+2017-05-18 11:34:56.039  INFO 7352 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'webRequestLoggingFilter' to: [/*]
+2017-05-18 11:34:56.039  INFO 7352 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'webStatFilter' to urls: [/*]
+2017-05-18 11:34:56.039  INFO 7352 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'sessionFilter' to: [/*]
+2017-05-18 11:34:56.039  INFO 7352 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'applicationContextIdFilter' to: [/*]
+2017-05-18 11:34:56.039  INFO 7352 --- [localhost-startStop-1] o.s.b.w.servlet.ServletRegistrationBean  : Mapping servlet: 'statViewServlet' to [/druid/*]
+2017-05-18 11:34:56.039  INFO 7352 --- [localhost-startStop-1] o.s.b.w.servlet.ServletRegistrationBean  : Mapping servlet: 'dispatcherServlet' to [/]
+2017-05-18 11:34:56.304  INFO 7352 --- [main] c.s.f.distributed.DistributedUtil        : 订阅集群频道成功
+2017-05-18 11:34:56.351  INFO 7352 --- [main] com.simba.cache.RedisUtil                : pool:redis.clients.jedis.JedisPool@6d5c2745
+2017-05-18 11:34:56.352  INFO 7352 --- [main] c.s.f.u.a.ApplicationContextUtil         : ****************************init ApplicationContext successfully:org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext
+2017-05-18 11:34:56.352  INFO 7352 --- [main] c.s.f.util.bean.CustomBeanPostProcessor  : 注入页面扩展参数:sessAccount
+2017-05-18 11:34:56.353  INFO 7352 --- [main] c.s.f.util.bean.CustomBeanPostProcessor  : 注入页面扩展参数:sessName
+2017-05-18 11:34:56.836  INFO 7352 --- [main] com.simba.framework.util.jdbc.Jdbc       : init
+2017-05-18 11:34:57.055  INFO 7352 --- [main] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} inited
+2017-05-18 11:34:57.274  INFO 7352 --- [main] com.simba.framework.util.jdbc.Jdbc       : result size:10 sql:select column_name from information_schema.COLUMNS where table_name = 'userExt'
+2017-05-18 11:34:57.383  INFO 7352 --- [main] com.simba.framework.util.jdbc.Jdbc       : result size:8 sql:select column_name from information_schema.COLUMNS where table_name = 'orgExt'
+2017-05-18 11:34:57.587  INFO 7352 --- [main] c.s.f.util.bean.CustomBeanPostProcessor  : 注入集群方法:com.simba.cluster.registryTable.RegistryTableClusterExecute
+2017-05-18 11:34:57.618  INFO 7352 --- [main] com.simba.framework.util.jdbc.Jdbc       : result size:1 sql:select * from registryTable
+2017-05-18 11:34:57.712  INFO 7352 --- [main] c.s.f.util.bean.CustomBeanPostProcessor  : 注入集群方法:com.simba.cluster.JobClusterExecute
+2017-05-18 11:34:57.712  INFO 7352 --- [main] c.s.f.util.bean.CustomBeanPostProcessor  : 注入集群方法:com.simba.cluster.JobScheduleClusterExecute
+2017-05-18 11:34:57.759  INFO 7352 --- [main] com.simba.framework.util.jdbc.Jdbc       : result size:1 sql:select * from job
+2017-05-18 11:34:57.805  INFO 7352 --- [main] com.simba.framework.util.jdbc.Jdbc       : updatedCount:1 sql:update job set status = 'finish' where id = 7 
+2017-05-18 11:34:57.805  INFO 7352 --- [main] com.simba.framework.util.jdbc.Jdbc       : result size:0 sql:select * from job where status = 'waiting' 
+2017-05-18 11:34:57.805  INFO 7352 --- [main] com.simba.framework.util.jdbc.Jdbc       : result size:1 sql:select * from job
+2017-05-18 11:34:57.883  INFO 7352 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService  'taskExecutor'
+2017-05-18 11:34:58.617  INFO 7352 --- [main] s.w.s.m.m.a.RequestMappingHandlerAdapter : Looking for @ControllerAdvice: org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@5e316c74: startup date [Thu May 18 11:34:52 CST 2017]; root of context hierarchy
+2017-05-18 11:34:58.883  INFO 7352 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/download]}" onto public void com.simba.controller.DownloadController.download(java.lang.String,javax.servlet.http.HttpServletResponse)
+2017-05-18 11:34:58.883  INFO 7352 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/myerror]}" onto public java.lang.String com.simba.controller.ErrorPageController.error()
+2017-05-18 11:34:58.883  INFO 7352 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/myforbid]}" onto public java.lang.String com.simba.controller.ErrorPageController.forbid()
+2017-05-18 11:34:58.883  INFO 7352 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/mynopage]}" onto public java.lang.String com.simba.controller.ErrorPageController.nopage()
+2017-05-18 11:34:58.883  INFO 7352 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/captcha/getCaptcha]}" onto public void com.simba.permission.controller.CaptchaController.getCaptcha(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse) throws java.io.IOException
+2017-05-18 11:34:58.883  INFO 7352 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/home]}" onto public java.lang.String com.simba.permission.controller.HomeController.home()
+2017-05-18 11:34:58.883  INFO 7352 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/]}" onto public java.lang.String com.simba.permission.controller.IndexController.index()
+2017-05-18 11:34:58.883  INFO 7352 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/login/login]}" onto public java.lang.String com.simba.permission.controller.LoginController.login(java.lang.String,java.lang.String,org.springframework.ui.ModelMap,javax.servlet.http.HttpServletRequest)
+2017-05-18 11:34:58.883  INFO 7352 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/login/toLogin]}" onto public java.lang.String com.simba.permission.controller.LoginController.toLogin(javax.servlet.http.HttpServletRequest,org.springframework.ui.ModelMap)
+2017-05-18 11:34:58.883  INFO 7352 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/login/logout]}" onto public java.lang.String com.simba.permission.controller.LoginController.logout(javax.servlet.http.HttpServletRequest,org.springframework.ui.ModelMap)
+2017-05-18 11:34:58.883  INFO 7352 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/org/add]}" onto public java.lang.String com.simba.permission.controller.OrgController.add(com.simba.permission.model.Org,javax.servlet.http.HttpServletRequest)
+2017-05-18 11:34:58.883  INFO 7352 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/org/update]}" onto public java.lang.String com.simba.permission.controller.OrgController.update(com.simba.permission.model.Org,javax.servlet.http.HttpServletRequest)
+2017-05-18 11:34:58.883  INFO 7352 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/org/delete]}" onto public com.simba.framework.util.json.JsonResult com.simba.permission.controller.OrgController.delete(int)
+2017-05-18 11:34:58.883  INFO 7352 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/org/list]}" onto public java.lang.String com.simba.permission.controller.OrgController.list(java.lang.Integer,org.springframework.ui.ModelMap)
+2017-05-18 11:34:58.883  INFO 7352 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/org/toAdd]}" onto public java.lang.String com.simba.permission.controller.OrgController.toAdd(java.lang.Integer,org.springframework.ui.ModelMap)
+2017-05-18 11:34:58.883  INFO 7352 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/org/getOrgList]}" onto public java.lang.String com.simba.permission.controller.OrgController.getOrgList(int,org.springframework.ui.ModelMap)
+2017-05-18 11:34:58.883  INFO 7352 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/org/getOrgTree]}" onto public java.util.List<com.simba.bootstrap.model.TreeViewData> com.simba.permission.controller.OrgController.getOrgTree()
+2017-05-18 11:34:58.883  INFO 7352 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/org/toUpdate]}" onto public java.lang.String com.simba.permission.controller.OrgController.toUpdate(int,org.springframework.ui.ModelMap)
+2017-05-18 11:34:58.883  INFO 7352 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/org/batchDelete]}" onto public com.simba.framework.util.json.JsonResult com.simba.permission.controller.OrgController.batchDelete(java.lang.Integer[])
+2017-05-18 11:34:58.898  INFO 7352 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/permission/add]}" onto public java.lang.String com.simba.permission.controller.PermissionController.add(com.simba.permission.model.Permission)
+2017-05-18 11:34:58.898  INFO 7352 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/permission/update]}" onto public java.lang.String com.simba.permission.controller.PermissionController.update(com.simba.permission.model.Permission)
+2017-05-18 11:34:58.898  INFO 7352 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/permission/delete]}" onto public com.simba.framework.util.json.JsonResult com.simba.permission.controller.PermissionController.delete(int)
+2017-05-18 11:34:58.898  INFO 7352 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/permission/list]}" onto public java.lang.String com.simba.permission.controller.PermissionController.list(java.lang.Integer,org.springframework.ui.ModelMap)
+2017-05-18 11:34:58.898  INFO 7352 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/permission/toAdd]}" onto public java.lang.String com.simba.permission.controller.PermissionController.toAdd(java.lang.Integer,org.springframework.ui.ModelMap)
+2017-05-18 11:34:58.898  INFO 7352 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/permission/getPermissionTree]}" onto public java.util.List<com.simba.bootstrap.model.TreeViewData> com.simba.permission.controller.PermissionController.getPermissionTree()
+2017-05-18 11:34:58.898  INFO 7352 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/permission/getPermissionList]}" onto public java.lang.String com.simba.permission.controller.PermissionController.getPermissionList(int,org.springframework.ui.ModelMap)
+2017-05-18 11:34:58.898  INFO 7352 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/permission/toUpdate]}" onto public java.lang.String com.simba.permission.controller.PermissionController.toUpdate(int,org.springframework.ui.ModelMap)
+2017-05-18 11:34:58.898  INFO 7352 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/permission/batchDelete]}" onto public com.simba.framework.util.json.JsonResult com.simba.permission.controller.PermissionController.batchDelete(java.lang.Integer[])
+2017-05-18 11:34:58.898  INFO 7352 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/role/add]}" onto public java.lang.String com.simba.permission.controller.RoleController.add(com.simba.permission.model.Role)
+2017-05-18 11:34:58.898  INFO 7352 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/role/update]}" onto public java.lang.String com.simba.permission.controller.RoleController.update(com.simba.permission.model.Role)
+2017-05-18 11:34:58.898  INFO 7352 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/role/list]}" onto public java.lang.String com.simba.permission.controller.RoleController.list(org.springframework.ui.ModelMap)
+2017-05-18 11:34:58.898  INFO 7352 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/role/toAdd]}" onto public java.lang.String com.simba.permission.controller.RoleController.toAdd()
+2017-05-18 11:34:58.898  INFO 7352 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/role/toAssignPermission]}" onto public java.lang.String com.simba.permission.controller.RoleController.toAssignPermission(java.lang.String,org.springframework.ui.ModelMap)
+2017-05-18 11:34:58.898  INFO 7352 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/role/toUpdate]}" onto public java.lang.String com.simba.permission.controller.RoleController.toUpdate(java.lang.String,org.springframework.ui.ModelMap) throws java.io.UnsupportedEncodingException
+2017-05-18 11:34:58.898  INFO 7352 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/role/batchDelete]}" onto public com.simba.framework.util.json.JsonResult com.simba.permission.controller.RoleController.batchDelete(java.lang.String[])
+2017-05-18 11:34:58.898  INFO 7352 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/role/assignPermission]}" onto public com.simba.framework.util.json.JsonResult com.simba.permission.controller.RoleController.assignPermission(java.lang.Integer[],java.lang.String)
+2017-05-18 11:34:58.898  INFO 7352 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/user/add]}" onto public java.lang.String com.simba.permission.controller.UserController.add(com.simba.permission.model.User,java.lang.Integer[],javax.servlet.http.HttpServletRequest,org.springframework.ui.ModelMap)
+2017-05-18 11:34:58.898  INFO 7352 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/user/update]}" onto public java.lang.String com.simba.permission.controller.UserController.update(com.simba.permission.model.User,java.lang.Integer[],javax.servlet.http.HttpServletRequest,org.springframework.ui.ModelMap)
+2017-05-18 11:34:58.898  INFO 7352 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/user/list]}" onto public java.lang.String com.simba.permission.controller.UserController.list(java.lang.Integer,org.springframework.ui.ModelMap)
+2017-05-18 11:34:58.898  INFO 7352 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/user/toAdd]}" onto public java.lang.String com.simba.permission.controller.UserController.toAdd(java.lang.Integer,org.springframework.ui.ModelMap)
+2017-05-18 11:34:58.898  INFO 7352 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/user/getCurrentUserInfo]}" onto public com.simba.framework.util.json.JsonResult com.simba.permission.controller.UserController.getCurrentUserInfo(javax.servlet.http.HttpSession)
+2017-05-18 11:34:58.898  INFO 7352 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/user/toUpdate]}" onto public java.lang.String com.simba.permission.controller.UserController.toUpdate(java.lang.String,javax.servlet.http.HttpServletRequest,org.springframework.ui.ModelMap) throws java.io.UnsupportedEncodingException
+2017-05-18 11:34:58.898  INFO 7352 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/user/batchDelete]}" onto public com.simba.framework.util.json.JsonResult com.simba.permission.controller.UserController.batchDelete(java.lang.String[])
+2017-05-18 11:34:58.898  INFO 7352 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/user/getUserList]}" onto public java.lang.String com.simba.permission.controller.UserController.getUserList(int,com.simba.framework.util.jdbc.Pager,org.springframework.ui.ModelMap)
+2017-05-18 11:34:58.898  INFO 7352 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/user/countUser]}" onto public com.simba.framework.util.json.JsonResult com.simba.permission.controller.UserController.countUser(int)
+2017-05-18 11:34:58.898  INFO 7352 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/user/resetPwd]}" onto public com.simba.framework.util.json.JsonResult com.simba.permission.controller.UserController.resetPwd(java.lang.String,org.springframework.ui.ModelMap)
+2017-05-18 11:34:58.898  INFO 7352 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/user/toModifyPwd]}" onto public java.lang.String com.simba.permission.controller.UserController.toModifyPwd()
+2017-05-18 11:34:58.898  INFO 7352 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/user/modifyPwd]}" onto public com.simba.framework.util.json.JsonResult com.simba.permission.controller.UserController.modifyPwd(javax.servlet.http.HttpServletRequest,java.lang.String,java.lang.String,java.lang.String,org.springframework.ui.ModelMap)
+2017-05-18 11:34:58.898  INFO 7352 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/user/toModifyInfo]}" onto public java.lang.String com.simba.permission.controller.UserController.toModifyInfo(javax.servlet.http.HttpServletRequest,org.springframework.ui.ModelMap)
+2017-05-18 11:34:58.898  INFO 7352 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/user/modifyInfo]}" onto public com.simba.framework.util.json.JsonResult com.simba.permission.controller.UserController.modifyInfo(javax.servlet.http.HttpServletRequest,org.springframework.ui.ModelMap)
+2017-05-18 11:34:58.898  INFO 7352 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/user/toAssignRole]}" onto public java.lang.String com.simba.permission.controller.UserController.toAssignRole(java.lang.String,org.springframework.ui.ModelMap)
+2017-05-18 11:34:58.898  INFO 7352 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/user/assignRole]}" onto public com.simba.framework.util.json.JsonResult com.simba.permission.controller.UserController.assignRole(java.lang.String[],java.lang.String,org.springframework.ui.ModelMap)
+2017-05-18 11:34:58.898  INFO 7352 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/menu/add]}" onto public java.lang.String com.simba.menu.controller.MenuController.add(com.simba.menu.model.Menu)
+2017-05-18 11:34:58.898  INFO 7352 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/menu/update]}" onto public java.lang.String com.simba.menu.controller.MenuController.update(com.simba.menu.model.Menu)
+2017-05-18 11:34:58.914  INFO 7352 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/menu/delete]}" onto public com.simba.framework.util.json.JsonResult com.simba.menu.controller.MenuController.delete(int,org.springframework.ui.ModelMap)
+2017-05-18 11:34:58.914  INFO 7352 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/menu/list]}" onto public java.lang.String com.simba.menu.controller.MenuController.list(java.lang.Integer,org.springframework.ui.ModelMap)
+2017-05-18 11:34:58.914  INFO 7352 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/menu/toAdd]}" onto public java.lang.String com.simba.menu.controller.MenuController.toAdd(int,org.springframework.ui.ModelMap)
+2017-05-18 11:34:58.914  INFO 7352 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/menu/toUpdate]}" onto public java.lang.String com.simba.menu.controller.MenuController.toUpdate(int,org.springframework.ui.ModelMap)
+2017-05-18 11:34:58.914  INFO 7352 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/menu/batchDelete]}" onto public com.simba.framework.util.json.JsonResult com.simba.menu.controller.MenuController.batchDelete(java.lang.Integer[],org.springframework.ui.ModelMap)
+2017-05-18 11:34:58.914  INFO 7352 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/menu/showAllMenus]}" onto public java.lang.String com.simba.menu.controller.MenuController.showAllMenus(javax.servlet.http.HttpServletRequest,org.springframework.ui.ModelMap) throws freemarker.template.TemplateNotFoundException,freemarker.template.MalformedTemplateNameException,freemarker.core.ParseException,java.io.IOException,freemarker.template.TemplateException
+2017-05-18 11:34:58.914  INFO 7352 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/menu/getMenuTree]}" onto public java.util.List<com.simba.bootstrap.model.TreeViewData> com.simba.menu.controller.MenuController.getMenuTree()
+2017-05-18 11:34:58.914  INFO 7352 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/menu/getMenuList]}" onto public java.lang.String com.simba.menu.controller.MenuController.getMenuList(int,org.springframework.ui.ModelMap)
+2017-05-18 11:34:58.914  INFO 7352 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/registryTable/add]}" onto public java.lang.String com.simba.registry.controller.RegistryTableController.add(com.simba.registry.model.RegistryTable,org.springframework.ui.ModelMap)
+2017-05-18 11:34:58.914  INFO 7352 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/registryTable/count]}" onto public com.simba.framework.util.json.JsonResult com.simba.registry.controller.RegistryTableController.count(int)
+2017-05-18 11:34:58.914  INFO 7352 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/registryTable/update]}" onto public java.lang.String com.simba.registry.controller.RegistryTableController.update(com.simba.registry.model.RegistryTable,org.springframework.ui.ModelMap)
+2017-05-18 11:34:58.914  INFO 7352 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/registryTable/delete]}" onto public com.simba.framework.util.json.JsonResult com.simba.registry.controller.RegistryTableController.delete(int,org.springframework.ui.ModelMap)
+2017-05-18 11:34:58.914  INFO 7352 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/registryTable/list]}" onto public java.lang.String com.simba.registry.controller.RegistryTableController.list(java.lang.Integer,org.springframework.ui.ModelMap)
+2017-05-18 11:34:58.914  INFO 7352 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/registryTable/toAdd]}" onto public java.lang.String com.simba.registry.controller.RegistryTableController.toAdd(int,org.springframework.ui.ModelMap)
+2017-05-18 11:34:58.914  INFO 7352 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/registryTable/toUpdate]}" onto public java.lang.String com.simba.registry.controller.RegistryTableController.toUpdate(int,org.springframework.ui.ModelMap)
+2017-05-18 11:34:58.914  INFO 7352 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/registryTable/batchDelete]}" onto public com.simba.framework.util.json.JsonResult com.simba.registry.controller.RegistryTableController.batchDelete(java.lang.Integer[],org.springframework.ui.ModelMap)
+2017-05-18 11:34:58.914  INFO 7352 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/registryTable/getList]}" onto public java.lang.String com.simba.registry.controller.RegistryTableController.getList(int,com.simba.framework.util.jdbc.Pager,org.springframework.ui.ModelMap)
+2017-05-18 11:34:58.914  INFO 7352 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/registryType/add]}" onto public java.lang.String com.simba.registry.controller.RegistryTypeController.add(com.simba.registry.model.RegistryType)
+2017-05-18 11:34:58.914  INFO 7352 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/registryType/update]}" onto public java.lang.String com.simba.registry.controller.RegistryTypeController.update(com.simba.registry.model.RegistryType)
+2017-05-18 11:34:58.914  INFO 7352 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/registryType/delete]}" onto public com.simba.framework.util.json.JsonResult com.simba.registry.controller.RegistryTypeController.delete(int,org.springframework.ui.ModelMap)
+2017-05-18 11:34:58.914  INFO 7352 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/registryType/list]}" onto public java.lang.String com.simba.registry.controller.RegistryTypeController.list(java.lang.Integer,org.springframework.ui.ModelMap)
+2017-05-18 11:34:58.914  INFO 7352 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/registryType/toAdd]}" onto public java.lang.String com.simba.registry.controller.RegistryTypeController.toAdd(int,org.springframework.ui.ModelMap)
+2017-05-18 11:34:58.914  INFO 7352 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/registryType/getRegistryTypeTree]}" onto public java.util.List<com.simba.bootstrap.model.TreeViewData> com.simba.registry.controller.RegistryTypeController.getRegistryTypeTree()
+2017-05-18 11:34:58.914  INFO 7352 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/registryType/getRegistryTypeList]}" onto public java.lang.String com.simba.registry.controller.RegistryTypeController.getRegistryTypeList(int,org.springframework.ui.ModelMap)
+2017-05-18 11:34:58.914  INFO 7352 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/registryType/toUpdate]}" onto public java.lang.String com.simba.registry.controller.RegistryTypeController.toUpdate(int,org.springframework.ui.ModelMap)
+2017-05-18 11:34:58.914  INFO 7352 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/registryType/batchDelete]}" onto public com.simba.framework.util.json.JsonResult com.simba.registry.controller.RegistryTypeController.batchDelete(java.lang.Integer[],org.springframework.ui.ModelMap)
+2017-05-18 11:34:58.930  INFO 7352 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/job/add]}" onto public java.lang.String com.simba.job.controller.JobController.add(com.simba.job.model.Job,org.springframework.ui.ModelMap) throws java.text.ParseException
+2017-05-18 11:34:58.930  INFO 7352 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/job/count]}" onto public com.simba.framework.util.json.JsonResult com.simba.job.controller.JobController.count()
+2017-05-18 11:34:58.930  INFO 7352 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/job/update]}" onto public java.lang.String com.simba.job.controller.JobController.update(com.simba.job.model.Job,org.springframework.ui.ModelMap) throws java.text.ParseException
+2017-05-18 11:34:58.930  INFO 7352 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/job/delete]}" onto public com.simba.framework.util.json.JsonResult com.simba.job.controller.JobController.delete(int,org.springframework.ui.ModelMap) throws java.text.ParseException
+2017-05-18 11:34:58.930  INFO 7352 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/job/start]}" onto public com.simba.framework.util.json.JsonResult com.simba.job.controller.JobController.start(int,org.springframework.ui.ModelMap) throws java.text.ParseException
+2017-05-18 11:34:58.930  INFO 7352 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/job/stop]}" onto public com.simba.framework.util.json.JsonResult com.simba.job.controller.JobController.stop(int,org.springframework.ui.ModelMap) throws java.text.ParseException
+2017-05-18 11:34:58.930  INFO 7352 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/job/list]}" onto public java.lang.String com.simba.job.controller.JobController.list()
+2017-05-18 11:34:58.930  INFO 7352 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/job/toAdd]}" onto public java.lang.String com.simba.job.controller.JobController.toAdd()
+2017-05-18 11:34:58.930  INFO 7352 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/job/toUpdate]}" onto public java.lang.String com.simba.job.controller.JobController.toUpdate(int,org.springframework.ui.ModelMap)
+2017-05-18 11:34:58.930  INFO 7352 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/job/batchDelete]}" onto public com.simba.framework.util.json.JsonResult com.simba.job.controller.JobController.batchDelete(java.lang.Integer[],org.springframework.ui.ModelMap) throws java.text.ParseException
+2017-05-18 11:34:58.930  INFO 7352 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/job/getList]}" onto public java.lang.String com.simba.job.controller.JobController.getList(com.simba.framework.util.jdbc.Pager,org.springframework.ui.ModelMap)
+2017-05-18 11:34:58.930  INFO 7352 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+2017-05-18 11:34:58.930  INFO 7352 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2017-05-18 11:34:59.023  INFO 7352 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2017-05-18 11:34:59.023  INFO 7352 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2017-05-18 11:34:59.054  INFO 7352 --- [main] .m.m.a.ExceptionHandlerExceptionResolver : Detected @ExceptionHandler methods in globalExceptionHandler
+2017-05-18 11:34:59.101  INFO 7352 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2017-05-18 11:35:00.022  INFO 7352 --- [main] o.s.b.a.e.mvc.EndpointHandlerMapping     : Mapped "{[/beans || /beans.json],methods=[GET],produces=[application/vnd.spring-boot.actuator.v1+json || application/json]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.mvc.EndpointMvcAdapter.invoke()
+2017-05-18 11:35:00.022  INFO 7352 --- [main] o.s.b.a.e.mvc.EndpointHandlerMapping     : Mapped "{[/mappings || /mappings.json],methods=[GET],produces=[application/vnd.spring-boot.actuator.v1+json || application/json]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.mvc.EndpointMvcAdapter.invoke()
+2017-05-18 11:35:00.022  INFO 7352 --- [main] o.s.b.a.e.mvc.EndpointHandlerMapping     : Mapped "{[/dump || /dump.json],methods=[GET],produces=[application/vnd.spring-boot.actuator.v1+json || application/json]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.mvc.EndpointMvcAdapter.invoke()
+2017-05-18 11:35:00.022  INFO 7352 --- [main] o.s.b.a.e.mvc.EndpointHandlerMapping     : Mapped "{[/configprops || /configprops.json],methods=[GET],produces=[application/vnd.spring-boot.actuator.v1+json || application/json]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.mvc.EndpointMvcAdapter.invoke()
+2017-05-18 11:35:00.022  INFO 7352 --- [main] o.s.b.a.e.mvc.EndpointHandlerMapping     : Mapped "{[/metrics/{name:.*}],methods=[GET],produces=[application/vnd.spring-boot.actuator.v1+json || application/json]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.mvc.MetricsMvcEndpoint.value(java.lang.String)
+2017-05-18 11:35:00.022  INFO 7352 --- [main] o.s.b.a.e.mvc.EndpointHandlerMapping     : Mapped "{[/metrics || /metrics.json],methods=[GET],produces=[application/vnd.spring-boot.actuator.v1+json || application/json]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.mvc.EndpointMvcAdapter.invoke()
+2017-05-18 11:35:00.022  INFO 7352 --- [main] o.s.b.a.e.mvc.EndpointHandlerMapping     : Mapped "{[/autoconfig || /autoconfig.json],methods=[GET],produces=[application/vnd.spring-boot.actuator.v1+json || application/json]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.mvc.EndpointMvcAdapter.invoke()
+2017-05-18 11:35:00.022  INFO 7352 --- [main] o.s.b.a.e.mvc.EndpointHandlerMapping     : Mapped "{[/logfile || /logfile.json],methods=[GET || HEAD]}" onto public void org.springframework.boot.actuate.endpoint.mvc.LogFileMvcEndpoint.invoke(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse) throws javax.servlet.ServletException,java.io.IOException
+2017-05-18 11:35:00.022  INFO 7352 --- [main] o.s.b.a.e.mvc.EndpointHandlerMapping     : Mapped "{[/env/{name:.*}],methods=[GET],produces=[application/vnd.spring-boot.actuator.v1+json || application/json]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.mvc.EnvironmentMvcEndpoint.value(java.lang.String)
+2017-05-18 11:35:00.022  INFO 7352 --- [main] o.s.b.a.e.mvc.EndpointHandlerMapping     : Mapped "{[/env || /env.json],methods=[GET],produces=[application/vnd.spring-boot.actuator.v1+json || application/json]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.mvc.EndpointMvcAdapter.invoke()
+2017-05-18 11:35:00.022  INFO 7352 --- [main] o.s.b.a.e.mvc.EndpointHandlerMapping     : Mapped "{[/trace || /trace.json],methods=[GET],produces=[application/vnd.spring-boot.actuator.v1+json || application/json]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.mvc.EndpointMvcAdapter.invoke()
+2017-05-18 11:35:00.023  INFO 7352 --- [main] o.s.b.a.e.mvc.EndpointHandlerMapping     : Mapped "{[/health || /health.json],methods=[GET],produces=[application/vnd.spring-boot.actuator.v1+json || application/json]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.mvc.HealthMvcEndpoint.invoke(javax.servlet.http.HttpServletRequest,java.security.Principal)
+2017-05-18 11:35:00.023  INFO 7352 --- [main] o.s.b.a.e.mvc.EndpointHandlerMapping     : Mapped "{[/auditevents || /auditevents.json],methods=[GET],produces=[application/vnd.spring-boot.actuator.v1+json || application/json]}" onto public org.springframework.http.ResponseEntity<?> org.springframework.boot.actuate.endpoint.mvc.AuditEventsMvcEndpoint.findByPrincipalAndAfterAndType(java.lang.String,java.util.Date,java.lang.String)
+2017-05-18 11:35:00.023  INFO 7352 --- [main] o.s.b.a.e.mvc.EndpointHandlerMapping     : Mapped "{[/heapdump || /heapdump.json],methods=[GET],produces=[application/octet-stream]}" onto public void org.springframework.boot.actuate.endpoint.mvc.HeapdumpMvcEndpoint.invoke(boolean,javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse) throws java.io.IOException,javax.servlet.ServletException
+2017-05-18 11:35:00.023  INFO 7352 --- [main] o.s.b.a.e.mvc.EndpointHandlerMapping     : Mapped "{[/loggers/{name:.*}],methods=[GET],produces=[application/vnd.spring-boot.actuator.v1+json || application/json]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.mvc.LoggersMvcEndpoint.get(java.lang.String)
+2017-05-18 11:35:00.023  INFO 7352 --- [main] o.s.b.a.e.mvc.EndpointHandlerMapping     : Mapped "{[/loggers/{name:.*}],methods=[POST],consumes=[application/vnd.spring-boot.actuator.v1+json || application/json],produces=[application/vnd.spring-boot.actuator.v1+json || application/json]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.mvc.LoggersMvcEndpoint.set(java.lang.String,java.util.Map<java.lang.String, java.lang.String>)
+2017-05-18 11:35:00.023  INFO 7352 --- [main] o.s.b.a.e.mvc.EndpointHandlerMapping     : Mapped "{[/loggers || /loggers.json],methods=[GET],produces=[application/vnd.spring-boot.actuator.v1+json || application/json]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.mvc.EndpointMvcAdapter.invoke()
+2017-05-18 11:35:00.023  INFO 7352 --- [main] o.s.b.a.e.mvc.EndpointHandlerMapping     : Mapped "{[/info || /info.json],methods=[GET],produces=[application/vnd.spring-boot.actuator.v1+json || application/json]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.mvc.EndpointMvcAdapter.invoke()
+2017-05-18 11:35:00.522  INFO 7352 --- [main] o.s.ui.freemarker.SpringTemplateLoader   : SpringTemplateLoader for FreeMarker: using resource loader [org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@5e316c74: startup date [Thu May 18 11:34:52 CST 2017]; root of context hierarchy] and template loader path [classpath:/templates/]
+2017-05-18 11:35:00.522  INFO 7352 --- [main] o.s.w.s.v.f.FreeMarkerConfigurer         : ClassTemplateLoader for Spring macros added to FreeMarker configuration
+2017-05-18 11:35:01.083  INFO 7352 --- [main] o.s.j.e.a.AnnotationMBeanExporter        : Registering beans for JMX exposure on startup
+2017-05-18 11:35:01.083  INFO 7352 --- [main] o.s.j.e.a.AnnotationMBeanExporter        : Bean with name 'dataSource' has been autodetected for JMX exposure
+2017-05-18 11:35:01.084  INFO 7352 --- [main] o.s.j.e.a.AnnotationMBeanExporter        : Located MBean 'dataSource': registering with JMX server as MBean [com.alibaba.druid.pool:name=dataSource,type=DruidDataSource]
+2017-05-18 11:35:01.084  INFO 7352 --- [main] o.s.c.support.DefaultLifecycleProcessor  : Starting beans in phase 0
+2017-05-18 11:35:01.194  INFO 7352 --- [main] s.a.ScheduledAnnotationBeanPostProcessor : No TaskScheduler/ScheduledExecutorService bean found for scheduled processing
+2017-05-18 11:35:01.740  INFO 7352 --- [main] s.b.c.e.t.TomcatEmbeddedServletContainer : Tomcat started on port(s): 8888 (http)
+2017-05-18 11:35:01.740  INFO 7352 --- [main] com.simba.SimbaApplication               : Started SimbaApplication in 10.013 seconds (JVM running for 10.56)
+2017-05-18 11:35:14.212  INFO 7352 --- [http-nio-8888-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/admin]  : Initializing Spring FrameworkServlet 'dispatcherServlet'
+2017-05-18 11:35:14.212  INFO 7352 --- [http-nio-8888-exec-1] o.s.web.servlet.DispatcherServlet        : FrameworkServlet 'dispatcherServlet': initialization started
+2017-05-18 11:35:14.260  INFO 7352 --- [http-nio-8888-exec-1] o.s.web.servlet.DispatcherServlet        : FrameworkServlet 'dispatcherServlet': initialization completed in 48 ms
+2017-05-18 11:35:16.629  INFO 7352 --- [http-nio-8888-exec-8] com.simba.framework.util.jdbc.Jdbc       : result:1 sql:SELECT COUNT(1) from job
+2017-05-18 11:35:16.629  INFO 7352 --- [http-nio-8888-exec-9] com.simba.framework.util.jdbc.Jdbc       : result:1 sql:select count(*) from job
+2017-05-18 11:35:16.634  INFO 7352 --- [http-nio-8888-exec-8] com.simba.framework.util.jdbc.Jdbc       : result size:1 sql:select * from job limit 0,10
+2017-05-18 11:35:23.231  INFO 7352 --- [http-nio-8888-exec-3] c.s.f.session.HttpSessionWrapper         : 清空session:70d900cd-854d-435c-8fac-57538061f810
+2017-05-18 11:35:34.732  INFO 7352 --- [http-nio-8888-exec-9] com.simba.framework.util.jdbc.Jdbc       : result size:7 sql:select * from org where parentID = -1 order by orderNo
+2017-05-18 11:35:41.805  INFO 7352 --- [http-nio-8888-exec-4] com.simba.framework.util.jdbc.Jdbc       : result size:3 sql:select * from role
+2017-05-18 11:35:42.877  INFO 7352 --- [http-nio-8888-exec-10] com.simba.framework.util.jdbc.Jdbc       : result size:3 sql:select * from rolePermission where roleName = 'admin' 
+2017-05-18 11:35:42.882  INFO 7352 --- [http-nio-8888-exec-10] com.simba.framework.util.jdbc.Jdbc       : sql:select * from permission where id = ? 
+2017-05-18 11:35:42.926  INFO 7352 --- [http-nio-8888-exec-10] com.simba.framework.util.jdbc.Jdbc       : sql:select * from permission where id = ? 
+2017-05-18 11:35:42.929  INFO 7352 --- [http-nio-8888-exec-10] com.simba.framework.util.jdbc.Jdbc       : sql:select * from permission where id = ? 
+2017-05-18 11:35:43.202  INFO 7352 --- [http-nio-8888-exec-8] com.simba.framework.util.jdbc.Jdbc       : result size:4 sql:select * from permission
+2017-05-18 11:35:57.667  INFO 7352 --- [http-nio-8888-exec-5] com.simba.framework.util.jdbc.Jdbc       : result size:7 sql:select * from org where parentID = -1 order by orderNo
+2017-05-18 11:36:14.509  INFO 7352 --- [http-nio-8888-exec-3] com.simba.framework.util.jdbc.Jdbc       : result size:3 sql:select * from role
+2017-05-18 11:37:55.385  INFO 7352 --- [http-nio-8888-exec-5] com.simba.framework.util.jdbc.Jdbc       : result size:3 sql:select * from role
+2017-05-18 11:37:57.099  INFO 7352 --- [http-nio-8888-exec-3] com.simba.framework.util.jdbc.Jdbc       : result size:7 sql:select * from org where parentID = -1 order by orderNo
+2017-05-18 11:42:34.360  INFO 7352 --- [http-nio-8888-exec-8] com.simba.framework.util.jdbc.Jdbc       : result:1 sql:SELECT COUNT(1) from job
+2017-05-18 11:42:34.361  INFO 7352 --- [http-nio-8888-exec-2] com.simba.framework.util.jdbc.Jdbc       : result:1 sql:select count(*) from job
+2017-05-18 11:42:34.362  INFO 7352 --- [http-nio-8888-exec-8] com.simba.framework.util.jdbc.Jdbc       : result size:1 sql:select * from job limit 0,10
+2017-05-18 11:42:37.584  INFO 7352 --- [http-nio-8888-exec-1] com.simba.framework.util.jdbc.Jdbc       : sql:select * from job where id = ? 
+2017-05-18 11:42:42.300  INFO 7352 --- [http-nio-8888-exec-7] com.simba.framework.util.jdbc.Jdbc       : sql:select * from job where id = ? 
+2017-05-18 11:42:42.305  INFO 7352 --- [http-nio-8888-exec-7] com.simba.framework.util.jdbc.Jdbc       : updatedCount:1 sql:update job set  name = 'demo' , description = 'demo' , cronExpression = '0/10 * * * * *' , startTime = '2017-05-18 11:10:00' , endTime = '2017-05-18 11:15:55' ,maxExeCount = 200 , status = 'finish' , className = 'com.simba.DemoJob' , methodName = 'execute' , delayTime = 0 , intervalTime = 0  where id = 7  
+2017-05-18 11:42:42.444  INFO 7352 --- [http-nio-8888-exec-6] com.simba.framework.util.jdbc.Jdbc       : result:1 sql:SELECT COUNT(1) from job
+2017-05-18 11:42:42.445  INFO 7352 --- [http-nio-8888-exec-6] com.simba.framework.util.jdbc.Jdbc       : result size:1 sql:select * from job limit 0,10
+2017-05-18 11:42:42.448  INFO 7352 --- [http-nio-8888-exec-10] com.simba.framework.util.jdbc.Jdbc       : result:1 sql:select count(*) from job
+2017-05-18 11:42:57.399  INFO 7352 --- [http-nio-8888-exec-8] com.simba.framework.util.jdbc.Jdbc       : result:1 sql:select count(*) from job
+2017-05-18 11:42:57.399  INFO 7352 --- [http-nio-8888-exec-2] com.simba.framework.util.jdbc.Jdbc       : result:1 sql:SELECT COUNT(1) from job
+2017-05-18 11:42:57.404  INFO 7352 --- [http-nio-8888-exec-2] com.simba.framework.util.jdbc.Jdbc       : result size:1 sql:select * from job limit 0,10
+2017-05-18 11:42:59.856  INFO 7352 --- [http-nio-8888-exec-4] com.simba.framework.util.jdbc.Jdbc       : sql:select * from job where id = ? 
+2017-05-18 11:43:04.410  INFO 7352 --- [http-nio-8888-exec-6] com.simba.framework.util.jdbc.Jdbc       : sql:select * from job where id = ? 
+2017-05-18 11:43:04.419  INFO 7352 --- [http-nio-8888-exec-6] c.s.f.distributed.RedisDistributedImpl   : 发布消息成功，共有订阅方1个
+2017-05-18 11:43:04.419  INFO 7352 --- [Thread-4] c.s.f.distributed.RedisReceiveMessage    : 接收到集群的消息:ClusterMessage [classFullPath=com.simba.cluster.JobClusterExecute, data=JobClusterData [method=add, job=Job [id=7, name=demo, description=demo, cronExpression=0/10 * * * * *, startTime=2017-05-18 11:10:00, endTime=, exeCount=18, maxExeCount=200, status=waiting, className=com.simba.DemoJob, methodName=execute, delayTime=0, intervalTime=0]]]
+2017-05-18 11:43:04.420  INFO 7352 --- [Thread-4] c.s.f.distributed.RedisReceiveMessage    : com.simba.cluster.JobClusterExecute执行完成
+2017-05-18 11:43:04.420  INFO 7352 --- [http-nio-8888-exec-6] com.simba.framework.util.jdbc.Jdbc       : updatedCount:1 sql:update job set  name = 'demo' , description = 'demo' , cronExpression = '0/10 * * * * *' , startTime = '2017-05-18 11:10:00' , endTime = '' ,maxExeCount = 200 , status = 'waiting' , className = 'com.simba.DemoJob' , methodName = 'execute' , delayTime = 0 , intervalTime = 0  where id = 7  
+2017-05-18 11:43:04.544  INFO 7352 --- [http-nio-8888-exec-3] com.simba.framework.util.jdbc.Jdbc       : result:1 sql:SELECT COUNT(1) from job
+2017-05-18 11:43:04.549  INFO 7352 --- [http-nio-8888-exec-3] com.simba.framework.util.jdbc.Jdbc       : result size:1 sql:select * from job limit 0,10
+2017-05-18 11:43:04.551  INFO 7352 --- [http-nio-8888-exec-5] com.simba.framework.util.jdbc.Jdbc       : result:1 sql:select count(*) from job
+2017-05-18 11:43:05.213  INFO 7352 --- [pool-2-thread-1] com.simba.util.ScheduleUtil              : 启动任务成功:demo
+2017-05-18 11:43:10.003  INFO 7352 --- [pool-1-thread-1] com.simba.framework.util.jdbc.Jdbc       : sql:select * from job where id = ? 
+2017-05-18 11:43:10.012  INFO 7352 --- [pool-1-thread-1] c.simba.job.service.impl.JobServiceImpl  : 执行任务异常:Job [id=7, name=demo, description=demo, cronExpression=0/10 * * * * *, startTime=2017-05-18 11:10:00, endTime=, exeCount=18, maxExeCount=200, status=running, className=com.simba.DemoJob, methodName=execute, delayTime=0, intervalTime=0]
+
+java.lang.ClassNotFoundException: com.simba.DemoJob
+	at java.net.URLClassLoader.findClass(URLClassLoader.java:381) ~[na:1.8.0_73]
+	at java.lang.ClassLoader.loadClass(ClassLoader.java:424) ~[na:1.8.0_73]
+	at sun.misc.Launcher$AppClassLoader.loadClass(Launcher.java:331) ~[na:1.8.0_73]
+	at java.lang.ClassLoader.loadClass(ClassLoader.java:357) ~[na:1.8.0_73]
+	at java.lang.Class.forName0(Native Method) ~[na:1.8.0_73]
+	at java.lang.Class.forName(Class.java:264) ~[na:1.8.0_73]
+	at com.simba.framework.util.common.ReflectUtil.invokeObjectMethod(ReflectUtil.java:38) ~[classes/:na]
+	at com.simba.job.service.impl.JobServiceImpl.execute(JobServiceImpl.java:114) ~[classes/:na]
+	at com.simba.job.service.impl.JobServiceImpl$$FastClassBySpringCGLIB$$e7498b77.invoke(<generated>) [classes/:na]
+	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:204) [spring-core-4.3.8.RELEASE.jar:4.3.8.RELEASE]
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.invokeJoinpoint(CglibAopProxy.java:738) [spring-aop-4.3.8.RELEASE.jar:4.3.8.RELEASE]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:157) [spring-aop-4.3.8.RELEASE.jar:4.3.8.RELEASE]
+	at org.springframework.transaction.interceptor.TransactionInterceptor$1.proceedWithInvocation(TransactionInterceptor.java:99) [spring-tx-4.3.8.RELEASE.jar:4.3.8.RELEASE]
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:282) [spring-tx-4.3.8.RELEASE.jar:4.3.8.RELEASE]
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:96) [spring-tx-4.3.8.RELEASE.jar:4.3.8.RELEASE]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179) [spring-aop-4.3.8.RELEASE.jar:4.3.8.RELEASE]
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:673) [spring-aop-4.3.8.RELEASE.jar:4.3.8.RELEASE]
+	at com.simba.job.service.impl.JobServiceImpl$$EnhancerBySpringCGLIB$$3eedfc8b.execute(<generated>) [classes/:na]
+	at com.simba.util.ScheduleUtil.lambda$2(ScheduleUtil.java:151) [classes/:na]
+	at org.springframework.scheduling.support.DelegatingErrorHandlingRunnable.run(DelegatingErrorHandlingRunnable.java:54) ~[spring-context-4.3.8.RELEASE.jar:4.3.8.RELEASE]
+	at org.springframework.scheduling.concurrent.ReschedulingRunnable.run(ReschedulingRunnable.java:81) ~[spring-context-4.3.8.RELEASE.jar:4.3.8.RELEASE]
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511) ~[na:1.8.0_73]
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266) ~[na:1.8.0_73]
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.access$201(ScheduledThreadPoolExecutor.java:180) ~[na:1.8.0_73]
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:293) ~[na:1.8.0_73]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142) ~[na:1.8.0_73]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617) ~[na:1.8.0_73]
+	at java.lang.Thread.run(Thread.java:745) ~[na:1.8.0_73]
+
+2017-05-18 11:43:10.013  INFO 7352 --- [pool-1-thread-1] com.simba.framework.util.jdbc.Jdbc       : updatedCount:1 sql:update job set exeCount = exeCount + 1 where id = 7 
+2017-05-18 11:43:10.014  INFO 7352 --- [pool-1-thread-1] com.simba.framework.util.jdbc.Jdbc       : updatedCount:1 sql:update job set status = 'error' where id = 7 
+2017-05-18 11:43:20.004  INFO 7352 --- [pool-1-thread-1] com.simba.framework.util.jdbc.Jdbc       : sql:select * from job where id = ? 
+2017-05-18 11:43:20.011  INFO 7352 --- [pool-1-thread-1] c.simba.job.service.impl.JobServiceImpl  : 执行任务异常:Job [id=7, name=demo, description=demo, cronExpression=0/10 * * * * *, startTime=2017-05-18 11:10:00, endTime=, exeCount=19, maxExeCount=200, status=error, className=com.simba.DemoJob, methodName=execute, delayTime=0, intervalTime=0]
+
+java.lang.ClassNotFoundException: com.simba.DemoJob
+	at java.net.URLClassLoader.findClass(URLClassLoader.java:381) ~[na:1.8.0_73]
+	at java.lang.ClassLoader.loadClass(ClassLoader.java:424) ~[na:1.8.0_73]
+	at sun.misc.Launcher$AppClassLoader.loadClass(Launcher.java:331) ~[na:1.8.0_73]
+	at java.lang.ClassLoader.loadClass(ClassLoader.java:357) ~[na:1.8.0_73]
+	at java.lang.Class.forName0(Native Method) ~[na:1.8.0_73]
+	at java.lang.Class.forName(Class.java:264) ~[na:1.8.0_73]
+	at com.simba.framework.util.common.ReflectUtil.invokeObjectMethod(ReflectUtil.java:38) ~[classes/:na]
+	at com.simba.job.service.impl.JobServiceImpl.execute(JobServiceImpl.java:114) ~[classes/:na]
+	at com.simba.job.service.impl.JobServiceImpl$$FastClassBySpringCGLIB$$e7498b77.invoke(<generated>) [classes/:na]
+	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:204) [spring-core-4.3.8.RELEASE.jar:4.3.8.RELEASE]
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.invokeJoinpoint(CglibAopProxy.java:738) [spring-aop-4.3.8.RELEASE.jar:4.3.8.RELEASE]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:157) [spring-aop-4.3.8.RELEASE.jar:4.3.8.RELEASE]
+	at org.springframework.transaction.interceptor.TransactionInterceptor$1.proceedWithInvocation(TransactionInterceptor.java:99) [spring-tx-4.3.8.RELEASE.jar:4.3.8.RELEASE]
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:282) [spring-tx-4.3.8.RELEASE.jar:4.3.8.RELEASE]
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:96) [spring-tx-4.3.8.RELEASE.jar:4.3.8.RELEASE]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179) [spring-aop-4.3.8.RELEASE.jar:4.3.8.RELEASE]
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:673) [spring-aop-4.3.8.RELEASE.jar:4.3.8.RELEASE]
+	at com.simba.job.service.impl.JobServiceImpl$$EnhancerBySpringCGLIB$$3eedfc8b.execute(<generated>) [classes/:na]
+	at com.simba.util.ScheduleUtil.lambda$2(ScheduleUtil.java:151) [classes/:na]
+	at org.springframework.scheduling.support.DelegatingErrorHandlingRunnable.run(DelegatingErrorHandlingRunnable.java:54) ~[spring-context-4.3.8.RELEASE.jar:4.3.8.RELEASE]
+	at org.springframework.scheduling.concurrent.ReschedulingRunnable.run(ReschedulingRunnable.java:81) ~[spring-context-4.3.8.RELEASE.jar:4.3.8.RELEASE]
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511) ~[na:1.8.0_73]
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266) ~[na:1.8.0_73]
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.access$201(ScheduledThreadPoolExecutor.java:180) ~[na:1.8.0_73]
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:293) ~[na:1.8.0_73]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142) ~[na:1.8.0_73]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617) ~[na:1.8.0_73]
+	at java.lang.Thread.run(Thread.java:745) ~[na:1.8.0_73]
+
+2017-05-18 11:43:20.013  INFO 7352 --- [pool-1-thread-1] com.simba.framework.util.jdbc.Jdbc       : updatedCount:1 sql:update job set exeCount = exeCount + 1 where id = 7 
+2017-05-18 11:43:20.014  INFO 7352 --- [pool-1-thread-1] com.simba.framework.util.jdbc.Jdbc       : updatedCount:1 sql:update job set status = 'error' where id = 7 
+2017-05-18 11:43:30.003  INFO 7352 --- [pool-1-thread-2] com.simba.framework.util.jdbc.Jdbc       : sql:select * from job where id = ? 
+2017-05-18 11:43:30.011  INFO 7352 --- [pool-1-thread-2] c.simba.job.service.impl.JobServiceImpl  : 执行任务异常:Job [id=7, name=demo, description=demo, cronExpression=0/10 * * * * *, startTime=2017-05-18 11:10:00, endTime=, exeCount=20, maxExeCount=200, status=error, className=com.simba.DemoJob, methodName=execute, delayTime=0, intervalTime=0]
+
+java.lang.ClassNotFoundException: com.simba.DemoJob
+	at java.net.URLClassLoader.findClass(URLClassLoader.java:381) ~[na:1.8.0_73]
+	at java.lang.ClassLoader.loadClass(ClassLoader.java:424) ~[na:1.8.0_73]
+	at sun.misc.Launcher$AppClassLoader.loadClass(Launcher.java:331) ~[na:1.8.0_73]
+	at java.lang.ClassLoader.loadClass(ClassLoader.java:357) ~[na:1.8.0_73]
+	at java.lang.Class.forName0(Native Method) ~[na:1.8.0_73]
+	at java.lang.Class.forName(Class.java:264) ~[na:1.8.0_73]
+	at com.simba.framework.util.common.ReflectUtil.invokeObjectMethod(ReflectUtil.java:38) ~[classes/:na]
+	at com.simba.job.service.impl.JobServiceImpl.execute(JobServiceImpl.java:114) ~[classes/:na]
+	at com.simba.job.service.impl.JobServiceImpl$$FastClassBySpringCGLIB$$e7498b77.invoke(<generated>) [classes/:na]
+	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:204) [spring-core-4.3.8.RELEASE.jar:4.3.8.RELEASE]
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.invokeJoinpoint(CglibAopProxy.java:738) [spring-aop-4.3.8.RELEASE.jar:4.3.8.RELEASE]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:157) [spring-aop-4.3.8.RELEASE.jar:4.3.8.RELEASE]
+	at org.springframework.transaction.interceptor.TransactionInterceptor$1.proceedWithInvocation(TransactionInterceptor.java:99) [spring-tx-4.3.8.RELEASE.jar:4.3.8.RELEASE]
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:282) [spring-tx-4.3.8.RELEASE.jar:4.3.8.RELEASE]
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:96) [spring-tx-4.3.8.RELEASE.jar:4.3.8.RELEASE]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179) [spring-aop-4.3.8.RELEASE.jar:4.3.8.RELEASE]
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:673) [spring-aop-4.3.8.RELEASE.jar:4.3.8.RELEASE]
+	at com.simba.job.service.impl.JobServiceImpl$$EnhancerBySpringCGLIB$$3eedfc8b.execute(<generated>) [classes/:na]
+	at com.simba.util.ScheduleUtil.lambda$2(ScheduleUtil.java:151) [classes/:na]
+	at org.springframework.scheduling.support.DelegatingErrorHandlingRunnable.run(DelegatingErrorHandlingRunnable.java:54) ~[spring-context-4.3.8.RELEASE.jar:4.3.8.RELEASE]
+	at org.springframework.scheduling.concurrent.ReschedulingRunnable.run(ReschedulingRunnable.java:81) ~[spring-context-4.3.8.RELEASE.jar:4.3.8.RELEASE]
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511) ~[na:1.8.0_73]
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266) ~[na:1.8.0_73]
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.access$201(ScheduledThreadPoolExecutor.java:180) ~[na:1.8.0_73]
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:293) ~[na:1.8.0_73]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142) ~[na:1.8.0_73]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617) ~[na:1.8.0_73]
+	at java.lang.Thread.run(Thread.java:745) ~[na:1.8.0_73]
+
+2017-05-18 11:43:30.013  INFO 7352 --- [pool-1-thread-2] com.simba.framework.util.jdbc.Jdbc       : updatedCount:1 sql:update job set exeCount = exeCount + 1 where id = 7 
+2017-05-18 11:43:30.014  INFO 7352 --- [pool-1-thread-2] com.simba.framework.util.jdbc.Jdbc       : updatedCount:1 sql:update job set status = 'error' where id = 7 
+2017-05-18 11:43:40.002  INFO 7352 --- [pool-1-thread-1] com.simba.framework.util.jdbc.Jdbc       : sql:select * from job where id = ? 
+2017-05-18 11:43:40.004  INFO 7352 --- [pool-1-thread-1] c.simba.job.service.impl.JobServiceImpl  : 执行任务异常:Job [id=7, name=demo, description=demo, cronExpression=0/10 * * * * *, startTime=2017-05-18 11:10:00, endTime=, exeCount=21, maxExeCount=200, status=error, className=com.simba.DemoJob, methodName=execute, delayTime=0, intervalTime=0]
+
+java.lang.ClassNotFoundException: com.simba.DemoJob
+	at java.net.URLClassLoader.findClass(URLClassLoader.java:381) ~[na:1.8.0_73]
+	at java.lang.ClassLoader.loadClass(ClassLoader.java:424) ~[na:1.8.0_73]
+	at sun.misc.Launcher$AppClassLoader.loadClass(Launcher.java:331) ~[na:1.8.0_73]
+	at java.lang.ClassLoader.loadClass(ClassLoader.java:357) ~[na:1.8.0_73]
+	at java.lang.Class.forName0(Native Method) ~[na:1.8.0_73]
+	at java.lang.Class.forName(Class.java:264) ~[na:1.8.0_73]
+	at com.simba.framework.util.common.ReflectUtil.invokeObjectMethod(ReflectUtil.java:38) ~[classes/:na]
+	at com.simba.job.service.impl.JobServiceImpl.execute(JobServiceImpl.java:114) ~[classes/:na]
+	at com.simba.job.service.impl.JobServiceImpl$$FastClassBySpringCGLIB$$e7498b77.invoke(<generated>) [classes/:na]
+	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:204) [spring-core-4.3.8.RELEASE.jar:4.3.8.RELEASE]
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.invokeJoinpoint(CglibAopProxy.java:738) [spring-aop-4.3.8.RELEASE.jar:4.3.8.RELEASE]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:157) [spring-aop-4.3.8.RELEASE.jar:4.3.8.RELEASE]
+	at org.springframework.transaction.interceptor.TransactionInterceptor$1.proceedWithInvocation(TransactionInterceptor.java:99) [spring-tx-4.3.8.RELEASE.jar:4.3.8.RELEASE]
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:282) [spring-tx-4.3.8.RELEASE.jar:4.3.8.RELEASE]
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:96) [spring-tx-4.3.8.RELEASE.jar:4.3.8.RELEASE]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179) [spring-aop-4.3.8.RELEASE.jar:4.3.8.RELEASE]
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:673) [spring-aop-4.3.8.RELEASE.jar:4.3.8.RELEASE]
+	at com.simba.job.service.impl.JobServiceImpl$$EnhancerBySpringCGLIB$$3eedfc8b.execute(<generated>) [classes/:na]
+	at com.simba.util.ScheduleUtil.lambda$2(ScheduleUtil.java:151) [classes/:na]
+	at org.springframework.scheduling.support.DelegatingErrorHandlingRunnable.run(DelegatingErrorHandlingRunnable.java:54) ~[spring-context-4.3.8.RELEASE.jar:4.3.8.RELEASE]
+	at org.springframework.scheduling.concurrent.ReschedulingRunnable.run(ReschedulingRunnable.java:81) ~[spring-context-4.3.8.RELEASE.jar:4.3.8.RELEASE]
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511) ~[na:1.8.0_73]
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266) ~[na:1.8.0_73]
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.access$201(ScheduledThreadPoolExecutor.java:180) ~[na:1.8.0_73]
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:293) ~[na:1.8.0_73]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142) ~[na:1.8.0_73]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617) ~[na:1.8.0_73]
+	at java.lang.Thread.run(Thread.java:745) ~[na:1.8.0_73]
+
+2017-05-18 11:43:40.005  INFO 7352 --- [pool-1-thread-1] com.simba.framework.util.jdbc.Jdbc       : updatedCount:1 sql:update job set exeCount = exeCount + 1 where id = 7 
+2017-05-18 11:43:40.005  INFO 7352 --- [pool-1-thread-1] com.simba.framework.util.jdbc.Jdbc       : updatedCount:1 sql:update job set status = 'error' where id = 7 
+2017-05-18 11:43:50.002  INFO 7352 --- [pool-1-thread-3] com.simba.framework.util.jdbc.Jdbc       : sql:select * from job where id = ? 
+2017-05-18 11:43:50.026  INFO 7352 --- [pool-1-thread-3] c.simba.job.service.impl.JobServiceImpl  : 执行任务异常:Job [id=7, name=demo, description=demo, cronExpression=0/10 * * * * *, startTime=2017-05-18 11:10:00, endTime=, exeCount=22, maxExeCount=200, status=error, className=com.simba.DemoJob, methodName=execute, delayTime=0, intervalTime=0]
+
+java.lang.ClassNotFoundException: com.simba.DemoJob
+	at java.net.URLClassLoader.findClass(URLClassLoader.java:381) ~[na:1.8.0_73]
+	at java.lang.ClassLoader.loadClass(ClassLoader.java:424) ~[na:1.8.0_73]
+	at sun.misc.Launcher$AppClassLoader.loadClass(Launcher.java:331) ~[na:1.8.0_73]
+	at java.lang.ClassLoader.loadClass(ClassLoader.java:357) ~[na:1.8.0_73]
+	at java.lang.Class.forName0(Native Method) ~[na:1.8.0_73]
+	at java.lang.Class.forName(Class.java:264) ~[na:1.8.0_73]
+	at com.simba.framework.util.common.ReflectUtil.invokeObjectMethod(ReflectUtil.java:38) ~[classes/:na]
+	at com.simba.job.service.impl.JobServiceImpl.execute(JobServiceImpl.java:114) ~[classes/:na]
+	at com.simba.job.service.impl.JobServiceImpl$$FastClassBySpringCGLIB$$e7498b77.invoke(<generated>) [classes/:na]
+	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:204) [spring-core-4.3.8.RELEASE.jar:4.3.8.RELEASE]
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.invokeJoinpoint(CglibAopProxy.java:738) [spring-aop-4.3.8.RELEASE.jar:4.3.8.RELEASE]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:157) [spring-aop-4.3.8.RELEASE.jar:4.3.8.RELEASE]
+	at org.springframework.transaction.interceptor.TransactionInterceptor$1.proceedWithInvocation(TransactionInterceptor.java:99) [spring-tx-4.3.8.RELEASE.jar:4.3.8.RELEASE]
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:282) [spring-tx-4.3.8.RELEASE.jar:4.3.8.RELEASE]
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:96) [spring-tx-4.3.8.RELEASE.jar:4.3.8.RELEASE]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179) [spring-aop-4.3.8.RELEASE.jar:4.3.8.RELEASE]
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:673) [spring-aop-4.3.8.RELEASE.jar:4.3.8.RELEASE]
+	at com.simba.job.service.impl.JobServiceImpl$$EnhancerBySpringCGLIB$$3eedfc8b.execute(<generated>) [classes/:na]
+	at com.simba.util.ScheduleUtil.lambda$2(ScheduleUtil.java:151) [classes/:na]
+	at org.springframework.scheduling.support.DelegatingErrorHandlingRunnable.run(DelegatingErrorHandlingRunnable.java:54) ~[spring-context-4.3.8.RELEASE.jar:4.3.8.RELEASE]
+	at org.springframework.scheduling.concurrent.ReschedulingRunnable.run(ReschedulingRunnable.java:81) ~[spring-context-4.3.8.RELEASE.jar:4.3.8.RELEASE]
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511) ~[na:1.8.0_73]
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266) ~[na:1.8.0_73]
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.access$201(ScheduledThreadPoolExecutor.java:180) ~[na:1.8.0_73]
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:293) ~[na:1.8.0_73]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142) ~[na:1.8.0_73]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617) ~[na:1.8.0_73]
+	at java.lang.Thread.run(Thread.java:745) ~[na:1.8.0_73]
+
+2017-05-18 11:43:50.028  INFO 7352 --- [pool-1-thread-3] com.simba.framework.util.jdbc.Jdbc       : updatedCount:1 sql:update job set exeCount = exeCount + 1 where id = 7 
+2017-05-18 11:43:50.029  INFO 7352 --- [pool-1-thread-3] com.simba.framework.util.jdbc.Jdbc       : updatedCount:1 sql:update job set status = 'error' where id = 7 
+2017-05-18 11:44:00.002  INFO 7352 --- [pool-1-thread-2] com.simba.framework.util.jdbc.Jdbc       : sql:select * from job where id = ? 
+2017-05-18 11:44:00.005  INFO 7352 --- [pool-1-thread-2] c.simba.job.service.impl.JobServiceImpl  : 执行任务异常:Job [id=7, name=demo, description=demo, cronExpression=0/10 * * * * *, startTime=2017-05-18 11:10:00, endTime=, exeCount=23, maxExeCount=200, status=error, className=com.simba.DemoJob, methodName=execute, delayTime=0, intervalTime=0]
+
+java.lang.ClassNotFoundException: com.simba.DemoJob
+	at java.net.URLClassLoader.findClass(URLClassLoader.java:381) ~[na:1.8.0_73]
+	at java.lang.ClassLoader.loadClass(ClassLoader.java:424) ~[na:1.8.0_73]
+	at sun.misc.Launcher$AppClassLoader.loadClass(Launcher.java:331) ~[na:1.8.0_73]
+	at java.lang.ClassLoader.loadClass(ClassLoader.java:357) ~[na:1.8.0_73]
+	at java.lang.Class.forName0(Native Method) ~[na:1.8.0_73]
+	at java.lang.Class.forName(Class.java:264) ~[na:1.8.0_73]
+	at com.simba.framework.util.common.ReflectUtil.invokeObjectMethod(ReflectUtil.java:38) ~[classes/:na]
+	at com.simba.job.service.impl.JobServiceImpl.execute(JobServiceImpl.java:114) ~[classes/:na]
+	at com.simba.job.service.impl.JobServiceImpl$$FastClassBySpringCGLIB$$e7498b77.invoke(<generated>) [classes/:na]
+	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:204) [spring-core-4.3.8.RELEASE.jar:4.3.8.RELEASE]
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.invokeJoinpoint(CglibAopProxy.java:738) [spring-aop-4.3.8.RELEASE.jar:4.3.8.RELEASE]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:157) [spring-aop-4.3.8.RELEASE.jar:4.3.8.RELEASE]
+	at org.springframework.transaction.interceptor.TransactionInterceptor$1.proceedWithInvocation(TransactionInterceptor.java:99) [spring-tx-4.3.8.RELEASE.jar:4.3.8.RELEASE]
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:282) [spring-tx-4.3.8.RELEASE.jar:4.3.8.RELEASE]
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:96) [spring-tx-4.3.8.RELEASE.jar:4.3.8.RELEASE]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179) [spring-aop-4.3.8.RELEASE.jar:4.3.8.RELEASE]
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:673) [spring-aop-4.3.8.RELEASE.jar:4.3.8.RELEASE]
+	at com.simba.job.service.impl.JobServiceImpl$$EnhancerBySpringCGLIB$$3eedfc8b.execute(<generated>) [classes/:na]
+	at com.simba.util.ScheduleUtil.lambda$2(ScheduleUtil.java:151) [classes/:na]
+	at org.springframework.scheduling.support.DelegatingErrorHandlingRunnable.run(DelegatingErrorHandlingRunnable.java:54) ~[spring-context-4.3.8.RELEASE.jar:4.3.8.RELEASE]
+	at org.springframework.scheduling.concurrent.ReschedulingRunnable.run(ReschedulingRunnable.java:81) ~[spring-context-4.3.8.RELEASE.jar:4.3.8.RELEASE]
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511) ~[na:1.8.0_73]
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266) ~[na:1.8.0_73]
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.access$201(ScheduledThreadPoolExecutor.java:180) ~[na:1.8.0_73]
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:293) ~[na:1.8.0_73]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142) ~[na:1.8.0_73]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617) ~[na:1.8.0_73]
+	at java.lang.Thread.run(Thread.java:745) ~[na:1.8.0_73]
+
+2017-05-18 11:44:00.006  INFO 7352 --- [pool-1-thread-2] com.simba.framework.util.jdbc.Jdbc       : updatedCount:1 sql:update job set exeCount = exeCount + 1 where id = 7 
+2017-05-18 11:44:00.007  INFO 7352 --- [pool-1-thread-2] com.simba.framework.util.jdbc.Jdbc       : updatedCount:1 sql:update job set status = 'error' where id = 7 
+2017-05-18 11:44:10.002  INFO 7352 --- [pool-1-thread-2] com.simba.framework.util.jdbc.Jdbc       : sql:select * from job where id = ? 
+2017-05-18 11:44:10.007  INFO 7352 --- [pool-1-thread-2] c.simba.job.service.impl.JobServiceImpl  : 执行任务异常:Job [id=7, name=demo, description=demo, cronExpression=0/10 * * * * *, startTime=2017-05-18 11:10:00, endTime=, exeCount=24, maxExeCount=200, status=error, className=com.simba.DemoJob, methodName=execute, delayTime=0, intervalTime=0]
+
+java.lang.ClassNotFoundException: com.simba.DemoJob
+	at java.net.URLClassLoader.findClass(URLClassLoader.java:381) ~[na:1.8.0_73]
+	at java.lang.ClassLoader.loadClass(ClassLoader.java:424) ~[na:1.8.0_73]
+	at sun.misc.Launcher$AppClassLoader.loadClass(Launcher.java:331) ~[na:1.8.0_73]
+	at java.lang.ClassLoader.loadClass(ClassLoader.java:357) ~[na:1.8.0_73]
+	at java.lang.Class.forName0(Native Method) ~[na:1.8.0_73]
+	at java.lang.Class.forName(Class.java:264) ~[na:1.8.0_73]
+	at com.simba.framework.util.common.ReflectUtil.invokeObjectMethod(ReflectUtil.java:38) ~[classes/:na]
+	at com.simba.job.service.impl.JobServiceImpl.execute(JobServiceImpl.java:114) ~[classes/:na]
+	at com.simba.job.service.impl.JobServiceImpl$$FastClassBySpringCGLIB$$e7498b77.invoke(<generated>) [classes/:na]
+	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:204) [spring-core-4.3.8.RELEASE.jar:4.3.8.RELEASE]
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.invokeJoinpoint(CglibAopProxy.java:738) [spring-aop-4.3.8.RELEASE.jar:4.3.8.RELEASE]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:157) [spring-aop-4.3.8.RELEASE.jar:4.3.8.RELEASE]
+	at org.springframework.transaction.interceptor.TransactionInterceptor$1.proceedWithInvocation(TransactionInterceptor.java:99) [spring-tx-4.3.8.RELEASE.jar:4.3.8.RELEASE]
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:282) [spring-tx-4.3.8.RELEASE.jar:4.3.8.RELEASE]
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:96) [spring-tx-4.3.8.RELEASE.jar:4.3.8.RELEASE]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179) [spring-aop-4.3.8.RELEASE.jar:4.3.8.RELEASE]
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:673) [spring-aop-4.3.8.RELEASE.jar:4.3.8.RELEASE]
+	at com.simba.job.service.impl.JobServiceImpl$$EnhancerBySpringCGLIB$$3eedfc8b.execute(<generated>) [classes/:na]
+	at com.simba.util.ScheduleUtil.lambda$2(ScheduleUtil.java:151) [classes/:na]
+	at org.springframework.scheduling.support.DelegatingErrorHandlingRunnable.run(DelegatingErrorHandlingRunnable.java:54) ~[spring-context-4.3.8.RELEASE.jar:4.3.8.RELEASE]
+	at org.springframework.scheduling.concurrent.ReschedulingRunnable.run(ReschedulingRunnable.java:81) ~[spring-context-4.3.8.RELEASE.jar:4.3.8.RELEASE]
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511) ~[na:1.8.0_73]
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266) ~[na:1.8.0_73]
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.access$201(ScheduledThreadPoolExecutor.java:180) ~[na:1.8.0_73]
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:293) ~[na:1.8.0_73]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142) ~[na:1.8.0_73]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617) ~[na:1.8.0_73]
+	at java.lang.Thread.run(Thread.java:745) ~[na:1.8.0_73]
+
+2017-05-18 11:44:10.009  INFO 7352 --- [pool-1-thread-2] com.simba.framework.util.jdbc.Jdbc       : updatedCount:1 sql:update job set exeCount = exeCount + 1 where id = 7 
+2017-05-18 11:44:10.010  INFO 7352 --- [pool-1-thread-2] com.simba.framework.util.jdbc.Jdbc       : updatedCount:1 sql:update job set status = 'error' where id = 7 
+2017-05-18 11:44:20.002  INFO 7352 --- [pool-1-thread-1] com.simba.framework.util.jdbc.Jdbc       : sql:select * from job where id = ? 
+2017-05-18 11:44:20.005  INFO 7352 --- [pool-1-thread-1] c.simba.job.service.impl.JobServiceImpl  : 执行任务异常:Job [id=7, name=demo, description=demo, cronExpression=0/10 * * * * *, startTime=2017-05-18 11:10:00, endTime=, exeCount=25, maxExeCount=200, status=error, className=com.simba.DemoJob, methodName=execute, delayTime=0, intervalTime=0]
+
+java.lang.ClassNotFoundException: com.simba.DemoJob
+	at java.net.URLClassLoader.findClass(URLClassLoader.java:381) ~[na:1.8.0_73]
+	at java.lang.ClassLoader.loadClass(ClassLoader.java:424) ~[na:1.8.0_73]
+	at sun.misc.Launcher$AppClassLoader.loadClass(Launcher.java:331) ~[na:1.8.0_73]
+	at java.lang.ClassLoader.loadClass(ClassLoader.java:357) ~[na:1.8.0_73]
+	at java.lang.Class.forName0(Native Method) ~[na:1.8.0_73]
+	at java.lang.Class.forName(Class.java:264) ~[na:1.8.0_73]
+	at com.simba.framework.util.common.ReflectUtil.invokeObjectMethod(ReflectUtil.java:38) ~[classes/:na]
+	at com.simba.job.service.impl.JobServiceImpl.execute(JobServiceImpl.java:114) ~[classes/:na]
+	at com.simba.job.service.impl.JobServiceImpl$$FastClassBySpringCGLIB$$e7498b77.invoke(<generated>) [classes/:na]
+	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:204) [spring-core-4.3.8.RELEASE.jar:4.3.8.RELEASE]
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.invokeJoinpoint(CglibAopProxy.java:738) [spring-aop-4.3.8.RELEASE.jar:4.3.8.RELEASE]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:157) [spring-aop-4.3.8.RELEASE.jar:4.3.8.RELEASE]
+	at org.springframework.transaction.interceptor.TransactionInterceptor$1.proceedWithInvocation(TransactionInterceptor.java:99) [spring-tx-4.3.8.RELEASE.jar:4.3.8.RELEASE]
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:282) [spring-tx-4.3.8.RELEASE.jar:4.3.8.RELEASE]
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:96) [spring-tx-4.3.8.RELEASE.jar:4.3.8.RELEASE]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179) [spring-aop-4.3.8.RELEASE.jar:4.3.8.RELEASE]
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:673) [spring-aop-4.3.8.RELEASE.jar:4.3.8.RELEASE]
+	at com.simba.job.service.impl.JobServiceImpl$$EnhancerBySpringCGLIB$$3eedfc8b.execute(<generated>) [classes/:na]
+	at com.simba.util.ScheduleUtil.lambda$2(ScheduleUtil.java:151) [classes/:na]
+	at org.springframework.scheduling.support.DelegatingErrorHandlingRunnable.run(DelegatingErrorHandlingRunnable.java:54) ~[spring-context-4.3.8.RELEASE.jar:4.3.8.RELEASE]
+	at org.springframework.scheduling.concurrent.ReschedulingRunnable.run(ReschedulingRunnable.java:81) ~[spring-context-4.3.8.RELEASE.jar:4.3.8.RELEASE]
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511) ~[na:1.8.0_73]
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266) ~[na:1.8.0_73]
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.access$201(ScheduledThreadPoolExecutor.java:180) ~[na:1.8.0_73]
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:293) ~[na:1.8.0_73]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142) ~[na:1.8.0_73]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617) ~[na:1.8.0_73]
+	at java.lang.Thread.run(Thread.java:745) ~[na:1.8.0_73]
+
+2017-05-18 11:44:20.006  INFO 7352 --- [pool-1-thread-1] com.simba.framework.util.jdbc.Jdbc       : updatedCount:1 sql:update job set exeCount = exeCount + 1 where id = 7 
+2017-05-18 11:44:20.006  INFO 7352 --- [pool-1-thread-1] com.simba.framework.util.jdbc.Jdbc       : updatedCount:1 sql:update job set status = 'error' where id = 7 
+2017-05-18 11:44:27.430  INFO 7352 --- [http-nio-8888-exec-5] com.simba.framework.util.jdbc.Jdbc       : result:1 sql:select count(*) from job
+2017-05-18 11:44:27.430  INFO 7352 --- [http-nio-8888-exec-9] com.simba.framework.util.jdbc.Jdbc       : result:1 sql:SELECT COUNT(1) from job
+2017-05-18 11:44:27.431  INFO 7352 --- [http-nio-8888-exec-9] com.simba.framework.util.jdbc.Jdbc       : result size:1 sql:select * from job limit 0,10
+2017-05-18 11:44:30.002  INFO 7352 --- [pool-1-thread-5] com.simba.framework.util.jdbc.Jdbc       : sql:select * from job where id = ? 
+2017-05-18 11:44:30.005  INFO 7352 --- [pool-1-thread-5] c.simba.job.service.impl.JobServiceImpl  : 执行任务异常:Job [id=7, name=demo, description=demo, cronExpression=0/10 * * * * *, startTime=2017-05-18 11:10:00, endTime=, exeCount=26, maxExeCount=200, status=error, className=com.simba.DemoJob, methodName=execute, delayTime=0, intervalTime=0]
+
+java.lang.ClassNotFoundException: com.simba.DemoJob
+	at java.net.URLClassLoader.findClass(URLClassLoader.java:381) ~[na:1.8.0_73]
+	at java.lang.ClassLoader.loadClass(ClassLoader.java:424) ~[na:1.8.0_73]
+	at sun.misc.Launcher$AppClassLoader.loadClass(Launcher.java:331) ~[na:1.8.0_73]
+	at java.lang.ClassLoader.loadClass(ClassLoader.java:357) ~[na:1.8.0_73]
+	at java.lang.Class.forName0(Native Method) ~[na:1.8.0_73]
+	at java.lang.Class.forName(Class.java:264) ~[na:1.8.0_73]
+	at com.simba.framework.util.common.ReflectUtil.invokeObjectMethod(ReflectUtil.java:38) ~[classes/:na]
+	at com.simba.job.service.impl.JobServiceImpl.execute(JobServiceImpl.java:114) ~[classes/:na]
+	at com.simba.job.service.impl.JobServiceImpl$$FastClassBySpringCGLIB$$e7498b77.invoke(<generated>) [classes/:na]
+	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:204) [spring-core-4.3.8.RELEASE.jar:4.3.8.RELEASE]
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.invokeJoinpoint(CglibAopProxy.java:738) [spring-aop-4.3.8.RELEASE.jar:4.3.8.RELEASE]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:157) [spring-aop-4.3.8.RELEASE.jar:4.3.8.RELEASE]
+	at org.springframework.transaction.interceptor.TransactionInterceptor$1.proceedWithInvocation(TransactionInterceptor.java:99) [spring-tx-4.3.8.RELEASE.jar:4.3.8.RELEASE]
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:282) [spring-tx-4.3.8.RELEASE.jar:4.3.8.RELEASE]
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:96) [spring-tx-4.3.8.RELEASE.jar:4.3.8.RELEASE]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179) [spring-aop-4.3.8.RELEASE.jar:4.3.8.RELEASE]
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:673) [spring-aop-4.3.8.RELEASE.jar:4.3.8.RELEASE]
+	at com.simba.job.service.impl.JobServiceImpl$$EnhancerBySpringCGLIB$$3eedfc8b.execute(<generated>) [classes/:na]
+	at com.simba.util.ScheduleUtil.lambda$2(ScheduleUtil.java:151) [classes/:na]
+	at org.springframework.scheduling.support.DelegatingErrorHandlingRunnable.run(DelegatingErrorHandlingRunnable.java:54) ~[spring-context-4.3.8.RELEASE.jar:4.3.8.RELEASE]
+	at org.springframework.scheduling.concurrent.ReschedulingRunnable.run(ReschedulingRunnable.java:81) ~[spring-context-4.3.8.RELEASE.jar:4.3.8.RELEASE]
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511) ~[na:1.8.0_73]
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266) ~[na:1.8.0_73]
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.access$201(ScheduledThreadPoolExecutor.java:180) ~[na:1.8.0_73]
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:293) ~[na:1.8.0_73]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142) ~[na:1.8.0_73]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617) ~[na:1.8.0_73]
+	at java.lang.Thread.run(Thread.java:745) ~[na:1.8.0_73]
+
+2017-05-18 11:44:30.006  INFO 7352 --- [pool-1-thread-5] com.simba.framework.util.jdbc.Jdbc       : updatedCount:1 sql:update job set exeCount = exeCount + 1 where id = 7 
+2017-05-18 11:44:30.006  INFO 7352 --- [pool-1-thread-5] com.simba.framework.util.jdbc.Jdbc       : updatedCount:1 sql:update job set status = 'error' where id = 7 
+2017-05-18 11:44:40.001  INFO 7352 --- [pool-1-thread-3] com.simba.framework.util.jdbc.Jdbc       : sql:select * from job where id = ? 
+2017-05-18 11:44:40.004  INFO 7352 --- [pool-1-thread-3] c.simba.job.service.impl.JobServiceImpl  : 执行任务异常:Job [id=7, name=demo, description=demo, cronExpression=0/10 * * * * *, startTime=2017-05-18 11:10:00, endTime=, exeCount=27, maxExeCount=200, status=error, className=com.simba.DemoJob, methodName=execute, delayTime=0, intervalTime=0]
+
+java.lang.ClassNotFoundException: com.simba.DemoJob
+	at java.net.URLClassLoader.findClass(URLClassLoader.java:381) ~[na:1.8.0_73]
+	at java.lang.ClassLoader.loadClass(ClassLoader.java:424) ~[na:1.8.0_73]
+	at sun.misc.Launcher$AppClassLoader.loadClass(Launcher.java:331) ~[na:1.8.0_73]
+	at java.lang.ClassLoader.loadClass(ClassLoader.java:357) ~[na:1.8.0_73]
+	at java.lang.Class.forName0(Native Method) ~[na:1.8.0_73]
+	at java.lang.Class.forName(Class.java:264) ~[na:1.8.0_73]
+	at com.simba.framework.util.common.ReflectUtil.invokeObjectMethod(ReflectUtil.java:38) ~[classes/:na]
+	at com.simba.job.service.impl.JobServiceImpl.execute(JobServiceImpl.java:114) ~[classes/:na]
+	at com.simba.job.service.impl.JobServiceImpl$$FastClassBySpringCGLIB$$e7498b77.invoke(<generated>) [classes/:na]
+	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:204) [spring-core-4.3.8.RELEASE.jar:4.3.8.RELEASE]
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.invokeJoinpoint(CglibAopProxy.java:738) [spring-aop-4.3.8.RELEASE.jar:4.3.8.RELEASE]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:157) [spring-aop-4.3.8.RELEASE.jar:4.3.8.RELEASE]
+	at org.springframework.transaction.interceptor.TransactionInterceptor$1.proceedWithInvocation(TransactionInterceptor.java:99) [spring-tx-4.3.8.RELEASE.jar:4.3.8.RELEASE]
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:282) [spring-tx-4.3.8.RELEASE.jar:4.3.8.RELEASE]
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:96) [spring-tx-4.3.8.RELEASE.jar:4.3.8.RELEASE]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179) [spring-aop-4.3.8.RELEASE.jar:4.3.8.RELEASE]
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:673) [spring-aop-4.3.8.RELEASE.jar:4.3.8.RELEASE]
+	at com.simba.job.service.impl.JobServiceImpl$$EnhancerBySpringCGLIB$$3eedfc8b.execute(<generated>) [classes/:na]
+	at com.simba.util.ScheduleUtil.lambda$2(ScheduleUtil.java:151) [classes/:na]
+	at org.springframework.scheduling.support.DelegatingErrorHandlingRunnable.run(DelegatingErrorHandlingRunnable.java:54) ~[spring-context-4.3.8.RELEASE.jar:4.3.8.RELEASE]
+	at org.springframework.scheduling.concurrent.ReschedulingRunnable.run(ReschedulingRunnable.java:81) ~[spring-context-4.3.8.RELEASE.jar:4.3.8.RELEASE]
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511) ~[na:1.8.0_73]
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266) ~[na:1.8.0_73]
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.access$201(ScheduledThreadPoolExecutor.java:180) ~[na:1.8.0_73]
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:293) ~[na:1.8.0_73]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142) ~[na:1.8.0_73]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617) ~[na:1.8.0_73]
+	at java.lang.Thread.run(Thread.java:745) ~[na:1.8.0_73]
+
+2017-05-18 11:44:40.004  INFO 7352 --- [pool-1-thread-3] com.simba.framework.util.jdbc.Jdbc       : updatedCount:1 sql:update job set exeCount = exeCount + 1 where id = 7 
+2017-05-18 11:44:40.005  INFO 7352 --- [pool-1-thread-3] com.simba.framework.util.jdbc.Jdbc       : updatedCount:1 sql:update job set status = 'error' where id = 7 
+2017-05-18 11:44:50.002  INFO 7352 --- [pool-1-thread-6] com.simba.framework.util.jdbc.Jdbc       : sql:select * from job where id = ? 
+2017-05-18 11:44:50.004  INFO 7352 --- [pool-1-thread-6] c.simba.job.service.impl.JobServiceImpl  : 执行任务异常:Job [id=7, name=demo, description=demo, cronExpression=0/10 * * * * *, startTime=2017-05-18 11:10:00, endTime=, exeCount=28, maxExeCount=200, status=error, className=com.simba.DemoJob, methodName=execute, delayTime=0, intervalTime=0]
+
+java.lang.ClassNotFoundException: com.simba.DemoJob
+	at java.net.URLClassLoader.findClass(URLClassLoader.java:381) ~[na:1.8.0_73]
+	at java.lang.ClassLoader.loadClass(ClassLoader.java:424) ~[na:1.8.0_73]
+	at sun.misc.Launcher$AppClassLoader.loadClass(Launcher.java:331) ~[na:1.8.0_73]
+	at java.lang.ClassLoader.loadClass(ClassLoader.java:357) ~[na:1.8.0_73]
+	at java.lang.Class.forName0(Native Method) ~[na:1.8.0_73]
+	at java.lang.Class.forName(Class.java:264) ~[na:1.8.0_73]
+	at com.simba.framework.util.common.ReflectUtil.invokeObjectMethod(ReflectUtil.java:38) ~[classes/:na]
+	at com.simba.job.service.impl.JobServiceImpl.execute(JobServiceImpl.java:114) ~[classes/:na]
+	at com.simba.job.service.impl.JobServiceImpl$$FastClassBySpringCGLIB$$e7498b77.invoke(<generated>) [classes/:na]
+	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:204) [spring-core-4.3.8.RELEASE.jar:4.3.8.RELEASE]
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.invokeJoinpoint(CglibAopProxy.java:738) [spring-aop-4.3.8.RELEASE.jar:4.3.8.RELEASE]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:157) [spring-aop-4.3.8.RELEASE.jar:4.3.8.RELEASE]
+	at org.springframework.transaction.interceptor.TransactionInterceptor$1.proceedWithInvocation(TransactionInterceptor.java:99) [spring-tx-4.3.8.RELEASE.jar:4.3.8.RELEASE]
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:282) [spring-tx-4.3.8.RELEASE.jar:4.3.8.RELEASE]
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:96) [spring-tx-4.3.8.RELEASE.jar:4.3.8.RELEASE]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179) [spring-aop-4.3.8.RELEASE.jar:4.3.8.RELEASE]
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:673) [spring-aop-4.3.8.RELEASE.jar:4.3.8.RELEASE]
+	at com.simba.job.service.impl.JobServiceImpl$$EnhancerBySpringCGLIB$$3eedfc8b.execute(<generated>) [classes/:na]
+	at com.simba.util.ScheduleUtil.lambda$2(ScheduleUtil.java:151) [classes/:na]
+	at org.springframework.scheduling.support.DelegatingErrorHandlingRunnable.run(DelegatingErrorHandlingRunnable.java:54) ~[spring-context-4.3.8.RELEASE.jar:4.3.8.RELEASE]
+	at org.springframework.scheduling.concurrent.ReschedulingRunnable.run(ReschedulingRunnable.java:81) ~[spring-context-4.3.8.RELEASE.jar:4.3.8.RELEASE]
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511) ~[na:1.8.0_73]
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266) ~[na:1.8.0_73]
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.access$201(ScheduledThreadPoolExecutor.java:180) ~[na:1.8.0_73]
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:293) ~[na:1.8.0_73]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142) ~[na:1.8.0_73]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617) ~[na:1.8.0_73]
+	at java.lang.Thread.run(Thread.java:745) ~[na:1.8.0_73]
+
+2017-05-18 11:44:50.005  INFO 7352 --- [pool-1-thread-6] com.simba.framework.util.jdbc.Jdbc       : updatedCount:1 sql:update job set exeCount = exeCount + 1 where id = 7 
+2017-05-18 11:44:50.006  INFO 7352 --- [pool-1-thread-6] com.simba.framework.util.jdbc.Jdbc       : updatedCount:1 sql:update job set status = 'error' where id = 7 
+2017-05-18 11:45:00.002  INFO 7352 --- [pool-1-thread-4] com.simba.framework.util.jdbc.Jdbc       : sql:select * from job where id = ? 
+2017-05-18 11:45:00.006  INFO 7352 --- [pool-1-thread-4] c.simba.job.service.impl.JobServiceImpl  : 执行任务异常:Job [id=7, name=demo, description=demo, cronExpression=0/10 * * * * *, startTime=2017-05-18 11:10:00, endTime=, exeCount=29, maxExeCount=200, status=error, className=com.simba.DemoJob, methodName=execute, delayTime=0, intervalTime=0]
+
+java.lang.ClassNotFoundException: com.simba.DemoJob
+	at java.net.URLClassLoader.findClass(URLClassLoader.java:381) ~[na:1.8.0_73]
+	at java.lang.ClassLoader.loadClass(ClassLoader.java:424) ~[na:1.8.0_73]
+	at sun.misc.Launcher$AppClassLoader.loadClass(Launcher.java:331) ~[na:1.8.0_73]
+	at java.lang.ClassLoader.loadClass(ClassLoader.java:357) ~[na:1.8.0_73]
+	at java.lang.Class.forName0(Native Method) ~[na:1.8.0_73]
+	at java.lang.Class.forName(Class.java:264) ~[na:1.8.0_73]
+	at com.simba.framework.util.common.ReflectUtil.invokeObjectMethod(ReflectUtil.java:38) ~[classes/:na]
+	at com.simba.job.service.impl.JobServiceImpl.execute(JobServiceImpl.java:114) ~[classes/:na]
+	at com.simba.job.service.impl.JobServiceImpl$$FastClassBySpringCGLIB$$e7498b77.invoke(<generated>) [classes/:na]
+	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:204) [spring-core-4.3.8.RELEASE.jar:4.3.8.RELEASE]
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.invokeJoinpoint(CglibAopProxy.java:738) [spring-aop-4.3.8.RELEASE.jar:4.3.8.RELEASE]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:157) [spring-aop-4.3.8.RELEASE.jar:4.3.8.RELEASE]
+	at org.springframework.transaction.interceptor.TransactionInterceptor$1.proceedWithInvocation(TransactionInterceptor.java:99) [spring-tx-4.3.8.RELEASE.jar:4.3.8.RELEASE]
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:282) [spring-tx-4.3.8.RELEASE.jar:4.3.8.RELEASE]
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:96) [spring-tx-4.3.8.RELEASE.jar:4.3.8.RELEASE]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179) [spring-aop-4.3.8.RELEASE.jar:4.3.8.RELEASE]
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:673) [spring-aop-4.3.8.RELEASE.jar:4.3.8.RELEASE]
+	at com.simba.job.service.impl.JobServiceImpl$$EnhancerBySpringCGLIB$$3eedfc8b.execute(<generated>) [classes/:na]
+	at com.simba.util.ScheduleUtil.lambda$2(ScheduleUtil.java:151) [classes/:na]
+	at org.springframework.scheduling.support.DelegatingErrorHandlingRunnable.run(DelegatingErrorHandlingRunnable.java:54) ~[spring-context-4.3.8.RELEASE.jar:4.3.8.RELEASE]
+	at org.springframework.scheduling.concurrent.ReschedulingRunnable.run(ReschedulingRunnable.java:81) ~[spring-context-4.3.8.RELEASE.jar:4.3.8.RELEASE]
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511) ~[na:1.8.0_73]
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266) ~[na:1.8.0_73]
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.access$201(ScheduledThreadPoolExecutor.java:180) ~[na:1.8.0_73]
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:293) ~[na:1.8.0_73]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142) ~[na:1.8.0_73]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617) ~[na:1.8.0_73]
+	at java.lang.Thread.run(Thread.java:745) ~[na:1.8.0_73]
+
+2017-05-18 11:45:00.007  INFO 7352 --- [pool-1-thread-4] com.simba.framework.util.jdbc.Jdbc       : updatedCount:1 sql:update job set exeCount = exeCount + 1 where id = 7 
+2017-05-18 11:45:00.008  INFO 7352 --- [pool-1-thread-4] com.simba.framework.util.jdbc.Jdbc       : updatedCount:1 sql:update job set status = 'error' where id = 7 
+2017-05-18 11:45:10.002  INFO 7352 --- [pool-1-thread-7] com.simba.framework.util.jdbc.Jdbc       : sql:select * from job where id = ? 
+2017-05-18 11:45:10.005  INFO 7352 --- [pool-1-thread-7] c.simba.job.service.impl.JobServiceImpl  : 执行任务异常:Job [id=7, name=demo, description=demo, cronExpression=0/10 * * * * *, startTime=2017-05-18 11:10:00, endTime=, exeCount=30, maxExeCount=200, status=error, className=com.simba.DemoJob, methodName=execute, delayTime=0, intervalTime=0]
+
+java.lang.ClassNotFoundException: com.simba.DemoJob
+	at java.net.URLClassLoader.findClass(URLClassLoader.java:381) ~[na:1.8.0_73]
+	at java.lang.ClassLoader.loadClass(ClassLoader.java:424) ~[na:1.8.0_73]
+	at sun.misc.Launcher$AppClassLoader.loadClass(Launcher.java:331) ~[na:1.8.0_73]
+	at java.lang.ClassLoader.loadClass(ClassLoader.java:357) ~[na:1.8.0_73]
+	at java.lang.Class.forName0(Native Method) ~[na:1.8.0_73]
+	at java.lang.Class.forName(Class.java:264) ~[na:1.8.0_73]
+	at com.simba.framework.util.common.ReflectUtil.invokeObjectMethod(ReflectUtil.java:38) ~[classes/:na]
+	at com.simba.job.service.impl.JobServiceImpl.execute(JobServiceImpl.java:114) ~[classes/:na]
+	at com.simba.job.service.impl.JobServiceImpl$$FastClassBySpringCGLIB$$e7498b77.invoke(<generated>) [classes/:na]
+	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:204) [spring-core-4.3.8.RELEASE.jar:4.3.8.RELEASE]
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.invokeJoinpoint(CglibAopProxy.java:738) [spring-aop-4.3.8.RELEASE.jar:4.3.8.RELEASE]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:157) [spring-aop-4.3.8.RELEASE.jar:4.3.8.RELEASE]
+	at org.springframework.transaction.interceptor.TransactionInterceptor$1.proceedWithInvocation(TransactionInterceptor.java:99) [spring-tx-4.3.8.RELEASE.jar:4.3.8.RELEASE]
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:282) [spring-tx-4.3.8.RELEASE.jar:4.3.8.RELEASE]
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:96) [spring-tx-4.3.8.RELEASE.jar:4.3.8.RELEASE]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179) [spring-aop-4.3.8.RELEASE.jar:4.3.8.RELEASE]
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:673) [spring-aop-4.3.8.RELEASE.jar:4.3.8.RELEASE]
+	at com.simba.job.service.impl.JobServiceImpl$$EnhancerBySpringCGLIB$$3eedfc8b.execute(<generated>) [classes/:na]
+	at com.simba.util.ScheduleUtil.lambda$2(ScheduleUtil.java:151) [classes/:na]
+	at org.springframework.scheduling.support.DelegatingErrorHandlingRunnable.run(DelegatingErrorHandlingRunnable.java:54) ~[spring-context-4.3.8.RELEASE.jar:4.3.8.RELEASE]
+	at org.springframework.scheduling.concurrent.ReschedulingRunnable.run(ReschedulingRunnable.java:81) ~[spring-context-4.3.8.RELEASE.jar:4.3.8.RELEASE]
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511) ~[na:1.8.0_73]
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266) ~[na:1.8.0_73]
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.access$201(ScheduledThreadPoolExecutor.java:180) ~[na:1.8.0_73]
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:293) ~[na:1.8.0_73]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142) ~[na:1.8.0_73]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617) ~[na:1.8.0_73]
+	at java.lang.Thread.run(Thread.java:745) ~[na:1.8.0_73]
+
+2017-05-18 11:45:10.006  INFO 7352 --- [pool-1-thread-7] com.simba.framework.util.jdbc.Jdbc       : updatedCount:1 sql:update job set exeCount = exeCount + 1 where id = 7 
+2017-05-18 11:45:10.007  INFO 7352 --- [pool-1-thread-7] com.simba.framework.util.jdbc.Jdbc       : updatedCount:1 sql:update job set status = 'error' where id = 7 
+2017-05-18 11:45:20.002  INFO 7352 --- [pool-1-thread-2] com.simba.framework.util.jdbc.Jdbc       : sql:select * from job where id = ? 
+2017-05-18 11:45:20.006  INFO 7352 --- [pool-1-thread-2] c.simba.job.service.impl.JobServiceImpl  : 执行任务异常:Job [id=7, name=demo, description=demo, cronExpression=0/10 * * * * *, startTime=2017-05-18 11:10:00, endTime=, exeCount=31, maxExeCount=200, status=error, className=com.simba.DemoJob, methodName=execute, delayTime=0, intervalTime=0]
+
+java.lang.ClassNotFoundException: com.simba.DemoJob
+	at java.net.URLClassLoader.findClass(URLClassLoader.java:381) ~[na:1.8.0_73]
+	at java.lang.ClassLoader.loadClass(ClassLoader.java:424) ~[na:1.8.0_73]
+	at sun.misc.Launcher$AppClassLoader.loadClass(Launcher.java:331) ~[na:1.8.0_73]
+	at java.lang.ClassLoader.loadClass(ClassLoader.java:357) ~[na:1.8.0_73]
+	at java.lang.Class.forName0(Native Method) ~[na:1.8.0_73]
+	at java.lang.Class.forName(Class.java:264) ~[na:1.8.0_73]
+	at com.simba.framework.util.common.ReflectUtil.invokeObjectMethod(ReflectUtil.java:38) ~[classes/:na]
+	at com.simba.job.service.impl.JobServiceImpl.execute(JobServiceImpl.java:114) ~[classes/:na]
+	at com.simba.job.service.impl.JobServiceImpl$$FastClassBySpringCGLIB$$e7498b77.invoke(<generated>) [classes/:na]
+	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:204) [spring-core-4.3.8.RELEASE.jar:4.3.8.RELEASE]
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.invokeJoinpoint(CglibAopProxy.java:738) [spring-aop-4.3.8.RELEASE.jar:4.3.8.RELEASE]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:157) [spring-aop-4.3.8.RELEASE.jar:4.3.8.RELEASE]
+	at org.springframework.transaction.interceptor.TransactionInterceptor$1.proceedWithInvocation(TransactionInterceptor.java:99) [spring-tx-4.3.8.RELEASE.jar:4.3.8.RELEASE]
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:282) [spring-tx-4.3.8.RELEASE.jar:4.3.8.RELEASE]
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:96) [spring-tx-4.3.8.RELEASE.jar:4.3.8.RELEASE]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179) [spring-aop-4.3.8.RELEASE.jar:4.3.8.RELEASE]
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:673) [spring-aop-4.3.8.RELEASE.jar:4.3.8.RELEASE]
+	at com.simba.job.service.impl.JobServiceImpl$$EnhancerBySpringCGLIB$$3eedfc8b.execute(<generated>) [classes/:na]
+	at com.simba.util.ScheduleUtil.lambda$2(ScheduleUtil.java:151) [classes/:na]
+	at org.springframework.scheduling.support.DelegatingErrorHandlingRunnable.run(DelegatingErrorHandlingRunnable.java:54) ~[spring-context-4.3.8.RELEASE.jar:4.3.8.RELEASE]
+	at org.springframework.scheduling.concurrent.ReschedulingRunnable.run(ReschedulingRunnable.java:81) ~[spring-context-4.3.8.RELEASE.jar:4.3.8.RELEASE]
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511) ~[na:1.8.0_73]
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266) ~[na:1.8.0_73]
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.access$201(ScheduledThreadPoolExecutor.java:180) ~[na:1.8.0_73]
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:293) ~[na:1.8.0_73]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142) ~[na:1.8.0_73]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617) ~[na:1.8.0_73]
+	at java.lang.Thread.run(Thread.java:745) ~[na:1.8.0_73]
+
+2017-05-18 11:45:20.008  INFO 7352 --- [pool-1-thread-2] com.simba.framework.util.jdbc.Jdbc       : updatedCount:1 sql:update job set exeCount = exeCount + 1 where id = 7 
+2017-05-18 11:45:20.009  INFO 7352 --- [pool-1-thread-2] com.simba.framework.util.jdbc.Jdbc       : updatedCount:1 sql:update job set status = 'error' where id = 7 
+2017-05-18 11:45:30.001  INFO 7352 --- [pool-1-thread-8] com.simba.framework.util.jdbc.Jdbc       : sql:select * from job where id = ? 
+2017-05-18 11:45:30.007  INFO 7352 --- [pool-1-thread-8] c.simba.job.service.impl.JobServiceImpl  : 执行任务异常:Job [id=7, name=demo, description=demo, cronExpression=0/10 * * * * *, startTime=2017-05-18 11:10:00, endTime=, exeCount=32, maxExeCount=200, status=error, className=com.simba.DemoJob, methodName=execute, delayTime=0, intervalTime=0]
+
+java.lang.ClassNotFoundException: com.simba.DemoJob
+	at java.net.URLClassLoader.findClass(URLClassLoader.java:381) ~[na:1.8.0_73]
+	at java.lang.ClassLoader.loadClass(ClassLoader.java:424) ~[na:1.8.0_73]
+	at sun.misc.Launcher$AppClassLoader.loadClass(Launcher.java:331) ~[na:1.8.0_73]
+	at java.lang.ClassLoader.loadClass(ClassLoader.java:357) ~[na:1.8.0_73]
+	at java.lang.Class.forName0(Native Method) ~[na:1.8.0_73]
+	at java.lang.Class.forName(Class.java:264) ~[na:1.8.0_73]
+	at com.simba.framework.util.common.ReflectUtil.invokeObjectMethod(ReflectUtil.java:38) ~[classes/:na]
+	at com.simba.job.service.impl.JobServiceImpl.execute(JobServiceImpl.java:114) ~[classes/:na]
+	at com.simba.job.service.impl.JobServiceImpl$$FastClassBySpringCGLIB$$e7498b77.invoke(<generated>) [classes/:na]
+	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:204) [spring-core-4.3.8.RELEASE.jar:4.3.8.RELEASE]
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.invokeJoinpoint(CglibAopProxy.java:738) [spring-aop-4.3.8.RELEASE.jar:4.3.8.RELEASE]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:157) [spring-aop-4.3.8.RELEASE.jar:4.3.8.RELEASE]
+	at org.springframework.transaction.interceptor.TransactionInterceptor$1.proceedWithInvocation(TransactionInterceptor.java:99) [spring-tx-4.3.8.RELEASE.jar:4.3.8.RELEASE]
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:282) [spring-tx-4.3.8.RELEASE.jar:4.3.8.RELEASE]
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:96) [spring-tx-4.3.8.RELEASE.jar:4.3.8.RELEASE]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179) [spring-aop-4.3.8.RELEASE.jar:4.3.8.RELEASE]
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:673) [spring-aop-4.3.8.RELEASE.jar:4.3.8.RELEASE]
+	at com.simba.job.service.impl.JobServiceImpl$$EnhancerBySpringCGLIB$$3eedfc8b.execute(<generated>) [classes/:na]
+	at com.simba.util.ScheduleUtil.lambda$2(ScheduleUtil.java:151) [classes/:na]
+	at org.springframework.scheduling.support.DelegatingErrorHandlingRunnable.run(DelegatingErrorHandlingRunnable.java:54) ~[spring-context-4.3.8.RELEASE.jar:4.3.8.RELEASE]
+	at org.springframework.scheduling.concurrent.ReschedulingRunnable.run(ReschedulingRunnable.java:81) ~[spring-context-4.3.8.RELEASE.jar:4.3.8.RELEASE]
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511) ~[na:1.8.0_73]
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266) ~[na:1.8.0_73]
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.access$201(ScheduledThreadPoolExecutor.java:180) ~[na:1.8.0_73]
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:293) ~[na:1.8.0_73]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142) ~[na:1.8.0_73]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617) ~[na:1.8.0_73]
+	at java.lang.Thread.run(Thread.java:745) ~[na:1.8.0_73]
+
+2017-05-18 11:45:30.009  INFO 7352 --- [pool-1-thread-8] com.simba.framework.util.jdbc.Jdbc       : updatedCount:1 sql:update job set exeCount = exeCount + 1 where id = 7 
+2017-05-18 11:45:30.009  INFO 7352 --- [pool-1-thread-8] com.simba.framework.util.jdbc.Jdbc       : updatedCount:1 sql:update job set status = 'error' where id = 7 
+2017-05-18 11:45:40.002  INFO 7352 --- [pool-1-thread-1] com.simba.framework.util.jdbc.Jdbc       : sql:select * from job where id = ? 
+2017-05-18 11:45:40.006  INFO 7352 --- [pool-1-thread-1] c.simba.job.service.impl.JobServiceImpl  : 执行任务异常:Job [id=7, name=demo, description=demo, cronExpression=0/10 * * * * *, startTime=2017-05-18 11:10:00, endTime=, exeCount=33, maxExeCount=200, status=error, className=com.simba.DemoJob, methodName=execute, delayTime=0, intervalTime=0]
+
+java.lang.ClassNotFoundException: com.simba.DemoJob
+	at java.net.URLClassLoader.findClass(URLClassLoader.java:381) ~[na:1.8.0_73]
+	at java.lang.ClassLoader.loadClass(ClassLoader.java:424) ~[na:1.8.0_73]
+	at sun.misc.Launcher$AppClassLoader.loadClass(Launcher.java:331) ~[na:1.8.0_73]
+	at java.lang.ClassLoader.loadClass(ClassLoader.java:357) ~[na:1.8.0_73]
+	at java.lang.Class.forName0(Native Method) ~[na:1.8.0_73]
+	at java.lang.Class.forName(Class.java:264) ~[na:1.8.0_73]
+	at com.simba.framework.util.common.ReflectUtil.invokeObjectMethod(ReflectUtil.java:38) ~[classes/:na]
+	at com.simba.job.service.impl.JobServiceImpl.execute(JobServiceImpl.java:114) ~[classes/:na]
+	at com.simba.job.service.impl.JobServiceImpl$$FastClassBySpringCGLIB$$e7498b77.invoke(<generated>) [classes/:na]
+	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:204) [spring-core-4.3.8.RELEASE.jar:4.3.8.RELEASE]
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.invokeJoinpoint(CglibAopProxy.java:738) [spring-aop-4.3.8.RELEASE.jar:4.3.8.RELEASE]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:157) [spring-aop-4.3.8.RELEASE.jar:4.3.8.RELEASE]
+	at org.springframework.transaction.interceptor.TransactionInterceptor$1.proceedWithInvocation(TransactionInterceptor.java:99) [spring-tx-4.3.8.RELEASE.jar:4.3.8.RELEASE]
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:282) [spring-tx-4.3.8.RELEASE.jar:4.3.8.RELEASE]
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:96) [spring-tx-4.3.8.RELEASE.jar:4.3.8.RELEASE]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179) [spring-aop-4.3.8.RELEASE.jar:4.3.8.RELEASE]
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:673) [spring-aop-4.3.8.RELEASE.jar:4.3.8.RELEASE]
+	at com.simba.job.service.impl.JobServiceImpl$$EnhancerBySpringCGLIB$$3eedfc8b.execute(<generated>) [classes/:na]
+	at com.simba.util.ScheduleUtil.lambda$2(ScheduleUtil.java:151) [classes/:na]
+	at org.springframework.scheduling.support.DelegatingErrorHandlingRunnable.run(DelegatingErrorHandlingRunnable.java:54) ~[spring-context-4.3.8.RELEASE.jar:4.3.8.RELEASE]
+	at org.springframework.scheduling.concurrent.ReschedulingRunnable.run(ReschedulingRunnable.java:81) ~[spring-context-4.3.8.RELEASE.jar:4.3.8.RELEASE]
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511) ~[na:1.8.0_73]
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266) ~[na:1.8.0_73]
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.access$201(ScheduledThreadPoolExecutor.java:180) ~[na:1.8.0_73]
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:293) ~[na:1.8.0_73]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142) ~[na:1.8.0_73]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617) ~[na:1.8.0_73]
+	at java.lang.Thread.run(Thread.java:745) ~[na:1.8.0_73]
+
+2017-05-18 11:45:40.008  INFO 7352 --- [pool-1-thread-1] com.simba.framework.util.jdbc.Jdbc       : updatedCount:1 sql:update job set exeCount = exeCount + 1 where id = 7 
+2017-05-18 11:45:40.009  INFO 7352 --- [pool-1-thread-1] com.simba.framework.util.jdbc.Jdbc       : updatedCount:1 sql:update job set status = 'error' where id = 7 
+2017-05-18 11:45:50.002  INFO 7352 --- [pool-1-thread-9] com.simba.framework.util.jdbc.Jdbc       : sql:select * from job where id = ? 
+2017-05-18 11:45:50.006  INFO 7352 --- [pool-1-thread-9] c.simba.job.service.impl.JobServiceImpl  : 执行任务异常:Job [id=7, name=demo, description=demo, cronExpression=0/10 * * * * *, startTime=2017-05-18 11:10:00, endTime=, exeCount=34, maxExeCount=200, status=error, className=com.simba.DemoJob, methodName=execute, delayTime=0, intervalTime=0]
+
+java.lang.ClassNotFoundException: com.simba.DemoJob
+	at java.net.URLClassLoader.findClass(URLClassLoader.java:381) ~[na:1.8.0_73]
+	at java.lang.ClassLoader.loadClass(ClassLoader.java:424) ~[na:1.8.0_73]
+	at sun.misc.Launcher$AppClassLoader.loadClass(Launcher.java:331) ~[na:1.8.0_73]
+	at java.lang.ClassLoader.loadClass(ClassLoader.java:357) ~[na:1.8.0_73]
+	at java.lang.Class.forName0(Native Method) ~[na:1.8.0_73]
+	at java.lang.Class.forName(Class.java:264) ~[na:1.8.0_73]
+	at com.simba.framework.util.common.ReflectUtil.invokeObjectMethod(ReflectUtil.java:38) ~[classes/:na]
+	at com.simba.job.service.impl.JobServiceImpl.execute(JobServiceImpl.java:114) ~[classes/:na]
+	at com.simba.job.service.impl.JobServiceImpl$$FastClassBySpringCGLIB$$e7498b77.invoke(<generated>) [classes/:na]
+	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:204) [spring-core-4.3.8.RELEASE.jar:4.3.8.RELEASE]
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.invokeJoinpoint(CglibAopProxy.java:738) [spring-aop-4.3.8.RELEASE.jar:4.3.8.RELEASE]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:157) [spring-aop-4.3.8.RELEASE.jar:4.3.8.RELEASE]
+	at org.springframework.transaction.interceptor.TransactionInterceptor$1.proceedWithInvocation(TransactionInterceptor.java:99) [spring-tx-4.3.8.RELEASE.jar:4.3.8.RELEASE]
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:282) [spring-tx-4.3.8.RELEASE.jar:4.3.8.RELEASE]
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:96) [spring-tx-4.3.8.RELEASE.jar:4.3.8.RELEASE]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179) [spring-aop-4.3.8.RELEASE.jar:4.3.8.RELEASE]
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:673) [spring-aop-4.3.8.RELEASE.jar:4.3.8.RELEASE]
+	at com.simba.job.service.impl.JobServiceImpl$$EnhancerBySpringCGLIB$$3eedfc8b.execute(<generated>) [classes/:na]
+	at com.simba.util.ScheduleUtil.lambda$2(ScheduleUtil.java:151) [classes/:na]
+	at org.springframework.scheduling.support.DelegatingErrorHandlingRunnable.run(DelegatingErrorHandlingRunnable.java:54) ~[spring-context-4.3.8.RELEASE.jar:4.3.8.RELEASE]
+	at org.springframework.scheduling.concurrent.ReschedulingRunnable.run(ReschedulingRunnable.java:81) ~[spring-context-4.3.8.RELEASE.jar:4.3.8.RELEASE]
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511) ~[na:1.8.0_73]
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266) ~[na:1.8.0_73]
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.access$201(ScheduledThreadPoolExecutor.java:180) ~[na:1.8.0_73]
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:293) ~[na:1.8.0_73]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142) ~[na:1.8.0_73]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617) ~[na:1.8.0_73]
+	at java.lang.Thread.run(Thread.java:745) ~[na:1.8.0_73]
+
+2017-05-18 11:45:50.007  INFO 7352 --- [pool-1-thread-9] com.simba.framework.util.jdbc.Jdbc       : updatedCount:1 sql:update job set exeCount = exeCount + 1 where id = 7 
+2017-05-18 11:45:50.008  INFO 7352 --- [pool-1-thread-9] com.simba.framework.util.jdbc.Jdbc       : updatedCount:1 sql:update job set status = 'error' where id = 7 
+2017-05-18 11:46:00.002  INFO 7352 --- [pool-1-thread-5] com.simba.framework.util.jdbc.Jdbc       : sql:select * from job where id = ? 
+2017-05-18 11:46:00.005  INFO 7352 --- [pool-1-thread-5] c.simba.job.service.impl.JobServiceImpl  : 执行任务异常:Job [id=7, name=demo, description=demo, cronExpression=0/10 * * * * *, startTime=2017-05-18 11:10:00, endTime=, exeCount=35, maxExeCount=200, status=error, className=com.simba.DemoJob, methodName=execute, delayTime=0, intervalTime=0]
+
+java.lang.ClassNotFoundException: com.simba.DemoJob
+	at java.net.URLClassLoader.findClass(URLClassLoader.java:381) ~[na:1.8.0_73]
+	at java.lang.ClassLoader.loadClass(ClassLoader.java:424) ~[na:1.8.0_73]
+	at sun.misc.Launcher$AppClassLoader.loadClass(Launcher.java:331) ~[na:1.8.0_73]
+	at java.lang.ClassLoader.loadClass(ClassLoader.java:357) ~[na:1.8.0_73]
+	at java.lang.Class.forName0(Native Method) ~[na:1.8.0_73]
+	at java.lang.Class.forName(Class.java:264) ~[na:1.8.0_73]
+	at com.simba.framework.util.common.ReflectUtil.invokeObjectMethod(ReflectUtil.java:38) ~[classes/:na]
+	at com.simba.job.service.impl.JobServiceImpl.execute(JobServiceImpl.java:114) ~[classes/:na]
+	at com.simba.job.service.impl.JobServiceImpl$$FastClassBySpringCGLIB$$e7498b77.invoke(<generated>) [classes/:na]
+	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:204) [spring-core-4.3.8.RELEASE.jar:4.3.8.RELEASE]
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.invokeJoinpoint(CglibAopProxy.java:738) [spring-aop-4.3.8.RELEASE.jar:4.3.8.RELEASE]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:157) [spring-aop-4.3.8.RELEASE.jar:4.3.8.RELEASE]
+	at org.springframework.transaction.interceptor.TransactionInterceptor$1.proceedWithInvocation(TransactionInterceptor.java:99) [spring-tx-4.3.8.RELEASE.jar:4.3.8.RELEASE]
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:282) [spring-tx-4.3.8.RELEASE.jar:4.3.8.RELEASE]
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:96) [spring-tx-4.3.8.RELEASE.jar:4.3.8.RELEASE]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179) [spring-aop-4.3.8.RELEASE.jar:4.3.8.RELEASE]
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:673) [spring-aop-4.3.8.RELEASE.jar:4.3.8.RELEASE]
+	at com.simba.job.service.impl.JobServiceImpl$$EnhancerBySpringCGLIB$$3eedfc8b.execute(<generated>) [classes/:na]
+	at com.simba.util.ScheduleUtil.lambda$2(ScheduleUtil.java:151) [classes/:na]
+	at org.springframework.scheduling.support.DelegatingErrorHandlingRunnable.run(DelegatingErrorHandlingRunnable.java:54) ~[spring-context-4.3.8.RELEASE.jar:4.3.8.RELEASE]
+	at org.springframework.scheduling.concurrent.ReschedulingRunnable.run(ReschedulingRunnable.java:81) ~[spring-context-4.3.8.RELEASE.jar:4.3.8.RELEASE]
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511) ~[na:1.8.0_73]
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266) ~[na:1.8.0_73]
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.access$201(ScheduledThreadPoolExecutor.java:180) ~[na:1.8.0_73]
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:293) ~[na:1.8.0_73]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142) ~[na:1.8.0_73]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617) ~[na:1.8.0_73]
+	at java.lang.Thread.run(Thread.java:745) ~[na:1.8.0_73]
+
+2017-05-18 11:46:00.006  INFO 7352 --- [pool-1-thread-5] com.simba.framework.util.jdbc.Jdbc       : updatedCount:1 sql:update job set exeCount = exeCount + 1 where id = 7 
+2017-05-18 11:46:00.007  INFO 7352 --- [pool-1-thread-5] com.simba.framework.util.jdbc.Jdbc       : updatedCount:1 sql:update job set status = 'error' where id = 7 
+2017-05-18 11:46:10.001  INFO 7352 --- [pool-1-thread-10] com.simba.framework.util.jdbc.Jdbc       : sql:select * from job where id = ? 
+2017-05-18 11:46:10.007  INFO 7352 --- [pool-1-thread-10] c.simba.job.service.impl.JobServiceImpl  : 执行任务异常:Job [id=7, name=demo, description=demo, cronExpression=0/10 * * * * *, startTime=2017-05-18 11:10:00, endTime=, exeCount=36, maxExeCount=200, status=error, className=com.simba.DemoJob, methodName=execute, delayTime=0, intervalTime=0]
+
+java.lang.ClassNotFoundException: com.simba.DemoJob
+	at java.net.URLClassLoader.findClass(URLClassLoader.java:381) ~[na:1.8.0_73]
+	at java.lang.ClassLoader.loadClass(ClassLoader.java:424) ~[na:1.8.0_73]
+	at sun.misc.Launcher$AppClassLoader.loadClass(Launcher.java:331) ~[na:1.8.0_73]
+	at java.lang.ClassLoader.loadClass(ClassLoader.java:357) ~[na:1.8.0_73]
+	at java.lang.Class.forName0(Native Method) ~[na:1.8.0_73]
+	at java.lang.Class.forName(Class.java:264) ~[na:1.8.0_73]
+	at com.simba.framework.util.common.ReflectUtil.invokeObjectMethod(ReflectUtil.java:38) ~[classes/:na]
+	at com.simba.job.service.impl.JobServiceImpl.execute(JobServiceImpl.java:114) ~[classes/:na]
+	at com.simba.job.service.impl.JobServiceImpl$$FastClassBySpringCGLIB$$e7498b77.invoke(<generated>) [classes/:na]
+	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:204) [spring-core-4.3.8.RELEASE.jar:4.3.8.RELEASE]
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.invokeJoinpoint(CglibAopProxy.java:738) [spring-aop-4.3.8.RELEASE.jar:4.3.8.RELEASE]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:157) [spring-aop-4.3.8.RELEASE.jar:4.3.8.RELEASE]
+	at org.springframework.transaction.interceptor.TransactionInterceptor$1.proceedWithInvocation(TransactionInterceptor.java:99) [spring-tx-4.3.8.RELEASE.jar:4.3.8.RELEASE]
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:282) [spring-tx-4.3.8.RELEASE.jar:4.3.8.RELEASE]
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:96) [spring-tx-4.3.8.RELEASE.jar:4.3.8.RELEASE]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179) [spring-aop-4.3.8.RELEASE.jar:4.3.8.RELEASE]
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:673) [spring-aop-4.3.8.RELEASE.jar:4.3.8.RELEASE]
+	at com.simba.job.service.impl.JobServiceImpl$$EnhancerBySpringCGLIB$$3eedfc8b.execute(<generated>) [classes/:na]
+	at com.simba.util.ScheduleUtil.lambda$2(ScheduleUtil.java:151) [classes/:na]
+	at org.springframework.scheduling.support.DelegatingErrorHandlingRunnable.run(DelegatingErrorHandlingRunnable.java:54) ~[spring-context-4.3.8.RELEASE.jar:4.3.8.RELEASE]
+	at org.springframework.scheduling.concurrent.ReschedulingRunnable.run(ReschedulingRunnable.java:81) ~[spring-context-4.3.8.RELEASE.jar:4.3.8.RELEASE]
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511) ~[na:1.8.0_73]
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266) ~[na:1.8.0_73]
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.access$201(ScheduledThreadPoolExecutor.java:180) ~[na:1.8.0_73]
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:293) ~[na:1.8.0_73]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142) ~[na:1.8.0_73]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617) ~[na:1.8.0_73]
+	at java.lang.Thread.run(Thread.java:745) ~[na:1.8.0_73]
+
+2017-05-18 11:46:10.009  INFO 7352 --- [pool-1-thread-10] com.simba.framework.util.jdbc.Jdbc       : updatedCount:1 sql:update job set exeCount = exeCount + 1 where id = 7 
+2017-05-18 11:46:10.010  INFO 7352 --- [pool-1-thread-10] com.simba.framework.util.jdbc.Jdbc       : updatedCount:1 sql:update job set status = 'error' where id = 7 
+2017-05-18 11:46:20.001  INFO 7352 --- [pool-1-thread-3] com.simba.framework.util.jdbc.Jdbc       : sql:select * from job where id = ? 
+2017-05-18 11:46:20.003  INFO 7352 --- [pool-1-thread-3] c.simba.job.service.impl.JobServiceImpl  : 执行任务异常:Job [id=7, name=demo, description=demo, cronExpression=0/10 * * * * *, startTime=2017-05-18 11:10:00, endTime=, exeCount=37, maxExeCount=200, status=error, className=com.simba.DemoJob, methodName=execute, delayTime=0, intervalTime=0]
+
+java.lang.ClassNotFoundException: com.simba.DemoJob
+	at java.net.URLClassLoader.findClass(URLClassLoader.java:381) ~[na:1.8.0_73]
+	at java.lang.ClassLoader.loadClass(ClassLoader.java:424) ~[na:1.8.0_73]
+	at sun.misc.Launcher$AppClassLoader.loadClass(Launcher.java:331) ~[na:1.8.0_73]
+	at java.lang.ClassLoader.loadClass(ClassLoader.java:357) ~[na:1.8.0_73]
+	at java.lang.Class.forName0(Native Method) ~[na:1.8.0_73]
+	at java.lang.Class.forName(Class.java:264) ~[na:1.8.0_73]
+	at com.simba.framework.util.common.ReflectUtil.invokeObjectMethod(ReflectUtil.java:38) ~[classes/:na]
+	at com.simba.job.service.impl.JobServiceImpl.execute(JobServiceImpl.java:114) ~[classes/:na]
+	at com.simba.job.service.impl.JobServiceImpl$$FastClassBySpringCGLIB$$e7498b77.invoke(<generated>) [classes/:na]
+	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:204) [spring-core-4.3.8.RELEASE.jar:4.3.8.RELEASE]
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.invokeJoinpoint(CglibAopProxy.java:738) [spring-aop-4.3.8.RELEASE.jar:4.3.8.RELEASE]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:157) [spring-aop-4.3.8.RELEASE.jar:4.3.8.RELEASE]
+	at org.springframework.transaction.interceptor.TransactionInterceptor$1.proceedWithInvocation(TransactionInterceptor.java:99) [spring-tx-4.3.8.RELEASE.jar:4.3.8.RELEASE]
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:282) [spring-tx-4.3.8.RELEASE.jar:4.3.8.RELEASE]
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:96) [spring-tx-4.3.8.RELEASE.jar:4.3.8.RELEASE]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179) [spring-aop-4.3.8.RELEASE.jar:4.3.8.RELEASE]
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:673) [spring-aop-4.3.8.RELEASE.jar:4.3.8.RELEASE]
+	at com.simba.job.service.impl.JobServiceImpl$$EnhancerBySpringCGLIB$$3eedfc8b.execute(<generated>) [classes/:na]
+	at com.simba.util.ScheduleUtil.lambda$2(ScheduleUtil.java:151) [classes/:na]
+	at org.springframework.scheduling.support.DelegatingErrorHandlingRunnable.run(DelegatingErrorHandlingRunnable.java:54) ~[spring-context-4.3.8.RELEASE.jar:4.3.8.RELEASE]
+	at org.springframework.scheduling.concurrent.ReschedulingRunnable.run(ReschedulingRunnable.java:81) ~[spring-context-4.3.8.RELEASE.jar:4.3.8.RELEASE]
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511) ~[na:1.8.0_73]
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266) ~[na:1.8.0_73]
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.access$201(ScheduledThreadPoolExecutor.java:180) ~[na:1.8.0_73]
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:293) ~[na:1.8.0_73]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142) ~[na:1.8.0_73]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617) ~[na:1.8.0_73]
+	at java.lang.Thread.run(Thread.java:745) ~[na:1.8.0_73]
+
+2017-05-18 11:46:20.004  INFO 7352 --- [pool-1-thread-3] com.simba.framework.util.jdbc.Jdbc       : updatedCount:1 sql:update job set exeCount = exeCount + 1 where id = 7 
+2017-05-18 11:46:20.005  INFO 7352 --- [pool-1-thread-3] com.simba.framework.util.jdbc.Jdbc       : updatedCount:1 sql:update job set status = 'error' where id = 7 
+2017-05-18 11:46:30.001  INFO 7352 --- [pool-1-thread-11] com.simba.framework.util.jdbc.Jdbc       : sql:select * from job where id = ? 
+2017-05-18 11:46:30.003  INFO 7352 --- [pool-1-thread-11] c.simba.job.service.impl.JobServiceImpl  : 执行任务异常:Job [id=7, name=demo, description=demo, cronExpression=0/10 * * * * *, startTime=2017-05-18 11:10:00, endTime=, exeCount=38, maxExeCount=200, status=error, className=com.simba.DemoJob, methodName=execute, delayTime=0, intervalTime=0]
+
+java.lang.ClassNotFoundException: com.simba.DemoJob
+	at java.net.URLClassLoader.findClass(URLClassLoader.java:381) ~[na:1.8.0_73]
+	at java.lang.ClassLoader.loadClass(ClassLoader.java:424) ~[na:1.8.0_73]
+	at sun.misc.Launcher$AppClassLoader.loadClass(Launcher.java:331) ~[na:1.8.0_73]
+	at java.lang.ClassLoader.loadClass(ClassLoader.java:357) ~[na:1.8.0_73]
+	at java.lang.Class.forName0(Native Method) ~[na:1.8.0_73]
+	at java.lang.Class.forName(Class.java:264) ~[na:1.8.0_73]
+	at com.simba.framework.util.common.ReflectUtil.invokeObjectMethod(ReflectUtil.java:38) ~[classes/:na]
+	at com.simba.job.service.impl.JobServiceImpl.execute(JobServiceImpl.java:114) ~[classes/:na]
+	at com.simba.job.service.impl.JobServiceImpl$$FastClassBySpringCGLIB$$e7498b77.invoke(<generated>) [classes/:na]
+	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:204) [spring-core-4.3.8.RELEASE.jar:4.3.8.RELEASE]
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.invokeJoinpoint(CglibAopProxy.java:738) [spring-aop-4.3.8.RELEASE.jar:4.3.8.RELEASE]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:157) [spring-aop-4.3.8.RELEASE.jar:4.3.8.RELEASE]
+	at org.springframework.transaction.interceptor.TransactionInterceptor$1.proceedWithInvocation(TransactionInterceptor.java:99) [spring-tx-4.3.8.RELEASE.jar:4.3.8.RELEASE]
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:282) [spring-tx-4.3.8.RELEASE.jar:4.3.8.RELEASE]
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:96) [spring-tx-4.3.8.RELEASE.jar:4.3.8.RELEASE]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179) [spring-aop-4.3.8.RELEASE.jar:4.3.8.RELEASE]
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:673) [spring-aop-4.3.8.RELEASE.jar:4.3.8.RELEASE]
+	at com.simba.job.service.impl.JobServiceImpl$$EnhancerBySpringCGLIB$$3eedfc8b.execute(<generated>) [classes/:na]
+	at com.simba.util.ScheduleUtil.lambda$2(ScheduleUtil.java:151) [classes/:na]
+	at org.springframework.scheduling.support.DelegatingErrorHandlingRunnable.run(DelegatingErrorHandlingRunnable.java:54) ~[spring-context-4.3.8.RELEASE.jar:4.3.8.RELEASE]
+	at org.springframework.scheduling.concurrent.ReschedulingRunnable.run(ReschedulingRunnable.java:81) ~[spring-context-4.3.8.RELEASE.jar:4.3.8.RELEASE]
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511) ~[na:1.8.0_73]
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266) ~[na:1.8.0_73]
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.access$201(ScheduledThreadPoolExecutor.java:180) ~[na:1.8.0_73]
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:293) ~[na:1.8.0_73]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142) ~[na:1.8.0_73]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617) ~[na:1.8.0_73]
+	at java.lang.Thread.run(Thread.java:745) ~[na:1.8.0_73]
+
+2017-05-18 11:46:30.005  INFO 7352 --- [pool-1-thread-11] com.simba.framework.util.jdbc.Jdbc       : updatedCount:1 sql:update job set exeCount = exeCount + 1 where id = 7 
+2017-05-18 11:46:30.005  INFO 7352 --- [pool-1-thread-11] com.simba.framework.util.jdbc.Jdbc       : updatedCount:1 sql:update job set status = 'error' where id = 7 
+2017-05-18 11:46:32.021  INFO 7352 --- [http-nio-8888-exec-2] com.simba.framework.util.jdbc.Jdbc       : result:1 sql:select count(*) from job
+2017-05-18 11:46:32.022  INFO 7352 --- [http-nio-8888-exec-9] com.simba.framework.util.jdbc.Jdbc       : result:1 sql:SELECT COUNT(1) from job
+2017-05-18 11:46:32.023  INFO 7352 --- [http-nio-8888-exec-9] com.simba.framework.util.jdbc.Jdbc       : result size:1 sql:select * from job limit 0,10
+2017-05-18 11:46:40.001  INFO 7352 --- [pool-1-thread-6] com.simba.framework.util.jdbc.Jdbc       : sql:select * from job where id = ? 
+2017-05-18 11:46:40.003  INFO 7352 --- [pool-1-thread-6] c.simba.job.service.impl.JobServiceImpl  : 执行任务异常:Job [id=7, name=demo, description=demo, cronExpression=0/10 * * * * *, startTime=2017-05-18 11:10:00, endTime=, exeCount=39, maxExeCount=200, status=error, className=com.simba.DemoJob, methodName=execute, delayTime=0, intervalTime=0]
+
+java.lang.ClassNotFoundException: com.simba.DemoJob
+	at java.net.URLClassLoader.findClass(URLClassLoader.java:381) ~[na:1.8.0_73]
+	at java.lang.ClassLoader.loadClass(ClassLoader.java:424) ~[na:1.8.0_73]
+	at sun.misc.Launcher$AppClassLoader.loadClass(Launcher.java:331) ~[na:1.8.0_73]
+	at java.lang.ClassLoader.loadClass(ClassLoader.java:357) ~[na:1.8.0_73]
+	at java.lang.Class.forName0(Native Method) ~[na:1.8.0_73]
+	at java.lang.Class.forName(Class.java:264) ~[na:1.8.0_73]
+	at com.simba.framework.util.common.ReflectUtil.invokeObjectMethod(ReflectUtil.java:38) ~[classes/:na]
+	at com.simba.job.service.impl.JobServiceImpl.execute(JobServiceImpl.java:114) ~[classes/:na]
+	at com.simba.job.service.impl.JobServiceImpl$$FastClassBySpringCGLIB$$e7498b77.invoke(<generated>) [classes/:na]
+	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:204) [spring-core-4.3.8.RELEASE.jar:4.3.8.RELEASE]
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.invokeJoinpoint(CglibAopProxy.java:738) [spring-aop-4.3.8.RELEASE.jar:4.3.8.RELEASE]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:157) [spring-aop-4.3.8.RELEASE.jar:4.3.8.RELEASE]
+	at org.springframework.transaction.interceptor.TransactionInterceptor$1.proceedWithInvocation(TransactionInterceptor.java:99) [spring-tx-4.3.8.RELEASE.jar:4.3.8.RELEASE]
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:282) [spring-tx-4.3.8.RELEASE.jar:4.3.8.RELEASE]
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:96) [spring-tx-4.3.8.RELEASE.jar:4.3.8.RELEASE]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179) [spring-aop-4.3.8.RELEASE.jar:4.3.8.RELEASE]
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:673) [spring-aop-4.3.8.RELEASE.jar:4.3.8.RELEASE]
+	at com.simba.job.service.impl.JobServiceImpl$$EnhancerBySpringCGLIB$$3eedfc8b.execute(<generated>) [classes/:na]
+	at com.simba.util.ScheduleUtil.lambda$2(ScheduleUtil.java:151) [classes/:na]
+	at org.springframework.scheduling.support.DelegatingErrorHandlingRunnable.run(DelegatingErrorHandlingRunnable.java:54) ~[spring-context-4.3.8.RELEASE.jar:4.3.8.RELEASE]
+	at org.springframework.scheduling.concurrent.ReschedulingRunnable.run(ReschedulingRunnable.java:81) ~[spring-context-4.3.8.RELEASE.jar:4.3.8.RELEASE]
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511) ~[na:1.8.0_73]
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266) ~[na:1.8.0_73]
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.access$201(ScheduledThreadPoolExecutor.java:180) ~[na:1.8.0_73]
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:293) ~[na:1.8.0_73]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142) ~[na:1.8.0_73]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617) ~[na:1.8.0_73]
+	at java.lang.Thread.run(Thread.java:745) ~[na:1.8.0_73]
+
+2017-05-18 11:46:40.003  INFO 7352 --- [pool-1-thread-6] com.simba.framework.util.jdbc.Jdbc       : updatedCount:1 sql:update job set exeCount = exeCount + 1 where id = 7 
+2017-05-18 11:46:40.004  INFO 7352 --- [pool-1-thread-6] com.simba.framework.util.jdbc.Jdbc       : updatedCount:1 sql:update job set status = 'error' where id = 7 
+2017-05-18 11:46:47.045  INFO 7352 --- [http-nio-8888-exec-4] c.s.f.session.HttpSessionWrapper         : 清空session:9fe2771b-85dd-46f3-a863-647e3529c44d
+2017-05-18 11:46:50.002  INFO 7352 --- [pool-1-thread-12] com.simba.framework.util.jdbc.Jdbc       : sql:select * from job where id = ? 
+2017-05-18 11:46:50.005  INFO 7352 --- [pool-1-thread-12] c.simba.job.service.impl.JobServiceImpl  : 执行任务异常:Job [id=7, name=demo, description=demo, cronExpression=0/10 * * * * *, startTime=2017-05-18 11:10:00, endTime=, exeCount=40, maxExeCount=200, status=error, className=com.simba.DemoJob, methodName=execute, delayTime=0, intervalTime=0]
+
+java.lang.ClassNotFoundException: com.simba.DemoJob
+	at java.net.URLClassLoader.findClass(URLClassLoader.java:381) ~[na:1.8.0_73]
+	at java.lang.ClassLoader.loadClass(ClassLoader.java:424) ~[na:1.8.0_73]
+	at sun.misc.Launcher$AppClassLoader.loadClass(Launcher.java:331) ~[na:1.8.0_73]
+	at java.lang.ClassLoader.loadClass(ClassLoader.java:357) ~[na:1.8.0_73]
+	at java.lang.Class.forName0(Native Method) ~[na:1.8.0_73]
+	at java.lang.Class.forName(Class.java:264) ~[na:1.8.0_73]
+	at com.simba.framework.util.common.ReflectUtil.invokeObjectMethod(ReflectUtil.java:38) ~[classes/:na]
+	at com.simba.job.service.impl.JobServiceImpl.execute(JobServiceImpl.java:114) ~[classes/:na]
+	at com.simba.job.service.impl.JobServiceImpl$$FastClassBySpringCGLIB$$e7498b77.invoke(<generated>) [classes/:na]
+	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:204) [spring-core-4.3.8.RELEASE.jar:4.3.8.RELEASE]
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.invokeJoinpoint(CglibAopProxy.java:738) [spring-aop-4.3.8.RELEASE.jar:4.3.8.RELEASE]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:157) [spring-aop-4.3.8.RELEASE.jar:4.3.8.RELEASE]
+	at org.springframework.transaction.interceptor.TransactionInterceptor$1.proceedWithInvocation(TransactionInterceptor.java:99) [spring-tx-4.3.8.RELEASE.jar:4.3.8.RELEASE]
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:282) [spring-tx-4.3.8.RELEASE.jar:4.3.8.RELEASE]
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:96) [spring-tx-4.3.8.RELEASE.jar:4.3.8.RELEASE]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179) [spring-aop-4.3.8.RELEASE.jar:4.3.8.RELEASE]
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:673) [spring-aop-4.3.8.RELEASE.jar:4.3.8.RELEASE]
+	at com.simba.job.service.impl.JobServiceImpl$$EnhancerBySpringCGLIB$$3eedfc8b.execute(<generated>) [classes/:na]
+	at com.simba.util.ScheduleUtil.lambda$2(ScheduleUtil.java:151) [classes/:na]
+	at org.springframework.scheduling.support.DelegatingErrorHandlingRunnable.run(DelegatingErrorHandlingRunnable.java:54) ~[spring-context-4.3.8.RELEASE.jar:4.3.8.RELEASE]
+	at org.springframework.scheduling.concurrent.ReschedulingRunnable.run(ReschedulingRunnable.java:81) ~[spring-context-4.3.8.RELEASE.jar:4.3.8.RELEASE]
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511) ~[na:1.8.0_73]
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266) ~[na:1.8.0_73]
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.access$201(ScheduledThreadPoolExecutor.java:180) ~[na:1.8.0_73]
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:293) ~[na:1.8.0_73]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142) ~[na:1.8.0_73]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617) ~[na:1.8.0_73]
+	at java.lang.Thread.run(Thread.java:745) ~[na:1.8.0_73]
+
+2017-05-18 11:46:50.006  INFO 7352 --- [pool-1-thread-12] com.simba.framework.util.jdbc.Jdbc       : updatedCount:1 sql:update job set exeCount = exeCount + 1 where id = 7 
+2017-05-18 11:46:50.007  INFO 7352 --- [pool-1-thread-12] com.simba.framework.util.jdbc.Jdbc       : updatedCount:1 sql:update job set status = 'error' where id = 7 
+2017-05-18 11:46:50.742  INFO 7352 --- [http-nio-8888-exec-2] com.simba.framework.util.jdbc.Jdbc       : result:1 sql:select count(*) from job
+2017-05-18 11:46:50.742  INFO 7352 --- [http-nio-8888-exec-4] com.simba.framework.util.jdbc.Jdbc       : result:1 sql:SELECT COUNT(1) from job
+2017-05-18 11:46:50.744  INFO 7352 --- [http-nio-8888-exec-4] com.simba.framework.util.jdbc.Jdbc       : result size:1 sql:select * from job limit 0,10
+2017-05-18 11:46:53.000  INFO 7352 --- [http-nio-8888-exec-10] com.simba.framework.util.jdbc.Jdbc       : sql:select * from job where id = ? 
+2017-05-18 11:46:53.004  INFO 7352 --- [http-nio-8888-exec-10] com.simba.framework.util.jdbc.Jdbc       : updatedCount:1 sql:update job set status = 'suspend' where id = 7 
+2017-05-18 11:46:53.007  INFO 7352 --- [http-nio-8888-exec-10] c.s.f.distributed.RedisDistributedImpl   : 发布消息成功，共有订阅方1个
+2017-05-18 11:46:53.007  INFO 7352 --- [Thread-4] c.s.f.distributed.RedisReceiveMessage    : 接收到集群的消息:ClusterMessage [classFullPath=com.simba.cluster.JobClusterExecute, data=JobClusterData [method=remove, job=Job [id=7, name=demo, description=demo, cronExpression=0/10 * * * * *, startTime=2017-05-18 11:10:00, endTime=, exeCount=41, maxExeCount=200, status=suspend, className=com.simba.DemoJob, methodName=execute, delayTime=0, intervalTime=0]]]
+2017-05-18 11:46:53.008  INFO 7352 --- [Thread-4] c.s.f.distributed.RedisReceiveMessage    : com.simba.cluster.JobClusterExecute执行完成
+2017-05-18 11:46:53.010  INFO 7352 --- [Thread-4] c.s.f.distributed.RedisReceiveMessage    : 接收到集群的消息:ClusterMessage [classFullPath=com.simba.cluster.JobScheduleClusterExecute, data=JobClusterData [method=remove, job=Job [id=7, name=demo, description=demo, cronExpression=0/10 * * * * *, startTime=2017-05-18 11:10:00, endTime=, exeCount=41, maxExeCount=200, status=suspend, className=com.simba.DemoJob, methodName=execute, delayTime=0, intervalTime=0]]]
+2017-05-18 11:46:53.010  INFO 7352 --- [Thread-4] com.simba.util.ScheduleUtil              : 删除任务成功:7
+2017-05-18 11:46:53.010  INFO 7352 --- [Thread-4] c.s.f.distributed.RedisReceiveMessage    : com.simba.cluster.JobScheduleClusterExecute执行完成
+2017-05-18 11:46:53.010  INFO 7352 --- [http-nio-8888-exec-10] c.s.f.distributed.RedisDistributedImpl   : 发布消息成功，共有订阅方1个
+2017-05-18 11:46:53.054  INFO 7352 --- [http-nio-8888-exec-5] com.simba.framework.util.jdbc.Jdbc       : result:1 sql:SELECT COUNT(1) from job
+2017-05-18 11:46:53.054  INFO 7352 --- [http-nio-8888-exec-7] com.simba.framework.util.jdbc.Jdbc       : result:1 sql:select count(*) from job
+2017-05-18 11:46:53.056  INFO 7352 --- [http-nio-8888-exec-5] com.simba.framework.util.jdbc.Jdbc       : result size:1 sql:select * from job limit 0,10
+2017-05-18 11:46:54.211  INFO 7352 --- [http-nio-8888-exec-3] com.simba.framework.util.jdbc.Jdbc       : sql:select * from job where id = ? 
+2017-05-18 11:46:54.215  INFO 7352 --- [http-nio-8888-exec-3] com.simba.framework.util.jdbc.Jdbc       : updatedCount:1 sql:update job set status = 'waiting' where id = 7 
+2017-05-18 11:46:54.217  INFO 7352 --- [http-nio-8888-exec-3] c.s.f.distributed.RedisDistributedImpl   : 发布消息成功，共有订阅方1个
+2017-05-18 11:46:54.218  INFO 7352 --- [Thread-4] c.s.f.distributed.RedisReceiveMessage    : 接收到集群的消息:ClusterMessage [classFullPath=com.simba.cluster.JobClusterExecute, data=JobClusterData [method=add, job=Job [id=7, name=demo, description=demo, cronExpression=0/10 * * * * *, startTime=2017-05-18 11:10:00, endTime=, exeCount=41, maxExeCount=200, status=waiting, className=com.simba.DemoJob, methodName=execute, delayTime=0, intervalTime=0]]]
+2017-05-18 11:46:54.218  INFO 7352 --- [Thread-4] c.s.f.distributed.RedisReceiveMessage    : com.simba.cluster.JobClusterExecute执行完成
+2017-05-18 11:46:54.226  INFO 7352 --- [pool-2-thread-1] com.simba.util.ScheduleUtil              : 启动任务成功:demo
+2017-05-18 11:46:54.279  INFO 7352 --- [http-nio-8888-exec-6] com.simba.framework.util.jdbc.Jdbc       : result:1 sql:select count(*) from job
+2017-05-18 11:46:54.280  INFO 7352 --- [http-nio-8888-exec-1] com.simba.framework.util.jdbc.Jdbc       : result:1 sql:SELECT COUNT(1) from job
+2017-05-18 11:46:54.282  INFO 7352 --- [http-nio-8888-exec-1] com.simba.framework.util.jdbc.Jdbc       : result size:1 sql:select * from job limit 0,10
+2017-05-18 11:46:56.769  INFO 7352 --- [http-nio-8888-exec-9] com.simba.framework.util.jdbc.Jdbc       : sql:select * from job where id = ? 
+2017-05-18 11:46:56.771  INFO 7352 --- [http-nio-8888-exec-9] com.simba.framework.util.jdbc.Jdbc       : updatedCount:1 sql:update job set status = 'suspend' where id = 7 
+2017-05-18 11:46:56.772  INFO 7352 --- [http-nio-8888-exec-9] c.s.f.distributed.RedisDistributedImpl   : 发布消息成功，共有订阅方1个
+2017-05-18 11:46:56.773  INFO 7352 --- [Thread-4] c.s.f.distributed.RedisReceiveMessage    : 接收到集群的消息:ClusterMessage [classFullPath=com.simba.cluster.JobClusterExecute, data=JobClusterData [method=remove, job=Job [id=7, name=demo, description=demo, cronExpression=0/10 * * * * *, startTime=2017-05-18 11:10:00, endTime=, exeCount=41, maxExeCount=200, status=suspend, className=com.simba.DemoJob, methodName=execute, delayTime=0, intervalTime=0]]]
+2017-05-18 11:46:56.773  INFO 7352 --- [Thread-4] c.s.f.distributed.RedisReceiveMessage    : com.simba.cluster.JobClusterExecute执行完成
+2017-05-18 11:46:56.774  INFO 7352 --- [http-nio-8888-exec-9] c.s.f.distributed.RedisDistributedImpl   : 发布消息成功，共有订阅方1个
+2017-05-18 11:46:56.774  INFO 7352 --- [Thread-4] c.s.f.distributed.RedisReceiveMessage    : 接收到集群的消息:ClusterMessage [classFullPath=com.simba.cluster.JobScheduleClusterExecute, data=JobClusterData [method=remove, job=Job [id=7, name=demo, description=demo, cronExpression=0/10 * * * * *, startTime=2017-05-18 11:10:00, endTime=, exeCount=41, maxExeCount=200, status=suspend, className=com.simba.DemoJob, methodName=execute, delayTime=0, intervalTime=0]]]
+2017-05-18 11:46:56.775  INFO 7352 --- [Thread-4] com.simba.util.ScheduleUtil              : 删除任务成功:7
+2017-05-18 11:46:56.775  INFO 7352 --- [Thread-4] c.s.f.distributed.RedisReceiveMessage    : com.simba.cluster.JobScheduleClusterExecute执行完成
+2017-05-18 11:46:56.825  INFO 7352 --- [http-nio-8888-exec-2] com.simba.framework.util.jdbc.Jdbc       : result:1 sql:SELECT COUNT(1) from job
+2017-05-18 11:46:56.826  INFO 7352 --- [http-nio-8888-exec-2] com.simba.framework.util.jdbc.Jdbc       : result size:1 sql:select * from job limit 0,10
+2017-05-18 11:46:56.832  INFO 7352 --- [http-nio-8888-exec-4] com.simba.framework.util.jdbc.Jdbc       : result:1 sql:select count(*) from job
+2017-05-18 11:47:17.732  INFO 7352 --- [http-nio-8888-exec-1] com.simba.framework.util.jdbc.Jdbc       : sql:select * from job where id = ? 
+2017-05-18 11:47:17.734  INFO 7352 --- [http-nio-8888-exec-1] com.simba.framework.util.jdbc.Jdbc       : updatedCount:1 sql:update job set status = 'waiting' where id = 7 
+2017-05-18 11:47:17.736  INFO 7352 --- [Thread-4] c.s.f.distributed.RedisReceiveMessage    : 接收到集群的消息:ClusterMessage [classFullPath=com.simba.cluster.JobClusterExecute, data=JobClusterData [method=add, job=Job [id=7, name=demo, description=demo, cronExpression=0/10 * * * * *, startTime=2017-05-18 11:10:00, endTime=, exeCount=41, maxExeCount=200, status=waiting, className=com.simba.DemoJob, methodName=execute, delayTime=0, intervalTime=0]]]
+2017-05-18 11:47:17.736  INFO 7352 --- [Thread-4] c.s.f.distributed.RedisReceiveMessage    : com.simba.cluster.JobClusterExecute执行完成
+2017-05-18 11:47:17.737  INFO 7352 --- [http-nio-8888-exec-1] c.s.f.distributed.RedisDistributedImpl   : 发布消息成功，共有订阅方1个
+2017-05-18 11:47:17.797  INFO 7352 --- [http-nio-8888-exec-9] com.simba.framework.util.jdbc.Jdbc       : result:1 sql:SELECT COUNT(1) from job
+2017-05-18 11:47:17.799  INFO 7352 --- [http-nio-8888-exec-9] com.simba.framework.util.jdbc.Jdbc       : result size:1 sql:select * from job limit 0,10
+2017-05-18 11:47:17.805  INFO 7352 --- [http-nio-8888-exec-4] com.simba.framework.util.jdbc.Jdbc       : result:1 sql:select count(*) from job
+2017-05-18 11:47:18.227  INFO 7352 --- [pool-2-thread-1] com.simba.util.ScheduleUtil              : 启动任务成功:demo
+2017-05-18 11:47:20.001  INFO 7352 --- [pool-1-thread-14] com.simba.framework.util.jdbc.Jdbc       : sql:select * from job where id = ? 
+2017-05-18 11:47:20.006  INFO 7352 --- [pool-1-thread-14] c.simba.job.service.impl.JobServiceImpl  : 执行任务异常:Job [id=7, name=demo, description=demo, cronExpression=0/10 * * * * *, startTime=2017-05-18 11:10:00, endTime=, exeCount=41, maxExeCount=200, status=running, className=com.simba.DemoJob, methodName=execute, delayTime=0, intervalTime=0]
+
+java.lang.ClassNotFoundException: com.simba.DemoJob
+	at java.net.URLClassLoader.findClass(URLClassLoader.java:381) ~[na:1.8.0_73]
+	at java.lang.ClassLoader.loadClass(ClassLoader.java:424) ~[na:1.8.0_73]
+	at sun.misc.Launcher$AppClassLoader.loadClass(Launcher.java:331) ~[na:1.8.0_73]
+	at java.lang.ClassLoader.loadClass(ClassLoader.java:357) ~[na:1.8.0_73]
+	at java.lang.Class.forName0(Native Method) ~[na:1.8.0_73]
+	at java.lang.Class.forName(Class.java:264) ~[na:1.8.0_73]
+	at com.simba.framework.util.common.ReflectUtil.invokeObjectMethod(ReflectUtil.java:38) ~[classes/:na]
+	at com.simba.job.service.impl.JobServiceImpl.execute(JobServiceImpl.java:114) ~[classes/:na]
+	at com.simba.job.service.impl.JobServiceImpl$$FastClassBySpringCGLIB$$e7498b77.invoke(<generated>) [classes/:na]
+	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:204) [spring-core-4.3.8.RELEASE.jar:4.3.8.RELEASE]
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.invokeJoinpoint(CglibAopProxy.java:738) [spring-aop-4.3.8.RELEASE.jar:4.3.8.RELEASE]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:157) [spring-aop-4.3.8.RELEASE.jar:4.3.8.RELEASE]
+	at org.springframework.transaction.interceptor.TransactionInterceptor$1.proceedWithInvocation(TransactionInterceptor.java:99) [spring-tx-4.3.8.RELEASE.jar:4.3.8.RELEASE]
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:282) [spring-tx-4.3.8.RELEASE.jar:4.3.8.RELEASE]
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:96) [spring-tx-4.3.8.RELEASE.jar:4.3.8.RELEASE]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179) [spring-aop-4.3.8.RELEASE.jar:4.3.8.RELEASE]
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:673) [spring-aop-4.3.8.RELEASE.jar:4.3.8.RELEASE]
+	at com.simba.job.service.impl.JobServiceImpl$$EnhancerBySpringCGLIB$$3eedfc8b.execute(<generated>) [classes/:na]
+	at com.simba.util.ScheduleUtil.lambda$2(ScheduleUtil.java:151) [classes/:na]
+	at org.springframework.scheduling.support.DelegatingErrorHandlingRunnable.run(DelegatingErrorHandlingRunnable.java:54) ~[spring-context-4.3.8.RELEASE.jar:4.3.8.RELEASE]
+	at org.springframework.scheduling.concurrent.ReschedulingRunnable.run(ReschedulingRunnable.java:81) ~[spring-context-4.3.8.RELEASE.jar:4.3.8.RELEASE]
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511) ~[na:1.8.0_73]
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266) ~[na:1.8.0_73]
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.access$201(ScheduledThreadPoolExecutor.java:180) ~[na:1.8.0_73]
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:293) ~[na:1.8.0_73]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142) ~[na:1.8.0_73]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617) ~[na:1.8.0_73]
+	at java.lang.Thread.run(Thread.java:745) ~[na:1.8.0_73]
+
+2017-05-18 11:47:20.007  INFO 7352 --- [pool-1-thread-14] com.simba.framework.util.jdbc.Jdbc       : updatedCount:1 sql:update job set exeCount = exeCount + 1 where id = 7 
+2017-05-18 11:47:20.008  INFO 7352 --- [pool-1-thread-14] com.simba.framework.util.jdbc.Jdbc       : updatedCount:1 sql:update job set status = 'error' where id = 7 
+2017-05-18 11:47:30.002  INFO 7352 --- [pool-1-thread-2] com.simba.framework.util.jdbc.Jdbc       : sql:select * from job where id = ? 
+2017-05-18 11:47:30.007  INFO 7352 --- [pool-1-thread-2] c.simba.job.service.impl.JobServiceImpl  : 执行任务异常:Job [id=7, name=demo, description=demo, cronExpression=0/10 * * * * *, startTime=2017-05-18 11:10:00, endTime=, exeCount=42, maxExeCount=200, status=error, className=com.simba.DemoJob, methodName=execute, delayTime=0, intervalTime=0]
+
+java.lang.ClassNotFoundException: com.simba.DemoJob
+	at java.net.URLClassLoader.findClass(URLClassLoader.java:381) ~[na:1.8.0_73]
+	at java.lang.ClassLoader.loadClass(ClassLoader.java:424) ~[na:1.8.0_73]
+	at sun.misc.Launcher$AppClassLoader.loadClass(Launcher.java:331) ~[na:1.8.0_73]
+	at java.lang.ClassLoader.loadClass(ClassLoader.java:357) ~[na:1.8.0_73]
+	at java.lang.Class.forName0(Native Method) ~[na:1.8.0_73]
+	at java.lang.Class.forName(Class.java:264) ~[na:1.8.0_73]
+	at com.simba.framework.util.common.ReflectUtil.invokeObjectMethod(ReflectUtil.java:38) ~[classes/:na]
+	at com.simba.job.service.impl.JobServiceImpl.execute(JobServiceImpl.java:114) ~[classes/:na]
+	at com.simba.job.service.impl.JobServiceImpl$$FastClassBySpringCGLIB$$e7498b77.invoke(<generated>) [classes/:na]
+	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:204) [spring-core-4.3.8.RELEASE.jar:4.3.8.RELEASE]
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.invokeJoinpoint(CglibAopProxy.java:738) [spring-aop-4.3.8.RELEASE.jar:4.3.8.RELEASE]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:157) [spring-aop-4.3.8.RELEASE.jar:4.3.8.RELEASE]
+	at org.springframework.transaction.interceptor.TransactionInterceptor$1.proceedWithInvocation(TransactionInterceptor.java:99) [spring-tx-4.3.8.RELEASE.jar:4.3.8.RELEASE]
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:282) [spring-tx-4.3.8.RELEASE.jar:4.3.8.RELEASE]
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:96) [spring-tx-4.3.8.RELEASE.jar:4.3.8.RELEASE]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179) [spring-aop-4.3.8.RELEASE.jar:4.3.8.RELEASE]
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:673) [spring-aop-4.3.8.RELEASE.jar:4.3.8.RELEASE]
+	at com.simba.job.service.impl.JobServiceImpl$$EnhancerBySpringCGLIB$$3eedfc8b.execute(<generated>) [classes/:na]
+	at com.simba.util.ScheduleUtil.lambda$2(ScheduleUtil.java:151) [classes/:na]
+	at org.springframework.scheduling.support.DelegatingErrorHandlingRunnable.run(DelegatingErrorHandlingRunnable.java:54) ~[spring-context-4.3.8.RELEASE.jar:4.3.8.RELEASE]
+	at org.springframework.scheduling.concurrent.ReschedulingRunnable.run(ReschedulingRunnable.java:81) ~[spring-context-4.3.8.RELEASE.jar:4.3.8.RELEASE]
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511) ~[na:1.8.0_73]
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266) ~[na:1.8.0_73]
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.access$201(ScheduledThreadPoolExecutor.java:180) ~[na:1.8.0_73]
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:293) ~[na:1.8.0_73]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142) ~[na:1.8.0_73]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617) ~[na:1.8.0_73]
+	at java.lang.Thread.run(Thread.java:745) ~[na:1.8.0_73]
+
+2017-05-18 11:47:30.009  INFO 7352 --- [pool-1-thread-2] com.simba.framework.util.jdbc.Jdbc       : updatedCount:1 sql:update job set exeCount = exeCount + 1 where id = 7 
+2017-05-18 11:47:30.010  INFO 7352 --- [pool-1-thread-2] com.simba.framework.util.jdbc.Jdbc       : updatedCount:1 sql:update job set status = 'error' where id = 7 
+2017-05-18 11:47:40.002  INFO 7352 --- [pool-1-thread-2] com.simba.framework.util.jdbc.Jdbc       : sql:select * from job where id = ? 
+2017-05-18 11:47:40.007  INFO 7352 --- [pool-1-thread-2] c.simba.job.service.impl.JobServiceImpl  : 执行任务异常:Job [id=7, name=demo, description=demo, cronExpression=0/10 * * * * *, startTime=2017-05-18 11:10:00, endTime=, exeCount=43, maxExeCount=200, status=error, className=com.simba.DemoJob, methodName=execute, delayTime=0, intervalTime=0]
+
+java.lang.ClassNotFoundException: com.simba.DemoJob
+	at java.net.URLClassLoader.findClass(URLClassLoader.java:381) ~[na:1.8.0_73]
+	at java.lang.ClassLoader.loadClass(ClassLoader.java:424) ~[na:1.8.0_73]
+	at sun.misc.Launcher$AppClassLoader.loadClass(Launcher.java:331) ~[na:1.8.0_73]
+	at java.lang.ClassLoader.loadClass(ClassLoader.java:357) ~[na:1.8.0_73]
+	at java.lang.Class.forName0(Native Method) ~[na:1.8.0_73]
+	at java.lang.Class.forName(Class.java:264) ~[na:1.8.0_73]
+	at com.simba.framework.util.common.ReflectUtil.invokeObjectMethod(ReflectUtil.java:38) ~[classes/:na]
+	at com.simba.job.service.impl.JobServiceImpl.execute(JobServiceImpl.java:114) ~[classes/:na]
+	at com.simba.job.service.impl.JobServiceImpl$$FastClassBySpringCGLIB$$e7498b77.invoke(<generated>) [classes/:na]
+	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:204) [spring-core-4.3.8.RELEASE.jar:4.3.8.RELEASE]
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.invokeJoinpoint(CglibAopProxy.java:738) [spring-aop-4.3.8.RELEASE.jar:4.3.8.RELEASE]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:157) [spring-aop-4.3.8.RELEASE.jar:4.3.8.RELEASE]
+	at org.springframework.transaction.interceptor.TransactionInterceptor$1.proceedWithInvocation(TransactionInterceptor.java:99) [spring-tx-4.3.8.RELEASE.jar:4.3.8.RELEASE]
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:282) [spring-tx-4.3.8.RELEASE.jar:4.3.8.RELEASE]
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:96) [spring-tx-4.3.8.RELEASE.jar:4.3.8.RELEASE]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179) [spring-aop-4.3.8.RELEASE.jar:4.3.8.RELEASE]
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:673) [spring-aop-4.3.8.RELEASE.jar:4.3.8.RELEASE]
+	at com.simba.job.service.impl.JobServiceImpl$$EnhancerBySpringCGLIB$$3eedfc8b.execute(<generated>) [classes/:na]
+	at com.simba.util.ScheduleUtil.lambda$2(ScheduleUtil.java:151) [classes/:na]
+	at org.springframework.scheduling.support.DelegatingErrorHandlingRunnable.run(DelegatingErrorHandlingRunnable.java:54) ~[spring-context-4.3.8.RELEASE.jar:4.3.8.RELEASE]
+	at org.springframework.scheduling.concurrent.ReschedulingRunnable.run(ReschedulingRunnable.java:81) ~[spring-context-4.3.8.RELEASE.jar:4.3.8.RELEASE]
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511) ~[na:1.8.0_73]
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266) ~[na:1.8.0_73]
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.access$201(ScheduledThreadPoolExecutor.java:180) ~[na:1.8.0_73]
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:293) ~[na:1.8.0_73]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142) ~[na:1.8.0_73]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617) ~[na:1.8.0_73]
+	at java.lang.Thread.run(Thread.java:745) ~[na:1.8.0_73]
+
+2017-05-18 11:47:40.008  INFO 7352 --- [pool-1-thread-2] com.simba.framework.util.jdbc.Jdbc       : updatedCount:1 sql:update job set exeCount = exeCount + 1 where id = 7 
+2017-05-18 11:47:40.009  INFO 7352 --- [pool-1-thread-2] com.simba.framework.util.jdbc.Jdbc       : updatedCount:1 sql:update job set status = 'error' where id = 7 
+2017-05-18 11:47:50.001  INFO 7352 --- [pool-1-thread-8] com.simba.framework.util.jdbc.Jdbc       : sql:select * from job where id = ? 
+2017-05-18 11:47:50.003  INFO 7352 --- [pool-1-thread-8] c.simba.job.service.impl.JobServiceImpl  : 执行任务异常:Job [id=7, name=demo, description=demo, cronExpression=0/10 * * * * *, startTime=2017-05-18 11:10:00, endTime=, exeCount=44, maxExeCount=200, status=error, className=com.simba.DemoJob, methodName=execute, delayTime=0, intervalTime=0]
+
+java.lang.ClassNotFoundException: com.simba.DemoJob
+	at java.net.URLClassLoader.findClass(URLClassLoader.java:381) ~[na:1.8.0_73]
+	at java.lang.ClassLoader.loadClass(ClassLoader.java:424) ~[na:1.8.0_73]
+	at sun.misc.Launcher$AppClassLoader.loadClass(Launcher.java:331) ~[na:1.8.0_73]
+	at java.lang.ClassLoader.loadClass(ClassLoader.java:357) ~[na:1.8.0_73]
+	at java.lang.Class.forName0(Native Method) ~[na:1.8.0_73]
+	at java.lang.Class.forName(Class.java:264) ~[na:1.8.0_73]
+	at com.simba.framework.util.common.ReflectUtil.invokeObjectMethod(ReflectUtil.java:38) ~[classes/:na]
+	at com.simba.job.service.impl.JobServiceImpl.execute(JobServiceImpl.java:114) ~[classes/:na]
+	at com.simba.job.service.impl.JobServiceImpl$$FastClassBySpringCGLIB$$e7498b77.invoke(<generated>) [classes/:na]
+	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:204) [spring-core-4.3.8.RELEASE.jar:4.3.8.RELEASE]
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.invokeJoinpoint(CglibAopProxy.java:738) [spring-aop-4.3.8.RELEASE.jar:4.3.8.RELEASE]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:157) [spring-aop-4.3.8.RELEASE.jar:4.3.8.RELEASE]
+	at org.springframework.transaction.interceptor.TransactionInterceptor$1.proceedWithInvocation(TransactionInterceptor.java:99) [spring-tx-4.3.8.RELEASE.jar:4.3.8.RELEASE]
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:282) [spring-tx-4.3.8.RELEASE.jar:4.3.8.RELEASE]
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:96) [spring-tx-4.3.8.RELEASE.jar:4.3.8.RELEASE]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179) [spring-aop-4.3.8.RELEASE.jar:4.3.8.RELEASE]
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:673) [spring-aop-4.3.8.RELEASE.jar:4.3.8.RELEASE]
+	at com.simba.job.service.impl.JobServiceImpl$$EnhancerBySpringCGLIB$$3eedfc8b.execute(<generated>) [classes/:na]
+	at com.simba.util.ScheduleUtil.lambda$2(ScheduleUtil.java:151) [classes/:na]
+	at org.springframework.scheduling.support.DelegatingErrorHandlingRunnable.run(DelegatingErrorHandlingRunnable.java:54) ~[spring-context-4.3.8.RELEASE.jar:4.3.8.RELEASE]
+	at org.springframework.scheduling.concurrent.ReschedulingRunnable.run(ReschedulingRunnable.java:81) ~[spring-context-4.3.8.RELEASE.jar:4.3.8.RELEASE]
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511) ~[na:1.8.0_73]
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266) ~[na:1.8.0_73]
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.access$201(ScheduledThreadPoolExecutor.java:180) ~[na:1.8.0_73]
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:293) ~[na:1.8.0_73]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142) ~[na:1.8.0_73]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617) ~[na:1.8.0_73]
+	at java.lang.Thread.run(Thread.java:745) ~[na:1.8.0_73]
+
+2017-05-18 11:47:50.011  INFO 7352 --- [pool-1-thread-8] com.simba.framework.util.jdbc.Jdbc       : updatedCount:1 sql:update job set exeCount = exeCount + 1 where id = 7 
+2017-05-18 11:47:50.012  INFO 7352 --- [pool-1-thread-8] com.simba.framework.util.jdbc.Jdbc       : updatedCount:1 sql:update job set status = 'error' where id = 7 
+2017-05-18 11:48:00.002  INFO 7352 --- [pool-1-thread-16] com.simba.framework.util.jdbc.Jdbc       : sql:select * from job where id = ? 
+2017-05-18 11:48:00.005  INFO 7352 --- [pool-1-thread-16] c.simba.job.service.impl.JobServiceImpl  : 执行任务异常:Job [id=7, name=demo, description=demo, cronExpression=0/10 * * * * *, startTime=2017-05-18 11:10:00, endTime=, exeCount=45, maxExeCount=200, status=error, className=com.simba.DemoJob, methodName=execute, delayTime=0, intervalTime=0]
+
+java.lang.ClassNotFoundException: com.simba.DemoJob
+	at java.net.URLClassLoader.findClass(URLClassLoader.java:381) ~[na:1.8.0_73]
+	at java.lang.ClassLoader.loadClass(ClassLoader.java:424) ~[na:1.8.0_73]
+	at sun.misc.Launcher$AppClassLoader.loadClass(Launcher.java:331) ~[na:1.8.0_73]
+	at java.lang.ClassLoader.loadClass(ClassLoader.java:357) ~[na:1.8.0_73]
+	at java.lang.Class.forName0(Native Method) ~[na:1.8.0_73]
+	at java.lang.Class.forName(Class.java:264) ~[na:1.8.0_73]
+	at com.simba.framework.util.common.ReflectUtil.invokeObjectMethod(ReflectUtil.java:38) ~[classes/:na]
+	at com.simba.job.service.impl.JobServiceImpl.execute(JobServiceImpl.java:114) ~[classes/:na]
+	at com.simba.job.service.impl.JobServiceImpl$$FastClassBySpringCGLIB$$e7498b77.invoke(<generated>) [classes/:na]
+	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:204) [spring-core-4.3.8.RELEASE.jar:4.3.8.RELEASE]
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.invokeJoinpoint(CglibAopProxy.java:738) [spring-aop-4.3.8.RELEASE.jar:4.3.8.RELEASE]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:157) [spring-aop-4.3.8.RELEASE.jar:4.3.8.RELEASE]
+	at org.springframework.transaction.interceptor.TransactionInterceptor$1.proceedWithInvocation(TransactionInterceptor.java:99) [spring-tx-4.3.8.RELEASE.jar:4.3.8.RELEASE]
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:282) [spring-tx-4.3.8.RELEASE.jar:4.3.8.RELEASE]
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:96) [spring-tx-4.3.8.RELEASE.jar:4.3.8.RELEASE]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179) [spring-aop-4.3.8.RELEASE.jar:4.3.8.RELEASE]
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:673) [spring-aop-4.3.8.RELEASE.jar:4.3.8.RELEASE]
+	at com.simba.job.service.impl.JobServiceImpl$$EnhancerBySpringCGLIB$$3eedfc8b.execute(<generated>) [classes/:na]
+	at com.simba.util.ScheduleUtil.lambda$2(ScheduleUtil.java:151) [classes/:na]
+	at org.springframework.scheduling.support.DelegatingErrorHandlingRunnable.run(DelegatingErrorHandlingRunnable.java:54) ~[spring-context-4.3.8.RELEASE.jar:4.3.8.RELEASE]
+	at org.springframework.scheduling.concurrent.ReschedulingRunnable.run(ReschedulingRunnable.java:81) ~[spring-context-4.3.8.RELEASE.jar:4.3.8.RELEASE]
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511) ~[na:1.8.0_73]
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266) ~[na:1.8.0_73]
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.access$201(ScheduledThreadPoolExecutor.java:180) ~[na:1.8.0_73]
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:293) ~[na:1.8.0_73]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142) ~[na:1.8.0_73]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617) ~[na:1.8.0_73]
+	at java.lang.Thread.run(Thread.java:745) ~[na:1.8.0_73]
+
+2017-05-18 11:48:00.006  INFO 7352 --- [pool-1-thread-16] com.simba.framework.util.jdbc.Jdbc       : updatedCount:1 sql:update job set exeCount = exeCount + 1 where id = 7 
+2017-05-18 11:48:00.006  INFO 7352 --- [pool-1-thread-16] com.simba.framework.util.jdbc.Jdbc       : updatedCount:1 sql:update job set status = 'error' where id = 7 
+2017-05-18 11:48:02.947  INFO 7352 --- [http-nio-8888-exec-6] com.simba.framework.util.jdbc.Jdbc       : result:1 sql:select count(*) from job
+2017-05-18 11:48:02.949  INFO 7352 --- [http-nio-8888-exec-1] com.simba.framework.util.jdbc.Jdbc       : result:1 sql:SELECT COUNT(1) from job
+2017-05-18 11:48:02.950  INFO 7352 --- [http-nio-8888-exec-1] com.simba.framework.util.jdbc.Jdbc       : result size:1 sql:select * from job limit 0,10
+2017-05-18 11:48:03.983  INFO 7352 --- [http-nio-8888-exec-4] com.simba.framework.util.jdbc.Jdbc       : sql:select * from job where id = ? 
+2017-05-18 11:48:03.986  INFO 7352 --- [http-nio-8888-exec-4] com.simba.framework.util.jdbc.Jdbc       : updatedCount:1 sql:update job set status = 'suspend' where id = 7 
+2017-05-18 11:48:03.987  INFO 7352 --- [http-nio-8888-exec-4] c.s.f.distributed.RedisDistributedImpl   : 发布消息成功，共有订阅方1个
+2017-05-18 11:48:03.989  INFO 7352 --- [http-nio-8888-exec-4] c.s.f.distributed.RedisDistributedImpl   : 发布消息成功，共有订阅方1个
+2017-05-18 11:48:03.991  INFO 7352 --- [Thread-4] c.s.f.distributed.RedisReceiveMessage    : 接收到集群的消息:ClusterMessage [classFullPath=com.simba.cluster.JobClusterExecute, data=JobClusterData [method=remove, job=Job [id=7, name=demo, description=demo, cronExpression=0/10 * * * * *, startTime=2017-05-18 11:10:00, endTime=, exeCount=46, maxExeCount=200, status=suspend, className=com.simba.DemoJob, methodName=execute, delayTime=0, intervalTime=0]]]
+2017-05-18 11:48:03.991  INFO 7352 --- [Thread-4] c.s.f.distributed.RedisReceiveMessage    : com.simba.cluster.JobClusterExecute执行完成
+2017-05-18 11:48:03.992  INFO 7352 --- [Thread-4] c.s.f.distributed.RedisReceiveMessage    : 接收到集群的消息:ClusterMessage [classFullPath=com.simba.cluster.JobScheduleClusterExecute, data=JobClusterData [method=remove, job=Job [id=7, name=demo, description=demo, cronExpression=0/10 * * * * *, startTime=2017-05-18 11:10:00, endTime=, exeCount=46, maxExeCount=200, status=suspend, className=com.simba.DemoJob, methodName=execute, delayTime=0, intervalTime=0]]]
+2017-05-18 11:48:03.992  INFO 7352 --- [Thread-4] com.simba.util.ScheduleUtil              : 删除任务成功:7
+2017-05-18 11:48:03.993  INFO 7352 --- [Thread-4] c.s.f.distributed.RedisReceiveMessage    : com.simba.cluster.JobScheduleClusterExecute执行完成
+2017-05-18 11:48:04.042  INFO 7352 --- [http-nio-8888-exec-10] com.simba.framework.util.jdbc.Jdbc       : result:1 sql:SELECT COUNT(1) from job
+2017-05-18 11:48:04.042  INFO 7352 --- [http-nio-8888-exec-9] com.simba.framework.util.jdbc.Jdbc       : result:1 sql:select count(*) from job
+2017-05-18 11:48:04.042  INFO 7352 --- [http-nio-8888-exec-10] com.simba.framework.util.jdbc.Jdbc       : result size:1 sql:select * from job limit 0,10
+2017-05-18 11:48:11.451  INFO 7352 --- [http-nio-8888-exec-5] c.s.f.session.HttpSessionWrapper         : 清空session:d8cbb184-5c53-42ed-bb7f-435280a6d965
+2017-05-18 11:48:15.039  INFO 7352 --- [http-nio-8888-exec-7] com.simba.framework.util.jdbc.Jdbc       : result:1 sql:select count(*) from job
+2017-05-18 11:48:15.039  INFO 7352 --- [http-nio-8888-exec-2] com.simba.framework.util.jdbc.Jdbc       : result:1 sql:SELECT COUNT(1) from job
+2017-05-18 11:48:15.040  INFO 7352 --- [http-nio-8888-exec-2] com.simba.framework.util.jdbc.Jdbc       : result size:1 sql:select * from job limit 0,10
+2017-05-18 11:48:16.547  INFO 7352 --- [http-nio-8888-exec-5] com.simba.framework.util.jdbc.Jdbc       : sql:select * from job where id = ? 
+2017-05-18 11:48:16.549  INFO 7352 --- [http-nio-8888-exec-5] com.simba.framework.util.jdbc.Jdbc       : updatedCount:1 sql:update job set status = 'waiting' where id = 7 
+2017-05-18 11:48:16.550  INFO 7352 --- [http-nio-8888-exec-5] c.s.f.distributed.RedisDistributedImpl   : 发布消息成功，共有订阅方1个
+2017-05-18 11:48:16.550  INFO 7352 --- [Thread-4] c.s.f.distributed.RedisReceiveMessage    : 接收到集群的消息:ClusterMessage [classFullPath=com.simba.cluster.JobClusterExecute, data=JobClusterData [method=add, job=Job [id=7, name=demo, description=demo, cronExpression=0/10 * * * * *, startTime=2017-05-18 11:10:00, endTime=, exeCount=46, maxExeCount=200, status=waiting, className=com.simba.DemoJob, methodName=execute, delayTime=0, intervalTime=0]]]
+2017-05-18 11:48:16.551  INFO 7352 --- [Thread-4] c.s.f.distributed.RedisReceiveMessage    : com.simba.cluster.JobClusterExecute执行完成
+2017-05-18 11:48:16.596  INFO 7352 --- [http-nio-8888-exec-4] com.simba.framework.util.jdbc.Jdbc       : result:1 sql:select count(*) from job
+2017-05-18 11:48:16.598  INFO 7352 --- [http-nio-8888-exec-3] com.simba.framework.util.jdbc.Jdbc       : result:1 sql:SELECT COUNT(1) from job
+2017-05-18 11:48:16.599  INFO 7352 --- [http-nio-8888-exec-3] com.simba.framework.util.jdbc.Jdbc       : result size:1 sql:select * from job limit 0,10
+2017-05-18 11:48:17.229  INFO 7352 --- [pool-2-thread-1] com.simba.util.ScheduleUtil              : 启动任务成功:demo
+2017-05-18 11:48:18.589  INFO 7352 --- [http-nio-8888-exec-8] com.simba.framework.util.jdbc.Jdbc       : sql:select * from job where id = ? 
+2017-05-18 11:48:18.590  INFO 7352 --- [http-nio-8888-exec-8] com.simba.framework.util.jdbc.Jdbc       : updatedCount:1 sql:update job set status = 'suspend' where id = 7 
+2017-05-18 11:48:18.591  INFO 7352 --- [http-nio-8888-exec-8] c.s.f.distributed.RedisDistributedImpl   : 发布消息成功，共有订阅方1个
+2017-05-18 11:48:18.592  INFO 7352 --- [Thread-4] c.s.f.distributed.RedisReceiveMessage    : 接收到集群的消息:ClusterMessage [classFullPath=com.simba.cluster.JobClusterExecute, data=JobClusterData [method=remove, job=Job [id=7, name=demo, description=demo, cronExpression=0/10 * * * * *, startTime=2017-05-18 11:10:00, endTime=, exeCount=46, maxExeCount=200, status=suspend, className=com.simba.DemoJob, methodName=execute, delayTime=0, intervalTime=0]]]
+2017-05-18 11:48:18.592  INFO 7352 --- [Thread-4] c.s.f.distributed.RedisReceiveMessage    : com.simba.cluster.JobClusterExecute执行完成
+2017-05-18 11:48:18.592  INFO 7352 --- [http-nio-8888-exec-8] c.s.f.distributed.RedisDistributedImpl   : 发布消息成功，共有订阅方1个
+2017-05-18 11:48:18.593  INFO 7352 --- [Thread-4] c.s.f.distributed.RedisReceiveMessage    : 接收到集群的消息:ClusterMessage [classFullPath=com.simba.cluster.JobScheduleClusterExecute, data=JobClusterData [method=remove, job=Job [id=7, name=demo, description=demo, cronExpression=0/10 * * * * *, startTime=2017-05-18 11:10:00, endTime=, exeCount=46, maxExeCount=200, status=suspend, className=com.simba.DemoJob, methodName=execute, delayTime=0, intervalTime=0]]]
+2017-05-18 11:48:18.593  INFO 7352 --- [Thread-4] com.simba.util.ScheduleUtil              : 删除任务成功:7
+2017-05-18 11:48:18.593  INFO 7352 --- [Thread-4] c.s.f.distributed.RedisReceiveMessage    : com.simba.cluster.JobScheduleClusterExecute执行完成
+2017-05-18 11:48:18.637  INFO 7352 --- [http-nio-8888-exec-5] com.simba.framework.util.jdbc.Jdbc       : result:1 sql:SELECT COUNT(1) from job
+2017-05-18 11:48:18.639  INFO 7352 --- [http-nio-8888-exec-5] com.simba.framework.util.jdbc.Jdbc       : result size:1 sql:select * from job limit 0,10
+2017-05-18 11:48:18.641  INFO 7352 --- [http-nio-8888-exec-4] com.simba.framework.util.jdbc.Jdbc       : result:1 sql:select count(*) from job
+2017-05-18 11:48:21.662  INFO 7352 --- [http-nio-8888-exec-3] com.simba.framework.util.jdbc.Jdbc       : updatedCount:1 sql:delete from job where id = 7 
+2017-05-18 11:48:21.667  INFO 7352 --- [Thread-4] c.s.f.distributed.RedisReceiveMessage    : 接收到集群的消息:ClusterMessage [classFullPath=com.simba.cluster.JobClusterExecute, data=JobClusterData [method=remove, job=Job [id=7, name=null, description=null, cronExpression=null, startTime=null, endTime=null, exeCount=0, maxExeCount=0, status=null, className=null, methodName=null, delayTime=0, intervalTime=0]]]
+2017-05-18 11:48:21.667  INFO 7352 --- [Thread-4] c.s.f.distributed.RedisReceiveMessage    : com.simba.cluster.JobClusterExecute执行完成
+2017-05-18 11:48:21.667  INFO 7352 --- [http-nio-8888-exec-3] c.s.f.distributed.RedisDistributedImpl   : 发布消息成功，共有订阅方1个
+2017-05-18 11:48:21.669  INFO 7352 --- [Thread-4] c.s.f.distributed.RedisReceiveMessage    : 接收到集群的消息:ClusterMessage [classFullPath=com.simba.cluster.JobScheduleClusterExecute, data=JobClusterData [method=remove, job=Job [id=7, name=null, description=null, cronExpression=null, startTime=null, endTime=null, exeCount=0, maxExeCount=0, status=null, className=null, methodName=null, delayTime=0, intervalTime=0]]]
+2017-05-18 11:48:21.670  INFO 7352 --- [Thread-4] c.s.f.distributed.RedisReceiveMessage    : com.simba.cluster.JobScheduleClusterExecute执行完成
+2017-05-18 11:48:21.670  INFO 7352 --- [http-nio-8888-exec-3] c.s.f.distributed.RedisDistributedImpl   : 发布消息成功，共有订阅方1个
+2017-05-18 11:48:21.724  INFO 7352 --- [http-nio-8888-exec-6] com.simba.framework.util.jdbc.Jdbc       : result:0 sql:SELECT COUNT(1) from job
+2017-05-18 11:48:21.724  INFO 7352 --- [http-nio-8888-exec-10] com.simba.framework.util.jdbc.Jdbc       : result:0 sql:select count(*) from job
+2017-05-18 11:48:24.421  INFO 7352 --- [RMI TCP Connection(2)-127.0.0.1] inMXBeanRegistrar$SpringApplicationAdmin : Application shutdown requested.
+2017-05-18 11:48:24.421  INFO 7352 --- [RMI TCP Connection(2)-127.0.0.1] ationConfigEmbeddedWebApplicationContext : Closing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@5e316c74: startup date [Thu May 18 11:34:52 CST 2017]; root of context hierarchy
+2017-05-18 11:48:24.432  INFO 7352 --- [RMI TCP Connection(2)-127.0.0.1] o.s.c.support.DefaultLifecycleProcessor  : Stopping beans in phase 0
+2017-05-18 11:48:24.433  INFO 7352 --- [RMI TCP Connection(2)-127.0.0.1] o.s.j.e.a.AnnotationMBeanExporter        : Unregistering JMX-exposed beans on shutdown
+2017-05-18 11:48:24.433  INFO 7352 --- [RMI TCP Connection(2)-127.0.0.1] o.s.j.e.a.AnnotationMBeanExporter        : Unregistering JMX-exposed beans
+2017-05-18 11:48:24.434  INFO 7352 --- [RMI TCP Connection(2)-127.0.0.1] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'taskExecutor'
+2017-05-18 11:48:24.435  INFO 7352 --- [RMI TCP Connection(2)-127.0.0.1] com.simba.framework.util.jdbc.Jdbc       : destroy
+2017-05-18 11:48:24.468  INFO 7352 --- [RMI TCP Connection(2)-127.0.0.1] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} closed
