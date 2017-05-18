@@ -45,6 +45,10 @@
 			<groupId>com.simba</groupId>
 			<artifactId>simba-job</artifactId>
 		</dependency>
+		<dependency>
+			<groupId>com.simba</groupId>
+			<artifactId>simba-buss</artifactId>
+		</dependency>
 	</dependencies>
 
 	<build>

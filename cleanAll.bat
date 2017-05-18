@@ -109,6 +109,9 @@ cd ../
 cd simba-registry
 call mvn clean -U 
 cd ../
+cd simba-buss
+call mvn clean -U 
+cd ../
 cd simba-menu
 call mvn clean -U 
 cd ../
@@ -125,6 +128,9 @@ cd simba-wechathardware
 call mvn clean -U 
 cd ../
 cd simba-wechatpay
+call mvn clean -U 
+cd ../
+cd simba-eureka-client
 call mvn clean -U 
 cd ../
 cd simbaRoot

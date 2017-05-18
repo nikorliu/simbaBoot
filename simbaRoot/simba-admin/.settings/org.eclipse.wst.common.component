@@ -79,7 +79,16 @@
         <dependent-module archiveName="simba-codegenerate-2.0.0-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/simba-codegenerate/simba-codegenerate">
             <dependency-type>uses</dependency-type>
         </dependent-module>
+        <dependent-module archiveName="simba-job-2.0.0-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/simba-job/simba-job">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
         <dependent-module archiveName="simba-schedule-2.0.0-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/simba-schedule/simba-schedule">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="simba-buss-2.0.0-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/simba-buss/simba-buss">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="simba-groovy-2.0.0-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/simba-groovy/simba-groovy">
             <dependency-type>uses</dependency-type>
         </dependent-module>
         <property name="java-output-path" value="/simba-admin/target/classes"/>

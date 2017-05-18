@@ -109,6 +109,9 @@ cd ../
 cd simba-registry
 call mvn clean -U deploy
 cd ../
+cd simba-buss
+call mvn clean -U deploy
+cd ../
 cd simba-menu
 call mvn clean -U deploy
 cd ../
@@ -116,6 +119,9 @@ cd simba-job
 call mvn clean -U deploy
 cd ../
 cd simba-ueditor
+call mvn clean -U deploy
+cd ../
+cd simba-eureka-client
 call mvn clean -U deploy
 cd ../
 cd simba-wechatutil

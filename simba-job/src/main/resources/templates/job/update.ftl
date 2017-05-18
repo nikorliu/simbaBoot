@@ -7,8 +7,6 @@
 		<title>系统首页</title>
 		<#include "../adminlte.ftl"/>
 		<#include "../datetimepicker.ftl"/>
-		<script type="text/javascript" src="${base}/js/plugins/bootstrap-treeview.min.js"></script>
-		<script type="text/javascript" src="${base}/js/util/treeviewutil.js"></script>
 		<script type="text/javascript" src="${base}/js/job/job.js"></script>
 	</head>
 

@@ -11,8 +11,8 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import ${packageName}.framework.util.jdbc.Pager;
 import ${packageName}.framework.util.json.JsonResult;
-import ${packageName}.model.RegistryType;
-import ${packageName}.service.RegistryTypeService;
+import ${packageName}.model.${className};
+import ${packageName}.service.${className}Service;
 
 /**
  * ${classDesc}控制器
