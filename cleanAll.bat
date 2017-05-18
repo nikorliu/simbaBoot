@@ -112,6 +112,9 @@ cd ../
 cd simba-menu
 call mvn clean -U 
 cd ../
+cd simba-job
+call mvn clean -U
+cd ../
 cd simba-ueditor
 call mvn clean -U 
 cd ../

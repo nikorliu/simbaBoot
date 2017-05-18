@@ -112,6 +112,9 @@ cd ../
 cd simba-menu
 call mvn clean -U deploy
 cd ../
+cd simba-job
+call mvn clean -U deploy
+cd ../
 cd simba-ueditor
 call mvn clean -U deploy
 cd ../

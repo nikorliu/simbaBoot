@@ -43,9 +43,6 @@
         <dependent-module archiveName="simba-framework-util-2.0.0-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/simba-framework-util/simba-framework-util">
             <dependency-type>uses</dependency-type>
         </dependent-module>
-        <dependent-module archiveName="simba-schedule-2.0.0-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/simba-schedule/simba-schedule">
-            <dependency-type>uses</dependency-type>
-        </dependent-module>
         <dependent-module archiveName="simba-fastdfs-2.0.0-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/simba-fastdfs/simba-fastdfs">
             <dependency-type>uses</dependency-type>
         </dependent-module>
@@ -80,6 +77,9 @@
             <dependency-type>uses</dependency-type>
         </dependent-module>
         <dependent-module archiveName="simba-codegenerate-2.0.0-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/simba-codegenerate/simba-codegenerate">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="simba-schedule-2.0.0-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/simba-schedule/simba-schedule">
             <dependency-type>uses</dependency-type>
         </dependent-module>
         <property name="java-output-path" value="/simba-admin/target/classes"/>
