@@ -3,6 +3,8 @@ package com.simba.buss.dao.impl;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.CacheEvict;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Repository;
 
 import com.simba.buss.dao.BussDao;
@@ -25,12 +27,14 @@ public class BussDaoImpl implements BussDao {
 	}
 
 	@Override
+	@CacheEvict(cacheNames = "buss", key = "#buss.getName()")
 	public void update(Buss buss) {
 		String sql = "update " + table + " set description=?,script=? where name=?";
 		jdbc.updateForBoolean(sql, buss.getDescription(), buss.getScript(), buss.getName());
 	}
 
 	@Override
+	@CacheEvict(cacheNames = "buss", key = "#p0")
 	public void delele(String name) {
 		String sql = "delete from " + table + " where name = ? ";
 		jdbc.updateForBoolean(sql, name);
@@ -43,6 +47,7 @@ public class BussDaoImpl implements BussDao {
 	}
 
 	@Override
+	@Cacheable(cacheNames = "buss", key = "#p0")
 	public Buss get(String name) {
 		String sql = "select * from " + table + " where name = ? ";
 		return jdbc.query(sql, Buss.class, name);

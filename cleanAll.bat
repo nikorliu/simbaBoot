@@ -64,6 +64,9 @@ cd ../
 cd simba-oss
 call mvn clean -U 
 cd ../
+cd simba-msg
+call mvn clean -U 
+cd ../
 cd simba-rabbitmq
 call mvn clean -U 
 cd ../
