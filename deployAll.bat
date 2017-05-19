@@ -124,6 +124,9 @@ cd ../
 cd simba-eureka-client
 call mvn clean -U deploy
 cd ../
+cd simba-config-client
+call mvn clean -U deploy
+cd ../
 cd simba-wechatutil
 call mvn clean -U deploy
 cd ../
