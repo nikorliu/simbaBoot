@@ -49,6 +49,10 @@
 			<groupId>com.simba</groupId>
 			<artifactId>simba-buss</artifactId>
 		</dependency>
+		<dependency>
+			<groupId>com.simba</groupId>
+			<artifactId>simba-eureka-client</artifactId>
+		</dependency>
 	</dependencies>
 
 	<build>
