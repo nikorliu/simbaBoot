@@ -22,7 +22,9 @@ import com.simba.permission.controller.vo.OrgVo;
 import com.simba.permission.model.Org;
 import com.simba.permission.model.OrgExt;
 import com.simba.permission.model.OrgExtDesc;
+import com.simba.permission.model.Role;
 import com.simba.permission.service.OrgService;
+import com.simba.permission.service.RoleService;
 
 @Controller
 @RequestMapping("/org")
@@ -30,6 +32,9 @@ public class OrgController {
 
 	@Autowired
 	private OrgService orgService;
+
+	@Autowired
+	private RoleService roleService;
 
 	@RequestMapping("/list")
 	public String list(Integer parentID, ModelMap model) {
@@ -193,6 +198,26 @@ public class OrgController {
 	@RequestMapping("/delete")
 	public JsonResult delete(int id) {
 		orgService.delete(id);
+		return new JsonResult();
+	}
+
+	@RequestMapping("/toAssignRole")
+	public String toAssignRole(int id, ModelMap model) {
+		List<Role> allRoleList = roleService.listAll();
+		List<Role> assignRoleList = orgService.listRoleByOrgID(id);
+		model.put("orgID", id);
+		model.put("allRoleList", allRoleList);
+		model.put("assignRoleList", assignRoleList);
+		return "permission/assignOrgRole";
+	}
+
+	@ResponseBody
+	@RequestMapping("/assignRole")
+	public JsonResult assignRole(String[] roleName, int orgID, ModelMap model) {
+		if (roleName == null || roleName.length == 0) {
+			throw new RuntimeException("角色不能为空");
+		}
+		orgService.assignRoles(orgID, Arrays.asList(roleName));
 		return new JsonResult();
 	}
 

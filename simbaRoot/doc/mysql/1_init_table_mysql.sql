@@ -1,6 +1,6 @@
 /*==============================================================*/
 /* DBMS name:      MySQL 5.0                                    */
-/* Created on:     2016-09-23  星期五 14:26:00                     */
+/* Created on:     2017/5/22 星期一 9:49:42                        */
 /*==============================================================*/
 
 
@@ -13,6 +13,8 @@ drop table if exists menu;
 drop table if exists org;
 
 drop table if exists orgExt;
+
+drop table if exists orgRole;
 
 drop table if exists permission;
 
@@ -42,9 +44,6 @@ create table buss
    script               text not null,
    primary key (name)
 );
-
-
-
 
 /*==============================================================*/
 /* Table: job                                                   */
@@ -108,6 +107,19 @@ create table orgExt
 );
 
 alter table orgExt comment '机构扩展';
+
+/*==============================================================*/
+/* Table: orgRole                                               */
+/*==============================================================*/
+create table orgRole
+(
+   id                   int not null auto_increment comment '机构ID',
+   orgID                int not null comment '名称',
+   roleName             varchar(64) not null comment '父机构ID',
+   primary key (id)
+);
+
+alter table orgRole comment '机构角色关联表';
 
 /*==============================================================*/
 /* Table: permission                                            */

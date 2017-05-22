@@ -1,5 +1,6 @@
 package com.simba.permission.service.impl;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.annotation.PostConstruct;
@@ -13,9 +14,13 @@ import org.springframework.transaction.annotation.Transactional;
 import com.simba.framework.util.jdbc.Pager;
 import com.simba.permission.dao.OrgDao;
 import com.simba.permission.dao.OrgExtDao;
+import com.simba.permission.dao.OrgRoleDao;
+import com.simba.permission.dao.RoleDao;
 import com.simba.permission.model.Org;
 import com.simba.permission.model.OrgExt;
 import com.simba.permission.model.OrgExtDesc;
+import com.simba.permission.model.OrgRole;
+import com.simba.permission.model.Role;
 import com.simba.permission.service.OrgService;
 
 /**
@@ -33,6 +38,12 @@ public class OrgServiceImpl implements OrgService {
 
 	@Autowired
 	private OrgExtDao orgExtDao;
+
+	@Autowired
+	private OrgRoleDao orgRoleDao;
+
+	@Autowired
+	private RoleDao roleDao;
 
 	@Value("${org.ext}")
 	private String orgExt;
@@ -177,5 +188,31 @@ public class OrgServiceImpl implements OrgService {
 	public void update(Org org, OrgExt orgExt) {
 		orgDao.update(org);
 		orgExtDao.update(orgExt);
+	}
+
+	@Override
+	public void assignRoles(int orgID, List<String> roleNameList) {
+		orgRoleDao.deleteByOrgID(orgID);
+		for (String roleName : roleNameList) {
+			if (StringUtils.isNotEmpty(roleName)) {
+				OrgRole orgRole = new OrgRole();
+				orgRole.setOrgID(orgID);
+				orgRole.setRoleName(roleName);
+				orgRoleDao.add(orgRole);
+			}
+		}
+	}
+
+	@Override
+	public List<Role> listRoleByOrgID(int orgID) {
+		List<OrgRole> orgRoleList = orgRoleDao.listBy("orgID", orgID);
+		List<Role> list = new ArrayList<>(orgRoleList.size());
+		orgRoleList.forEach((OrgRole orgRole) -> {
+			Role role = roleDao.get(orgRole.getRoleName());
+			if (role != null) {
+				list.add(role);
+			}
+		});
+		return list;
 	}
 }

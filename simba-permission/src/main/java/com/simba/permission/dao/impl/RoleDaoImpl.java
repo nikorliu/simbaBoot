@@ -3,6 +3,8 @@ package com.simba.permission.dao.impl;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.CacheEvict;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Repository;
 
 import com.simba.framework.util.jdbc.Jdbc;
@@ -25,12 +27,14 @@ public class RoleDaoImpl implements RoleDao {
 	}
 
 	@Override
+	@CacheEvict(cacheNames = "role", key = "#p0.getName()")
 	public void update(Role role) {
 		String sql = "update " + table + " set description =? where name = ?";
 		jdbc.updateForBoolean(sql, role.getDescription(), role.getName());
 	}
 
 	@Override
+	@CacheEvict(cacheNames = "role", key = "#p0")
 	public void delete(String name) {
 		String sql = "delete from " + table + " where name = ?";
 		jdbc.updateForBoolean(sql, name);
@@ -43,6 +47,7 @@ public class RoleDaoImpl implements RoleDao {
 	}
 
 	@Override
+	@Cacheable(cacheNames = "role", key = "#p0")
 	public Role get(String name) {
 		String sql = "select * from " + table + " where name = ?";
 		return jdbc.query(sql, Role.class, name);

@@ -29,7 +29,7 @@ public class OrgDaoImpl implements OrgDao {
 	private static final String table = "org";
 
 	@Override
-	@CacheEvict(cacheNames = { "allOrg", "org" }, allEntries = true)
+	@CacheEvict(cacheNames = { "allOrg" }, allEntries = true)
 	public int add(Org org) {
 		String sql = "insert into " + table + "( text, parentID,orderNo) values(?,?,?)";
 		return NumberUtils
@@ -37,12 +37,14 @@ public class OrgDaoImpl implements OrgDao {
 	}
 
 	@Override
+	@CacheEvict(cacheNames = { "allOrg", "org" }, allEntries = true)
 	public void update(Org org) {
 		String sql = "update " + table + " set  text = ? , parentID = ? ,orderNo = ?  where id = ?  ";
 		jdbc.updateForBoolean(sql, org.getText(), org.getParentID(), org.getOrderNo(), org.getId());
 	}
 
 	@Override
+	@CacheEvict(cacheNames = { "allOrg", "org" }, allEntries = true)
 	public void delete(int id) {
 		String sql = "delete from " + table + " where id = ? ";
 		jdbc.updateForBoolean(sql, id);

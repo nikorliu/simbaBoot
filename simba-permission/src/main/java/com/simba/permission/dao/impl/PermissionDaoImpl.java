@@ -3,6 +3,8 @@ package com.simba.permission.dao.impl;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.CacheEvict;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Repository;
 
 import com.simba.framework.util.jdbc.Jdbc;
@@ -32,12 +34,15 @@ public class PermissionDaoImpl implements PermissionDao {
 	}
 
 	@Override
+	@CacheEvict(cacheNames = "permission", key = "#p0.getId()")
 	public void update(Permission permission) {
 		String sql = "update " + table + " set  text = ? , url = ? , parentID = ?  where id = ?  ";
-		jdbc.updateForBoolean(sql, permission.getText(), permission.getUrl(), permission.getParentID(), permission.getId());
+		jdbc.updateForBoolean(sql, permission.getText(), permission.getUrl(), permission.getParentID(),
+				permission.getId());
 	}
 
 	@Override
+	@CacheEvict(cacheNames = "permission", key = "#p0")
 	public void delete(int id) {
 		String sql = "delete from " + table + " where id = ? ";
 		jdbc.updateForBoolean(sql, id);
@@ -62,6 +67,7 @@ public class PermissionDaoImpl implements PermissionDao {
 	}
 
 	@Override
+	@Cacheable(cacheNames = "permission", key = "#p0")
 	public Permission get(int id) {
 		String sql = "select * from " + table + " where id = ? ";
 		return jdbc.query(sql, Permission.class, id);

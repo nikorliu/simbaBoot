@@ -17,10 +17,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import com.simba.framework.util.code.EncryptUtil;
 import com.simba.permission.model.Org;
 import com.simba.permission.model.OrgExt;
+import com.simba.permission.model.OrgRole;
 import com.simba.permission.model.Permission;
 import com.simba.permission.model.Role;
 import com.simba.permission.model.User;
 import com.simba.permission.model.UserExt;
+import com.simba.permission.service.OrgRoleService;
 import com.simba.permission.service.RoleService;
 import com.simba.permission.service.UserService;
 import com.simba.util.SessionUtil;
@@ -58,6 +60,9 @@ public class LoginController {
 
 	@Autowired
 	private RoleService roleService;
+
+	@Autowired
+	private OrgRoleService orgRoleService;
 
 	@PostConstruct
 	private void init() {
@@ -159,14 +164,23 @@ public class LoginController {
 		}
 		User user = userService.get(userName);
 		UserExt userExt = userService.getUserExt(userName);
+		List<Org> orgList = userService.listOrgByUser(userName);
+		List<OrgExt> orgExtList = userService.listOrgExtByUser(userName);
 		List<Role> roleList = userService.listRoleByAccount(userName);
+		orgList.forEach((org) -> {
+			List<OrgRole> list = orgRoleService.listBy("orgID", org.getId());
+			list.forEach((OrgRole orgRole) -> {
+				Role role = roleService.get(orgRole.getRoleName());
+				if (role != null) {
+					roleList.add(role);
+				}
+			});
+		});
 		List<Permission> permissionList = new ArrayList<Permission>();
 		for (Role role : roleList) {
 			List<Permission> list = roleService.listByRole(role.getName());
 			permissionList.addAll(list);
 		}
-		List<Org> orgList = userService.listOrgByUser(userName);
-		List<OrgExt> orgExtList = userService.listOrgExtByUser(userName);
 		SessionUtil.setUser(session, user);
 		SessionUtil.setUserExt(session, userExt);
 		SessionUtil.setRoles(session, roleList);

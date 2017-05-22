@@ -5,6 +5,7 @@ import java.util.List;
 import com.simba.framework.util.jdbc.Pager;
 import com.simba.permission.model.Org;
 import com.simba.permission.model.OrgExt;
+import com.simba.permission.model.Role;
 
 /**
  *
@@ -57,4 +58,8 @@ public interface OrgService {
 	OrgExt getOrgExt(int id);
 
 	void update(Org org, OrgExt orgExt);
+
+	void assignRoles(int orgID, List<String> roleNameList);
+
+	List<Role> listRoleByOrgID(int orgID);
 }
