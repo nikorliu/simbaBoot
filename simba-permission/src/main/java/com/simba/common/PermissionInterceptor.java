@@ -7,6 +7,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import org.apache.commons.lang.StringUtils;
 import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -33,10 +34,13 @@ public class PermissionInterceptor implements HandlerInterceptor {
 
 	private void init() {
 		EnvironmentUtil environmentUtil = ApplicationContextUtil.getBean(EnvironmentUtil.class);
-		excludeUrl = environmentUtil.get("permission.interceptor.exclude");
+		excludeUrl = environmentUtil.get("permission.interceptor.exclude") + ","
+				+ environmentUtil.get("login.interceptor.exclude");
 		String[] urls = excludeUrl.split(",");
 		for (String url : urls) {
-			excludeUrls.add(url);
+			if (StringUtils.isNotEmpty(url)) {
+				excludeUrls.add(url.trim());
+			}
 		}
 	}
 
