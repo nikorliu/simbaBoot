@@ -32,7 +32,7 @@ public class ${className}Controller {
 	private ${className}Service ${firstLower}Service;
 
 	@RequestMapping("/list")
-	public String list(Integer parentID, ModelMap model) {
+	public String list(${idType} parentID, ModelMap model) {
 		if (parentID == null) {
 			parentID = ConstantData.TREE_ROOT_ID;
 		}
@@ -53,7 +53,7 @@ public class ${className}Controller {
 		root.setText("${classDesc}树");
 		root.setTags(ConstantData.TREE_ROOT_ID + "");
 		List<${className}> all${className}s = ${firstLower}Service.listAll();
-		Map<Integer, TreeViewData> nodeMap = new HashMap<>();
+		Map<${idType}, TreeViewData> nodeMap = new HashMap<>();
 		all${className}s.forEach((${className} ${firstLower}) -> {
 			TreeViewData node = new TreeViewData();
 			node.setId(${firstLower}.getId());
@@ -74,7 +74,7 @@ public class ${className}Controller {
 	}
 
 	@RequestMapping("/get${className}List")
-	public String get${className}List(int parentID, ModelMap model) {
+	public String get${className}List(${idType} parentID, ModelMap model) {
 		List<${className}> list = ${firstLower}Service.listBy("parentID",parentID);
 		model.put("list", list);
 		return "${firstLower}/table";
@@ -93,7 +93,7 @@ public class ${className}Controller {
 	}
 
 	@RequestMapping("/toAdd")
-	public String toAdd(int parentID, ModelMap model) {
+	public String toAdd(${idType} parentID, ModelMap model) {
 		String parentName = "${classDesc}树";
 		if (parentID != ConstantData.TREE_ROOT_ID) {
 			parentName = ${firstLower}Service.get(parentID).getText();
@@ -104,10 +104,10 @@ public class ${className}Controller {
 	}
 
 	@RequestMapping("/toUpdate")
-	public String toUpdate(int id, ModelMap model) {
+	public String toUpdate(${idType} id, ModelMap model) {
 		${className} ${firstLower} = ${firstLower}Service.get(id);
 		String parentName = "${classDesc}树";
-		int parentID = ${firstLower}.getParentID();
+		${idType} parentID = ${firstLower}.getParentID();
 		if (parentID != ConstantData.TREE_ROOT_ID) {
 			parentName = ${firstLower}Service.get(parentID).getText();
 		}
@@ -124,14 +124,14 @@ public class ${className}Controller {
 
 	@ResponseBody
 	@RequestMapping("/delete")
-	public JsonResult delete(int id, ModelMap model) {
+	public JsonResult delete(${idType} id, ModelMap model) {
 		${firstLower}Service.delete(id);
 		return new JsonResult();
 	}
 
 	@ResponseBody
 	@RequestMapping("/batchDelete")
-	public JsonResult batchDelete(Integer[] id, ModelMap model) {
+	public JsonResult batchDelete(${idType}[] id, ModelMap model) {
 		${firstLower}Service.batchDelete(Arrays.asList(id));
 		return new JsonResult();
 	}

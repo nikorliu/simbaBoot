@@ -55,14 +55,14 @@ public class ${className}Controller {
 
 	@ResponseBody
 	@RequestMapping("/delete")
-	public JsonResult delete(int id, ModelMap model) {
+	public JsonResult delete(${idType} id, ModelMap model) {
 		${firstLower}Service.delete(id);
 		return new JsonResult();
 	}
 
 	@ResponseBody
 	@RequestMapping("/batchDelete")
-	public JsonResult batchDelete(Integer[] id, ModelMap model) {
+	public JsonResult batchDelete(${idType}[] id, ModelMap model) {
 		${firstLower}Service.batchDelete(Arrays.asList(id));
 		return new JsonResult();
 	}

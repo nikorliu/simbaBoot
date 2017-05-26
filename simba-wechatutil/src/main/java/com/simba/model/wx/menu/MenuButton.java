@@ -40,6 +40,16 @@ public class MenuButton {
 	 */
 	private List<MenuButton> sub_button;
 
+	/**
+	 * 小程序的appid（仅认证公众号可配置）(miniprogram类型必须)
+	 */
+	private String appid;
+
+	/**
+	 * 小程序的页面路径(miniprogram类型必须)
+	 */
+	private String pagepath;
+
 	public String getName() {
 		return name;
 	}
@@ -86,6 +96,22 @@ public class MenuButton {
 
 	public void setSub_button(List<MenuButton> sub_button) {
 		this.sub_button = sub_button;
+	}
+
+	public String getAppid() {
+		return appid;
+	}
+
+	public void setAppid(String appid) {
+		this.appid = appid;
+	}
+
+	public String getPagepath() {
+		return pagepath;
+	}
+
+	public void setPagepath(String pagepath) {
+		this.pagepath = pagepath;
 	}
 
 }
