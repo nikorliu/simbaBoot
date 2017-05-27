@@ -79,7 +79,7 @@ function toModifyPwd() {
 function showInfo(info) {
 	$("#errInfo").html(info);
 	$("#errDiv").fadeIn();
-	setTimeout("hideInfo();", 1500);
+	setTimeout("hideInfo();", 3000);
 }
 
 function hideInfo() {
@@ -89,7 +89,7 @@ function hideInfo() {
 function showSuccessInfo(info) {
 	$("#successInfo").html(info);
 	$("#successDiv").fadeIn();
-	setTimeout("hideSuccessInfo();", 1500);
+	setTimeout("hideSuccessInfo();", 2500);
 }
 
 function hideSuccessInfo() {
