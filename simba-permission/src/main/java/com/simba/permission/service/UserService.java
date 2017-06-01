@@ -101,4 +101,6 @@ public interface UserService {
 
 	void add(User user, UserExt userExt, List<UserOrg> userOrgList);
 
+	void clearRole(String account);
+
 }

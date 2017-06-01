@@ -102,7 +102,7 @@
 -->
 			<!-- Content Wrapper. Contains page content -->
 			<div class="content-wrapper">
-				<iframe id="contentiframe" style="border-top-width: 0px; border-left-width: 0px; border-bottom-width: 0px;border-right-width: 0px;width: 100%;" src="${base}/home" frameborder="0" scrolling="auto"></iframe>
+				<iframe id="contentiframe" name="contentiframe" style="border-top-width: 0px; border-left-width: 0px; border-bottom-width: 0px;border-right-width: 0px;width: 100%;" src="${base}/home" frameborder="0" scrolling="auto"></iframe>
 			</div>
 			<!-- /.content-wrapper -->
 

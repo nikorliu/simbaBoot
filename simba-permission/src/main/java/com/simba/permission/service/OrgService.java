@@ -62,4 +62,6 @@ public interface OrgService {
 	void assignRoles(int orgID, List<String> roleNameList);
 
 	List<Role> listRoleByOrgID(int orgID);
+
+	void clearRole(int id);
 }

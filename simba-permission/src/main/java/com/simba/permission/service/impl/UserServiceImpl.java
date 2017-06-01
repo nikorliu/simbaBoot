@@ -272,4 +272,9 @@ public class UserServiceImpl implements UserService {
 		}
 		return desc;
 	}
+
+	@Override
+	public void clearRole(String account) {
+		userRoleDao.deleteByUserAccount(account);
+	}
 }

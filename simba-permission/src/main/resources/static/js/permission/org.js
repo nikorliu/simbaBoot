@@ -1,31 +1,50 @@
 var Org = {
 
-	"toAssignRole" : function(id) {
+	"clearRole": function(id) {
+		$.ajax({
+			type: "post",
+			url: contextPath + "/org/clearRole",
+			async: true,
+			data: {
+				id: id
+			},
+			dataType: "json",
+			success: function(data) {
+				if(data.code == 200) {
+					parent.showSuccessInfo("清空角色成功");
+				} else {
+					parent.showInfo(data.msg);
+				}
+			}
+		});
+	},
+
+	"toAssignRole": function(id) {
 		top.showModal("分配角色", contextPath + "/org/toAssignRole?id=" + id, 700);
 	},
 
-	"assignRole" : function() {
+	"assignRole": function() {
 		var ids = new Array();
 		$("input[name='role']").each(function() {
-			if (true == $(this).is(':checked')) {
+			if(true == $(this).is(':checked')) {
 				ids.push($(this).val());
 			}
 		});
-		if (ids.length == 0) {
+		if(ids.length == 0) {
 			showInfo("请选择要分配的角色");
 			return false;
 		}
 		$.ajax({
-			type : "post",
-			url : contextPath + "/org/assignRole",
-			data : {
-				"roleName" : ids.join(","),
-				"orgID" : $("#orgID").val()
+			type: "post",
+			url: contextPath + "/org/assignRole",
+			data: {
+				"roleName": ids.join(","),
+				"orgID": $("#orgID").val()
 			},
-			async : true,
-			dataType : "json",
-			success : function(data) {
-				if (data.code == 200) {
+			async: true,
+			dataType: "json",
+			success: function(data) {
+				if(data.code == 200) {
 					top.hideModal();
 				} else {
 					showInfo(data.msg);
@@ -34,40 +53,40 @@ var Org = {
 		});
 	},
 
-	"initSelectOrgTree" : function(id, text) {
+	"initSelectOrgTree": function(id, text) {
 		TreeViewUtil.initTree("tree", contextPath + "/org/getOrgTree", function(data) {
 			$("#parentName").val(data.text);
 			$("#parentID").val(data.id);
 			$('#tree').fadeOut();
 		}, function() {
-			if (!!id && !!text) {
+			if(!!id && !!text) {
 				TreeViewUtil.selectTreeNode("tree", id, text);
 			}
 		});
 	},
 
-	"initOrgTree" : function(id, text) {
+	"initOrgTree": function(id, text) {
 		TreeViewUtil.initTree("tree", contextPath + "/org/getOrgTree", function(data) {
 			$("#parentName").val(data.text);
 			$("#parentID").val(data.id);
 			Org.initOrgList();
 		}, function() {
-			if (!!id && !!text) {
+			if(!!id && !!text) {
 				TreeViewUtil.selectTreeNode("tree", id, text);
 			}
 		});
 	},
 
-	"initOrgList" : function() {
+	"initOrgList": function() {
 		$.ajax({
-			type : "get",
-			url : contextPath + "/org/getOrgList",
-			data : {
-				"parentID" : $("#parentID").val()
+			type: "get",
+			url: contextPath + "/org/getOrgList",
+			data: {
+				"parentID": $("#parentID").val()
 			},
-			async : true,
-			dataType : "html",
-			success : function(html) {
+			async: true,
+			dataType: "html",
+			success: function(html) {
 				$("#table").find("tbody").html(html);
 				CheckBox.init();
 				setTimeout("CheckBox.bindCheckAll();", 1000);
@@ -75,25 +94,25 @@ var Org = {
 		});
 	},
 
-	"toAdd" : function() {
+	"toAdd": function() {
 		window.self.location.href = contextPath + "/org/toAdd?parentID=" + $("#parentID").val();
 	},
 
-	"toUpdate" : function(id) {
+	"toUpdate": function(id) {
 		window.self.location.href = contextPath + "/org/toUpdate?id=" + id;
 	},
 
-	"deleteOrg" : function(id) {
+	"deleteOrg": function(id) {
 		$.ajax({
-			type : "post",
-			url : contextPath + "/org/delete",
-			data : {
-				"id" : id
+			type: "post",
+			url: contextPath + "/org/delete",
+			data: {
+				"id": id
 			},
-			async : true,
-			dataType : "json",
-			success : function(data) {
-				if (data.code == 200) {
+			async: true,
+			dataType: "json",
+			success: function(data) {
+				if(data.code == 200) {
 					Org.initOrgList();
 					Org.initOrgTree($("#parentID").val(), $("#parentName").val());
 				} else {
@@ -103,27 +122,27 @@ var Org = {
 		});
 	},
 
-	"batchDelete" : function() {
+	"batchDelete": function() {
 		var ids = new Array();
 		$("input[name='org']").each(function() {
-			if (true == $(this).is(':checked')) {
+			if(true == $(this).is(':checked')) {
 				ids.push($(this).val());
 			}
 		});
-		if (ids.length == 0) {
+		if(ids.length == 0) {
 			parent.showInfo("请选择要删除的机构");
 			return false;
 		}
 		$.ajax({
-			type : "post",
-			url : contextPath + "/org/batchDelete",
-			data : {
-				"ids" : ids.join(",")
+			type: "post",
+			url: contextPath + "/org/batchDelete",
+			data: {
+				"ids": ids.join(",")
 			},
-			async : true,
-			dataType : "json",
-			success : function(data) {
-				if (data.code == 200) {
+			async: true,
+			dataType: "json",
+			success: function(data) {
+				if(data.code == 200) {
 					Org.initOrgList();
 					Org.initOrgTree($("#parentID").val(), $("#parentName").val());
 				} else {
@@ -133,32 +152,32 @@ var Org = {
 		});
 	},
 
-	"toList" : function() {
+	"toList": function() {
 		window.self.location.href = contextPath + "/org/list?parentID=" + $("#parentID").val();
 	},
 
-	"checkForm" : function() {
+	"checkForm": function() {
 		var text = $("#text").val();
-		if (!text) {
+		if(!text) {
 			parent.showInfo("机构名称不能为空");
 			return false;
 		}
 		var parentID = $("#parentID").val();
-		if (!parentID) {
+		if(!parentID) {
 			parent.showInfo("父机构不能为空");
 			return false;
 		}
 		var orderNo = $("#orderNo").val();
-		if (!orderNo) {
+		if(!orderNo) {
 			parent.showInfo("排序不能为空");
 			return false;
 		}
-		for (var i = 0; i < 4; i++) {
+		for(var i = 0; i < 4; i++) {
 			orderNo = orderNo.replace(",", "");
 		}
 		$("#orderNo").val(orderNo);
 		return true;
 	},
 
-	"end" : null
+	"end": null
 };

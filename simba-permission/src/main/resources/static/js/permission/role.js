@@ -1,5 +1,24 @@
 var Role = {
 
+	"clearPermission": function(name) {
+		$.ajax({
+			type: "post",
+			url: contextPath + "/role/clearPermission",
+			async: true,
+			data: {
+				roleName: name
+			},
+			dataType: "json",
+			success: function(data) {
+				if(data.code == 200) {
+					parent.showSuccessInfo("清空权限成功");
+				} else {
+					parent.showInfo(data.msg);
+				}
+			}
+		});
+	},
+
 	"toAdd": function() {
 		window.self.location.href = contextPath + "/role/toAdd";
 	},

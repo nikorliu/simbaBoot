@@ -1,5 +1,24 @@
 var User = {
 
+	"clearRole": function(account) {
+		$.ajax({
+			type: "post",
+			url: contextPath + "/user/clearRole",
+			async: true,
+			data: {
+				account: account
+			},
+			dataType: "json",
+			success: function(data) {
+				if(data.code == 200) {
+					parent.showSuccessInfo("清空角色成功");
+				} else {
+					parent.showInfo(data.msg);
+				}
+			}
+		});
+	},
+
 	"toAdd": function() {
 		window.self.location.href = contextPath + "/user/toAdd?orgID=" + $("#parentID").val();
 	},

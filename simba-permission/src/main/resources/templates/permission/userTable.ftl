@@ -11,6 +11,7 @@
 			<button type="button" class="btn btn-default btn-sm" onclick="User.deleteUser('${user.account}');"><i class="fa fa-remove"></i>删除</button>
 			<button type="button" class="btn btn-default btn-sm" onclick="User.resetPwd('${user.account}');"><i class="fa fa-refresh"></i>重置密码</button>
 			<button type="button" class="btn btn-default btn-sm" onclick="User.toAssignRole('${user.account}');"><i class="fa fa-wrench"></i>分配角色</button>
+			<button type="button" class="btn btn-default btn-sm" onclick="User.clearRole('${user.account}');"><i class="fa fa-refresh"></i>清空角色</button>
 		</td>
 	</tr>
 </#list>

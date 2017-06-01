@@ -318,4 +318,17 @@ public class UserController {
 		return new JsonResult(info);
 	}
 
+	/**
+	 * 清空角色
+	 * 
+	 * @param account
+	 * @return
+	 */
+	@ResponseBody
+	@RequestMapping("/clearRole")
+	public JsonResult clearRole(String account) {
+		userService.clearRole(account);
+		return new JsonResult();
+	}
+
 }

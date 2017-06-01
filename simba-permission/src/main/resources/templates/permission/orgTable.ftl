@@ -9,6 +9,7 @@
 			<button type="button" class="btn btn-default btn-sm" onclick="Org.toUpdate(${org.id});"><i class="fa fa-pencil-square-o"></i>修改</button>
 			<button type="button" class="btn btn-default btn-sm" onclick="Org.deleteOrg(${org.id});"><i class="fa fa-remove"></i>删除</button>
 			<button type="button" class="btn btn-default btn-sm" onclick="Org.toAssignRole(${org.id});"><i class="fa fa-wrench"></i>分配角色</button>
+			<button type="button" class="btn btn-default btn-sm" onclick="Org.clearRole(${org.id});"><i class="fa fa-refresh"></i>清空角色</button>
 		</td>
 	</tr>
 </#list>

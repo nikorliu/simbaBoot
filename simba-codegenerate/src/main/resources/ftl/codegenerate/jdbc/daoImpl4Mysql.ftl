@@ -140,5 +140,11 @@ public class ${className}DaoImpl implements ${className}Dao {
 		String sql = "select count(*) from " + table + " where " + field + " = ? ";
 		return jdbc.queryForInt(sql, value);
 	}
+	
+	@Override
+	public void deleteBy(String field, Object value) {
+		String sql = "delete from " + table + " where " + field + " = ? ";
+		jdbc.updateForBoolean(sql, value);
+	}
 
 }

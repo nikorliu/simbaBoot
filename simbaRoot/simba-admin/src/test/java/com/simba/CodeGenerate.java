@@ -23,7 +23,7 @@ public class CodeGenerate {
 		// 生成代码的dao层使用的方式，目前只支持枚举类型CODETYPE的类型
 		CODETYPE codeType = CODETYPE.JDBC;
 		// 生成代码的页面类型
-		PAGETYPE pageType = PAGETYPE.NONE;
+		PAGETYPE pageType = PAGETYPE.TABLE;
 		String path = CodeGenerate.class.getProtectionDomain().getCodeSource().getLocation().getPath();
 		String projectName = PropertiesUtil.read("/application.properties").get("project.name");
 		int index = path.indexOf("/target");

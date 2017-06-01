@@ -90,4 +90,17 @@ public class RoleController {
 		return new JsonResult();
 	}
 
+	/**
+	 * 清空权限
+	 * 
+	 * @param roleName
+	 * @return
+	 */
+	@ResponseBody
+	@RequestMapping("/clearPermission")
+	public JsonResult clearPermission(String roleName) {
+		roleService.clearPermission(roleName);
+		return new JsonResult();
+	}
+
 }

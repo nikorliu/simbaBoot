@@ -59,6 +59,7 @@
 														<button type="button" class="btn btn-default btn-sm" onclick="Role.toUpdate('${role.name}');"><i class="fa fa-pencil-square-o"></i>修改</button>
 														<button type="button" class="btn btn-default btn-sm" onclick="Role.deleteRole('${role.name}');"><i class="fa fa-remove"></i>删除</button>
 														<button type="button" class="btn btn-default btn-sm" onclick="Role.toAssignPermission('${role.name}');"><i class="fa fa-wrench"></i>分配权限</button>
+														<button type="button" class="btn btn-default btn-sm" onclick="Role.clearPermission('${role.name}');"><i class="fa fa-refresh"></i>清空权限</button>
 													</td>
 												</tr>
 											</#list>

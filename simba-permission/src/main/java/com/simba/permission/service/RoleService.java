@@ -26,4 +26,6 @@ public interface RoleService {
 
 	List<Permission> listByRole(String roleName);
 
+	void clearPermission(String roleName);
+
 }

@@ -25,6 +25,8 @@ public interface ${className}Service {
 	
 	int countBy(String field, Object value);
 	
+	void deleteBy(String field, Object value);
+	
 	List<${className}> page(Pager page);
 
 	${className} get(${idType} id);

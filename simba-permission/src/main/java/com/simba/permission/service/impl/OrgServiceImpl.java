@@ -215,4 +215,9 @@ public class OrgServiceImpl implements OrgService {
 		});
 		return list;
 	}
+
+	@Override
+	public void clearRole(int id) {
+		orgRoleDao.deleteByOrgID(id);
+	}
 }

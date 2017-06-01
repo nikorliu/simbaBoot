@@ -63,6 +63,11 @@ public class ${className}ServiceImpl implements ${className}Service {
 	public int countBy(String field, Object value){
 		return ${firstLower}Dao.countBy(field,value);
 	}
+	
+	@Override
+	public void deleteBy(String field, Object value){
+		${firstLower}Dao.deleteBy(field,value);
+	}
 
 	@Override
 	@Transactional(readOnly = true)

@@ -8,8 +8,6 @@
 		<meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
 		<title>系统首页</title>
 		<${pound}include "../adminlte.ftl"/>
-		<script type="text/javascript" src="${dollar}{base}/js/plugins/bootstrap-treeview.min.js"></script>
-		<script type="text/javascript" src="${dollar}{base}/js/util/treeviewutil.js"></script>
 		<script type="text/javascript" src="${dollar}{base}/js/${firstLower}/${firstLower}.js"></script>
 	</head>
 

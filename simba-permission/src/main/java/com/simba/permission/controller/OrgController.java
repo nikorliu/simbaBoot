@@ -221,4 +221,18 @@ public class OrgController {
 		return new JsonResult();
 	}
 
+	/**
+	 * 清空角色
+	 * 
+	 * @param id
+	 *            机构id
+	 * @return
+	 */
+	@ResponseBody
+	@RequestMapping("/clearRole")
+	public JsonResult clearRole(int id) {
+		orgService.clearRole(id);
+		return new JsonResult();
+	}
+
 }

@@ -102,4 +102,9 @@ public class RoleServiceImpl implements RoleService {
 		return permissionList;
 	}
 
+	@Override
+	public void clearPermission(String roleName) {
+		rolePermissionDao.deleteByRoleName(roleName);
+	}
+
 }
