@@ -7,9 +7,9 @@ import com.simba.model.wxHardware.receive.DeviceResponseMsg;
 
 public interface HardwareDealInterface {
 
-	DeviceResponseMsg text(DeviceRequestMsg request);
+	DeviceResponseMsg text(DeviceRequestMsg request, String json);
 
-	BindResponseEvent bind(BindRequestEvent request);
+	BindResponseEvent bind(BindRequestEvent request, String json);
 
-	BindResponseEvent unbind(BindRequestEvent request);
+	BindResponseEvent unbind(BindRequestEvent request, String json);
 }

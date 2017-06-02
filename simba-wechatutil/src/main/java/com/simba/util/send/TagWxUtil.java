@@ -71,7 +71,9 @@ public class TagWxUtil {
 	 */
 	public void update(TagContent tag) {
 		String url = WxConstantData.updateTagUrl + "?access_token=" + accessTokenUtil.getAccessToken();
-		String json = FastJsonUtil.toJson(tag);
+		Map<String, TagContent> params = new HashMap<>();
+		params.put("tag", tag);
+		String json = FastJsonUtil.toJson(params);
 		postJsonUtil.postJson(url, json, "编辑标签", ErrMsg.class);
 	}
 

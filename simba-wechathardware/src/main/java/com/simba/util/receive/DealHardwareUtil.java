@@ -69,8 +69,8 @@ public class DealHardwareUtil {
 	 * @throws IllegalAccessException
 	 */
 	@SuppressWarnings("unchecked")
-	public String deal(String json)
-			throws ClassNotFoundException, IllegalAccessException, IllegalArgumentException, InvocationTargetException, InstantiationException, NoSuchMethodException, SecurityException {
+	public String deal(String json) throws ClassNotFoundException, IllegalAccessException, IllegalArgumentException,
+			InvocationTargetException, InstantiationException, NoSuchMethodException, SecurityException {
 		Map<String, Object> map = FastJsonUtil.toObject(json, HashMap.class);
 		String msgType = map.get("msg_type").toString();
 		ConfType conf = typeMap.get(msgType);
@@ -80,7 +80,7 @@ public class DealHardwareUtil {
 		String parser = conf.getParser();
 		String dealMethod = conf.getDealMethod();
 		Object param = FastJsonUtil.toObject(json, Class.forName(parser));
-		Object exeResult = ReflectUtil.invokeObjectMethod(dealImpl, dealMethod, param);
+		Object exeResult = ReflectUtil.invokeObjectMethod(dealImpl, dealMethod, param, json);
 		String result = StringUtils.EMPTY;
 		if (exeResult != null) {
 			result = exeResult.toString();

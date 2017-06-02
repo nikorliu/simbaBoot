@@ -4,15 +4,15 @@ import java.util.List;
 
 public class BatchTag {
 
-	private List<Fans> openid_list;
+	private List<String> openid_list;
 
 	private long tagid;
 
-	public List<Fans> getOpenid_list() {
+	public List<String> getOpenid_list() {
 		return openid_list;
 	}
 
-	public void setOpenid_list(List<Fans> openid_list) {
+	public void setOpenid_list(List<String> openid_list) {
 		this.openid_list = openid_list;
 	}
 

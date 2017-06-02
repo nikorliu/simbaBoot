@@ -125,7 +125,7 @@ public class UserWxUtil {
 	public void batchBlackList(List<String> openids) {
 		String url = WxConstantData.batchBlackListUrl + "?access_token=" + accessTokenUtil.getAccessToken();
 		Map<String, List<String>> params = new HashMap<>(1);
-		params.put("opened_list", openids);
+		params.put("openid_list", openids);
 		String json = FastJsonUtil.toJson(params);
 		postJsonUtil.postJson(url, json, "拉黑用户", ErrMsg.class);
 	}
@@ -138,7 +138,7 @@ public class UserWxUtil {
 	public void cancelBlackList(List<String> openids) {
 		String url = WxConstantData.cancelBlackListUrl + "?access_token=" + accessTokenUtil.getAccessToken();
 		Map<String, List<String>> params = new HashMap<>(1);
-		params.put("opened_list", openids);
+		params.put("openid_list", openids);
 		String json = FastJsonUtil.toJson(params);
 		postJsonUtil.postJson(url, json, "取消拉黑用户", ErrMsg.class);
 	}

@@ -125,9 +125,9 @@ public class DealReceiveUtil {
 		String dealMethod = conf.getDealMethod();
 		Object object = ReflectUtil.invokeObjectMethod(parser, "parse", root);
 		if (async) {
-			asyncUtil.execute(wxDeal, dealMethod, object);
+			asyncUtil.execute(wxDeal, dealMethod, object, xml);
 		} else {
-			Object res = ReflectUtil.invokeObjectMethod(wxDeal, dealMethod, object);
+			Object res = ReflectUtil.invokeObjectMethod(wxDeal, dealMethod, object, xml);
 			if (res != null) {
 				result = res.toString();
 			}
