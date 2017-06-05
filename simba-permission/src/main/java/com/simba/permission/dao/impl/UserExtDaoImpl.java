@@ -1,10 +1,12 @@
 package com.simba.permission.dao.impl;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Repository;
 
 import com.simba.framework.util.jdbc.Jdbc;
@@ -22,6 +24,9 @@ import com.simba.permission.model.UserExtDesc;
 @Repository
 public class UserExtDaoImpl implements UserExtDao {
 
+	@Value("${spring.datasource.url}")
+	private String url;
+
 	@Autowired
 	private Jdbc jdbc;
 
@@ -29,8 +34,18 @@ public class UserExtDaoImpl implements UserExtDao {
 
 	@Override
 	public List<String> showAllColumns() {
-		String sql = "select column_name from information_schema.COLUMNS where table_name = ?";
-		return jdbc.queryForStrings(sql, table);
+		String sql = "select column_name from information_schema.COLUMNS where table_name = ? and table_schema = ? ";
+		return jdbc.queryForStrings(sql, table, getDatabase());
+	}
+
+	private String getDatabase() {
+		String[] s = url.split("/");
+		String database = s[3];
+		int index = database.indexOf("?");
+		if (index > -1) {
+			database = database.substring(0, index);
+		}
+		return database;
 	}
 
 	@Override
@@ -96,6 +111,26 @@ public class UserExtDaoImpl implements UserExtDao {
 		sql += " where userAccount = ? ";
 		param.setString(userExt.getUserAccount());
 		jdbc.updateForBoolean(sql, param);
+	}
+
+	@Override
+	public List<UserExt> listAll() {
+		String sql = "select * from " + table;
+		List<Map<String, Object>> maps = jdbc.queryForMaps(sql);
+		List<UserExt> all = new ArrayList<>(maps.size());
+		maps.forEach((map) -> {
+			UserExt userExt = new UserExt();
+			userExt.setUserAccount(map.get("userAccount") + "");
+			Map<String, String> extMap = new HashMap<>();
+			userExt.setExtMap(extMap);
+			if (map != null && map.size() > 0) {
+				map.forEach((key, value) -> {
+					extMap.put(key, value + "");
+				});
+			}
+			all.add(userExt);
+		});
+		return all;
 	}
 
 }

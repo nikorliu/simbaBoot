@@ -14,4 +14,6 @@ public interface UserRoleDao {
 
 	List<UserRole> listByUserAccount(String userAccount);
 
+	List<UserRole> listAll();
+
 }

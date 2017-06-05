@@ -1,6 +1,8 @@
 package com.simba.menu.controller;
 
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
@@ -9,9 +11,13 @@ import java.util.List;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import org.apache.commons.io.IOUtils;
 import org.apache.commons.lang.StringUtils;
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -41,11 +47,47 @@ import freemarker.template.TemplateNotFoundException;
 @RequestMapping("/menu")
 public class MenuController {
 
+	private static final Log logger = LogFactory.getLog(MenuController.class);
+
 	@Autowired
 	private MenuService menuService;
 
 	private String[] icons = new String[] { "fa-dashboard", "fa-files-o", "fa-th", "fa-pie-chart", "fa-laptop",
 			"fa-edit", "fa-table", "fa-calendar", "fa-envelope", "fa-folder", "fa-share" };
+
+	/**
+	 * 导出所有菜单的sql脚本文件
+	 * 
+	 * @throws TemplateException
+	 * @throws IOException
+	 * @throws ParseException
+	 * @throws MalformedTemplateNameException
+	 * @throws TemplateNotFoundException
+	 */
+	@RequestMapping("/exportAllMenu")
+	public void exportAllMenu(HttpServletResponse response) throws TemplateNotFoundException,
+			MalformedTemplateNameException, ParseException, IOException, TemplateException {
+		List<Menu> allMenus = menuService.listAll();
+		Map<String, Object> param = new HashMap<>();
+		param.put("list", allMenus);
+		String sql = FreemarkerUtil.parseFile("menusql.ftl", param);
+		OutputStream out = null;
+		InputStream in = null;
+		String fileName = "menu.sql";
+		try {
+			logger.info("下载文件:" + fileName);
+			out = response.getOutputStream();
+			response.setContentType("application/octet-stream");
+			response.setHeader("Content-Disposition", "attachment;filename=" + fileName);
+			in = IOUtils.toInputStream(sql);
+			IOUtils.copy(in, out);
+		} catch (Exception e) {
+			logger.error("下载文件:[" + fileName + "]出现异常", e);
+		} finally {
+			IOUtils.closeQuietly(out);
+			IOUtils.closeQuietly(in);
+		}
+	}
 
 	@ResponseBody
 	@RequestMapping("/showAllMenus")

@@ -38,7 +38,7 @@
                 新增</button>
 										<button type="button" class="btn btn-default btn-sm" onclick="Menu.batchDelete();"><i class="fa fa-remove"></i>删除</button>
 										<div class="pull-right">
-
+											<button type="button" class="btn btn-default btn-sm" onclick="Menu.exportAllMenu();"><i class="fa fa-paper-plane"></i>导出所有菜单SQL数据</button>
 										</div>
 									</div>
 									<!-- /.pull-right -->

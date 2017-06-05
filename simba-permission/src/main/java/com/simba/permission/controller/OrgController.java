@@ -1,5 +1,8 @@
 package com.simba.permission.controller;
 
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
@@ -7,8 +10,12 @@ import java.util.List;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
+import org.apache.commons.io.IOUtils;
 import org.apache.commons.lang.StringUtils;
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -16,25 +23,168 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.simba.bootstrap.model.TreeViewData;
+import com.simba.framework.util.freemarker.FreemarkerUtil;
 import com.simba.framework.util.json.JsonResult;
 import com.simba.model.constant.ConstantData;
 import com.simba.permission.controller.vo.OrgVo;
+import com.simba.permission.dao.OrgExtDao;
+import com.simba.permission.dao.UserExtDao;
+import com.simba.permission.dao.UserRoleDao;
 import com.simba.permission.model.Org;
 import com.simba.permission.model.OrgExt;
 import com.simba.permission.model.OrgExtDesc;
+import com.simba.permission.model.OrgRole;
+import com.simba.permission.model.Permission;
 import com.simba.permission.model.Role;
+import com.simba.permission.model.RolePermission;
+import com.simba.permission.model.User;
+import com.simba.permission.model.UserExt;
+import com.simba.permission.model.UserExtDesc;
+import com.simba.permission.model.UserOrg;
+import com.simba.permission.model.UserRole;
+import com.simba.permission.service.OrgRoleService;
 import com.simba.permission.service.OrgService;
+import com.simba.permission.service.PermissionService;
+import com.simba.permission.service.RolePermissionService;
 import com.simba.permission.service.RoleService;
+import com.simba.permission.service.UserOrgService;
+import com.simba.permission.service.UserService;
+
+import freemarker.core.ParseException;
+import freemarker.template.MalformedTemplateNameException;
+import freemarker.template.TemplateException;
+import freemarker.template.TemplateNotFoundException;
 
 @Controller
 @RequestMapping("/org")
 public class OrgController {
+
+	private static final Log logger = LogFactory.getLog(OrgController.class);
 
 	@Autowired
 	private OrgService orgService;
 
 	@Autowired
 	private RoleService roleService;
+
+	@Autowired
+	private UserOrgService userOrgService;
+
+	@Autowired
+	private OrgExtDao orgExtDao;
+
+	@Autowired
+	private UserService userService;
+
+	@Autowired
+	private UserExtDao userExtDao;
+
+	@Autowired
+	private PermissionService permissionService;
+
+	@Autowired
+	private RolePermissionService rolePermissionService;
+
+	@Autowired
+	private UserRoleDao userRoleDao;
+
+	@Autowired
+	private OrgRoleService orgRoleService;
+
+	/**
+	 * 导出所有权限的sql脚本文件
+	 * 
+	 * @param response
+	 * @throws TemplateException
+	 * @throws IOException
+	 * @throws ParseException
+	 * @throws MalformedTemplateNameException
+	 * @throws TemplateNotFoundException
+	 */
+	@RequestMapping("/exportAllPermission")
+	public void exportAllPermission(HttpServletResponse response) throws TemplateNotFoundException,
+			MalformedTemplateNameException, ParseException, IOException, TemplateException {
+		List<Org> allOrgList = orgService.listAll();
+		List<Role> allRoleList = roleService.listAll();
+		List<UserOrg> userOrgList = userOrgService.listAll();
+		List<OrgExt> orgExtList = orgExtDao.listAll();
+		List<User> userList = userService.listAll();
+		List<UserExt> userExtList = userExtDao.listAll();
+		List<Permission> permissionList = permissionService.listAll();
+		List<RolePermission> rolePermissionList = rolePermissionService.listAll();
+		List<UserRole> userRoleList = userRoleDao.listAll();
+		List<OrgRole> orgRoleList = orgRoleService.listAll();
+		Map<String, Object> param = new HashMap<>();
+		param.put("allOrgList", allOrgList);
+		param.put("allRoleList", allRoleList);
+		param.put("userOrgList", userOrgList);
+		param.put("orgExtList", orgExtList);
+		param.put("userList", userList);
+		param.put("userExtList", userExtList);
+		param.put("permissionList", permissionList);
+		param.put("rolePermissionList", rolePermissionList);
+		param.put("userRoleList", userRoleList);
+		param.put("orgRoleList", orgRoleList);
+		List<String> orgExtSQLs = buildOrgExtSqls(orgExtList);
+		List<String> userExtSQLs = buildUserExtSqls(userExtList);
+		param.put("orgExtSQLs", orgExtSQLs);
+		param.put("userExtSQLs", userExtSQLs);
+		String sql = FreemarkerUtil.parseFile("permission.ftl", param);
+		OutputStream out = null;
+		InputStream in = null;
+		String fileName = "permission.sql";
+		try {
+			logger.info("下载文件:" + fileName);
+			out = response.getOutputStream();
+			response.setContentType("application/octet-stream");
+			response.setHeader("Content-Disposition", "attachment;filename=" + fileName);
+			in = IOUtils.toInputStream(sql);
+			IOUtils.copy(in, out);
+		} catch (Exception e) {
+			logger.error("下载文件:[" + fileName + "]出现异常", e);
+		} finally {
+			IOUtils.closeQuietly(out);
+			IOUtils.closeQuietly(in);
+		}
+	}
+
+	private List<String> buildUserExtSqls(List<UserExt> userExtList) {
+		Map<String, String> userExtDesc = UserExtDesc.getAllDesc();
+		String userExtBeforeSql = "insert into userExt(userAccount";
+		for (String key : userExtDesc.keySet()) {
+			userExtBeforeSql += "," + key;
+		}
+		userExtBeforeSql += ") ";
+		List<String> userExtSQLs = new ArrayList<>();
+		for (UserExt userExt : userExtList) {
+			String sql = "values('" + userExt.getUserAccount() + "'";
+			for (String key : userExtDesc.keySet()) {
+				sql += ",'" + userExt.getExtMap().get(key) + "'";
+			}
+			sql = userExtBeforeSql + sql + ");";
+			userExtSQLs.add(sql);
+		}
+		return userExtSQLs;
+	}
+
+	private List<String> buildOrgExtSqls(List<OrgExt> orgExtList) {
+		Map<String, String> orgExtDesc = OrgExtDesc.getAllDesc();
+		String orgExtBeforeSql = "insert into orgExt(id";
+		for (String key : orgExtDesc.keySet()) {
+			orgExtBeforeSql += "," + key;
+		}
+		orgExtBeforeSql += ") ";
+		List<String> orgExtSQLs = new ArrayList<>();
+		for (OrgExt orgExt : orgExtList) {
+			String sql = "values(" + orgExt.getId();
+			for (String key : orgExtDesc.keySet()) {
+				sql += ",'" + orgExt.getExtMap().get(key) + "'";
+			}
+			sql = orgExtBeforeSql + sql + ");";
+			orgExtSQLs.add(sql);
+		}
+		return orgExtSQLs;
+	}
 
 	@RequestMapping("/list")
 	public String list(Integer parentID, ModelMap model) {

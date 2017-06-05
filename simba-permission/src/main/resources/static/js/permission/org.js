@@ -1,5 +1,9 @@
 var Org = {
 
+	"exportAllPermission": function() {
+		window.self.location.href = contextPath + "/org/exportAllPermission";
+	},
+
 	"clearRole": function(id) {
 		$.ajax({
 			type: "post",

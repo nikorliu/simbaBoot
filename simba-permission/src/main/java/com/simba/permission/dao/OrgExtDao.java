@@ -21,4 +21,6 @@ public interface OrgExtDao {
 	void add(OrgExt orgExt);
 
 	void update(OrgExt orgExt);
+
+	List<OrgExt> listAll();
 }

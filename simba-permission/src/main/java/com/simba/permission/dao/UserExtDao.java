@@ -23,4 +23,6 @@ public interface UserExtDao {
 	void add(UserExt userExt);
 
 	void update(UserExt userExt);
+
+	List<UserExt> listAll();
 }

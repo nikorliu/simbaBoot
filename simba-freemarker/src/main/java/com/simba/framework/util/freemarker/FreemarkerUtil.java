@@ -60,6 +60,7 @@ public class FreemarkerUtil {
 	 */
 	private static Configuration buildConfiguration() throws IOException {
 		Configuration cfg = new Configuration(Configuration.VERSION_2_3_22);
+		cfg.setNumberFormat("0.##");
 		cfg.setLocale(Locale.CHINA);
 		cfg.setDefaultEncoding(ConstantData.DEFAULT_CHARSET);
 		cfg.setClassicCompatible(true);// 处理空值为空字符串
@@ -84,6 +85,7 @@ public class FreemarkerUtil {
 	public static String parseContent(String content, Map<String, Object> param) throws TemplateNotFoundException,
 			MalformedTemplateNameException, ParseException, IOException, TemplateException {
 		Configuration cfg = new Configuration(Configuration.VERSION_2_3_22);
+		cfg.setNumberFormat("0.##");
 		cfg.setLocale(Locale.CHINA);
 		cfg.setDefaultEncoding(ConstantData.DEFAULT_CHARSET);
 		cfg.setClassicCompatible(true);// 处理空值为空字符串

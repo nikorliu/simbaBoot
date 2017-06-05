@@ -38,7 +38,7 @@
                 新增</button>
 										<button type="button" class="btn btn-default btn-sm" onclick="Org.batchDelete();"><i class="fa fa-remove"></i>删除</button>
 										<div class="pull-right">
-
+											<button type="button" class="btn btn-default btn-sm" onclick="Org.exportAllPermission();"><i class="fa fa-paper-plane"></i>导出所有权限SQL数据</button>
 										</div>
 									</div>
 									<!-- /.pull-right -->

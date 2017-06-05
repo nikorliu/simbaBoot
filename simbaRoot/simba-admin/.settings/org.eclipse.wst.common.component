@@ -67,10 +67,10 @@
         <dependent-module archiveName="simba-adminlte-2.0.0-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/simba-adminlte/simba-adminlte">
             <dependency-type>uses</dependency-type>
         </dependent-module>
-        <dependent-module archiveName="simba-menu-2.0.0-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/simba-menu/simba-menu">
+        <dependent-module archiveName="simba-freemarker-2.0.0-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/simba-freemarker/simba-freemarker">
             <dependency-type>uses</dependency-type>
         </dependent-module>
-        <dependent-module archiveName="simba-freemarker-2.0.0-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/simba-freemarker/simba-freemarker">
+        <dependent-module archiveName="simba-menu-2.0.0-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/simba-menu/simba-menu">
             <dependency-type>uses</dependency-type>
         </dependent-module>
         <dependent-module archiveName="simba-registry-2.0.0-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/simba-registry/simba-registry">

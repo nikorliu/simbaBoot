@@ -1,5 +1,9 @@
 var Menu = {
 
+	"exportAllMenu": function() {
+		window.self.location.href = contextPath + "/menu/exportAllMenu";
+	},
+
 	"initSelectMenuTree": function(id, text) {
 		TreeViewUtil.initTree("tree", contextPath + "/menu/getMenuTree", function(data) {
 			$("#parentName").val(data.text);

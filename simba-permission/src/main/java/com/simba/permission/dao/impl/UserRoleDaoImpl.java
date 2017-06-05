@@ -41,4 +41,10 @@ public class UserRoleDaoImpl implements UserRoleDao {
 		return jdbc.queryForList(sql, UserRole.class, userAccount);
 	}
 
+	@Override
+	public List<UserRole> listAll() {
+		String sql = "select * from " + table;
+		return jdbc.queryForList(sql, UserRole.class);
+	}
+
 }
