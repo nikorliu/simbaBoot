@@ -113,12 +113,17 @@ public class FileUtils {
 	/**
 	 * 获取文件的扩展名
 	 * 
-	 * @param fileName 文件名
-	 * @return 
+	 * @param fileName
+	 *            文件名
+	 * @return
 	 */
 	public static String getFileExt(String fileName) {
 		int index = fileName.lastIndexOf(".");
-		return fileName.substring(index);
+		String ext = StringUtils.EMPTY;
+		if (index > -1) {
+			ext = fileName.substring(index + 1);
+		}
+		return ext;
 	}
 
 }
