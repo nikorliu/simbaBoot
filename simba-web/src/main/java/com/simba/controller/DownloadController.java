@@ -40,7 +40,7 @@ public class DownloadController {
 	 * @param response
 	 * @throws IOException
 	 */
-	@RequestMapping
+	@RequestMapping("/download")
 	public void download(String fileName, HttpServletResponse response) {
 		OutputStream out = null;
 		InputStream in = null;
