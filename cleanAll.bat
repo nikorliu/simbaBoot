@@ -67,6 +67,21 @@ cd ../
 cd simba-msg
 call mvn clean -U 
 cd ../
+cd simba-asr
+call mvn clean -U 
+cd ../
+cd simba-qas
+call mvn clean -U 
+cd ../
+cd simba-realtime-asr
+call mvn clean -U
+cd ../
+cd simba-record-asr
+call mvn clean -U
+cd ../
+cd simba-rest-asr
+call mvn clean -U
+cd ../
 cd simba-rabbitmq
 call mvn clean -U 
 cd ../
