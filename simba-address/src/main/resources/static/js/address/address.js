@@ -25,7 +25,7 @@ var Address = {
 		// 省份切换事件
 		provinceDom.change(function() {
 			var province = provinceDom.val();
-			if (cityDom.size() > 0) {
+			if (cityDom.length > 0) {
 				$.post(Address.getCityUrl, {
 					"provinceName" : province
 				}, function(data) {
@@ -47,7 +47,7 @@ var Address = {
 		cityDom.change(function() {
 			var province = provinceDom.val();
 			var city = cityDom.val();
-			if (countyDom.size() > 0) {
+			if (countyDom.length > 0) {
 				$.post(Address.getCountryUrl, {
 					"provinceName" : province,
 					"cityName" : city
@@ -72,7 +72,7 @@ var Address = {
 			var province = provinceDom.val();
 			var city = cityDom.val();
 			var county = countyDom.val();
-			if (townDom.size() > 0) {
+			if (townDom.length > 0) {
 				$.post(Address.getTownUrl, {
 					"provinceName" : province,
 					"cityName" : city,
