@@ -45,7 +45,7 @@ public class RedisUtil {
 	@PostConstruct
 	public void init() {
 		if (StringUtils.isEmpty(redisHost)) {
-			logger.info("redisHost没配置,不初始化redis客户端");
+			logger.info("redisHost没配置(spring.redis.host),不初始化redis客户端");
 			return;
 		}
 		try {
@@ -211,6 +211,9 @@ public class RedisUtil {
 		try {
 			jedis = pool.getResource();
 			byte[] bs = jedis.lpop(key.getBytes());
+			if (bs == null || bs.length <= 0) {
+				return null;
+			}
 			object = SerializeUtil.unserialize(bs);
 		} catch (Exception e) {
 			throw new RuntimeException("Redis出现错误！", e);
@@ -226,6 +229,9 @@ public class RedisUtil {
 		try {
 			jedis = pool.getResource();
 			byte[] bs = jedis.rpop(key.getBytes());
+			if (bs == null || bs.length <= 0) {
+				return null;
+			}
 			object = SerializeUtil.unserialize(bs);
 		} catch (Exception e) {
 			throw new RuntimeException("Redis出现错误！", e);
@@ -241,6 +247,9 @@ public class RedisUtil {
 		try {
 			jedis = pool.getResource();
 			byte[] bs = jedis.lindex(key.getBytes(), index);
+			if (bs == null || bs.length <= 0) {
+				return null;
+			}
 			object = SerializeUtil.unserialize(bs);
 		} catch (Exception e) {
 			throw new RuntimeException("Redis出现错误！", e);

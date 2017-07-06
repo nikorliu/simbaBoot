@@ -1,10 +1,12 @@
 package com.simba.model.wx.group.openid;
 
+import java.util.List;
+
 import com.simba.model.wx.msg.MpNews;
 
 public class GroupMpNews {
 
-	private ToUser touser;
+	private List<String> touser;
 
 	private MpNews mpnews;
 
@@ -12,11 +14,11 @@ public class GroupMpNews {
 
 	private int send_ignore_reprint = 0;
 
-	public ToUser getTouser() {
+	public List<String> getTouser() {
 		return touser;
 	}
 
-	public void setTouser(ToUser touser) {
+	public void setTouser(List<String> touser) {
 		this.touser = touser;
 	}
 

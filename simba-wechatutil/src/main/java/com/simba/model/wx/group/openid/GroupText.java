@@ -1,20 +1,22 @@
 package com.simba.model.wx.group.openid;
 
+import java.util.List;
+
 import com.simba.model.wx.msg.Text;
 
 public class GroupText {
 
-	private ToUser touser;;
+	private List<String> touser;
 
 	private Text text;
 
 	private String msgtype = "text";
 
-	public ToUser getTouser() {
+	public List<String> getTouser() {
 		return touser;
 	}
 
-	public void setTouser(ToUser touser) {
+	public void setTouser(List<String> touser) {
 		this.touser = touser;
 	}
 

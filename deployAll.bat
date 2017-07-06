@@ -55,6 +55,9 @@ cd ../
 cd simba-database
 call mvn clean -U deploy
 cd ../
+cd simba-git
+call mvn clean -U deploy
+cd ../
 cd simba-cache
 call mvn clean -U deploy
 cd ../
@@ -83,6 +86,9 @@ cd simba-rest-asr
 call mvn clean -U deploy
 cd ../
 cd simba-rabbitmq
+call mvn clean -U deploy
+cd ../
+cd simba-elasticsearch
 call mvn clean -U deploy
 cd ../
 cd simba-fastdfs

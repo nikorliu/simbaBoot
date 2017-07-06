@@ -15,6 +15,11 @@ public class GroupResult extends ErrMsg {
 	 */
 	private long msg_data_id;
 
+	/**
+	 * 提交的json内容
+	 */
+	private String json;
+
 	public long getMsg_id() {
 		return msg_id;
 	}
@@ -29,6 +34,14 @@ public class GroupResult extends ErrMsg {
 
 	public void setMsg_data_id(long msg_data_id) {
 		this.msg_data_id = msg_data_id;
+	}
+
+	public String getJson() {
+		return json;
+	}
+
+	public void setJson(String json) {
+		this.json = json;
 	}
 
 }

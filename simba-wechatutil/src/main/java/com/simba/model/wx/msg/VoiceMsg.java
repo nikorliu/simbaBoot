@@ -6,7 +6,7 @@ public class VoiceMsg {
 
 	private String msgtype = "voice";
 
-	private Image image;
+	private Voice voice;
 
 	public String getTouser() {
 		return touser;
@@ -16,12 +16,12 @@ public class VoiceMsg {
 		this.touser = touser;
 	}
 
-	public Image getImage() {
-		return image;
+	public Voice getVoice() {
+		return voice;
 	}
 
-	public void setImage(Image image) {
-		this.image = image;
+	public void setVoice(Voice voice) {
+		this.voice = voice;
 	}
 
 	public String getMsgtype() {

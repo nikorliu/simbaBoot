@@ -50,13 +50,13 @@ public class SendMessageWxUtil {
 	 * @param content
 	 *            内容
 	 */
-	public void send(String openid, String content) {
+	public String send(String openid, String content) {
 		TextMsg textMsg = new TextMsg();
 		Text text = new Text();
 		text.setContent(content);
 		textMsg.setText(text);
 		textMsg.setTouser(openid);
-		send(textMsg);
+		return send(textMsg);
 	}
 
 	/**
@@ -64,8 +64,8 @@ public class SendMessageWxUtil {
 	 * 
 	 * @param msg
 	 */
-	public void send(TextMsg msg) {
-		send(FastJsonUtil.toJson(msg));
+	public String send(TextMsg msg) {
+		return send(FastJsonUtil.toJson(msg));
 	}
 
 	/**
@@ -78,7 +78,7 @@ public class SendMessageWxUtil {
 	 * @param kfAccount
 	 *            客服账号
 	 */
-	public void send(String openid, String content, String kfAccount) {
+	public String send(String openid, String content, String kfAccount) {
 		CustomServiceTextMsg msg = new CustomServiceTextMsg();
 		Text text = new Text();
 		text.setContent(content);
@@ -87,7 +87,7 @@ public class SendMessageWxUtil {
 		CustomService service = new CustomService();
 		service.setKf_account(kfAccount);
 		msg.setCustomservice(service);
-		send(msg);
+		return send(msg);
 	}
 
 	/**
@@ -95,8 +95,8 @@ public class SendMessageWxUtil {
 	 * 
 	 * @param msg
 	 */
-	public void send(CustomServiceTextMsg msg) {
-		send(FastJsonUtil.toJson(msg));
+	public String send(CustomServiceTextMsg msg) {
+		return send(FastJsonUtil.toJson(msg));
 	}
 
 	/**
@@ -104,8 +104,8 @@ public class SendMessageWxUtil {
 	 * 
 	 * @param msg
 	 */
-	public void send(ImageMsg msg) {
-		send(FastJsonUtil.toJson(msg));
+	public String send(ImageMsg msg) {
+		return send(FastJsonUtil.toJson(msg));
 	}
 
 	/**
@@ -113,8 +113,8 @@ public class SendMessageWxUtil {
 	 * 
 	 * @param msg
 	 */
-	public void send(CustomServiceImageMsg msg) {
-		send(FastJsonUtil.toJson(msg));
+	public String send(CustomServiceImageMsg msg) {
+		return send(FastJsonUtil.toJson(msg));
 	}
 
 	/**
@@ -122,8 +122,8 @@ public class SendMessageWxUtil {
 	 * 
 	 * @param msg
 	 */
-	public void send(VoiceMsg msg) {
-		send(FastJsonUtil.toJson(msg));
+	public String send(VoiceMsg msg) {
+		return send(FastJsonUtil.toJson(msg));
 	}
 
 	/**
@@ -131,8 +131,8 @@ public class SendMessageWxUtil {
 	 * 
 	 * @param msg
 	 */
-	public void send(CustomServiceVoiceMsg msg) {
-		send(FastJsonUtil.toJson(msg));
+	public String send(CustomServiceVoiceMsg msg) {
+		return send(FastJsonUtil.toJson(msg));
 	}
 
 	/**
@@ -140,8 +140,8 @@ public class SendMessageWxUtil {
 	 * 
 	 * @param msg
 	 */
-	public void send(VideoMsg msg) {
-		send(FastJsonUtil.toJson(msg));
+	public String send(VideoMsg msg) {
+		return send(FastJsonUtil.toJson(msg));
 	}
 
 	/**
@@ -149,8 +149,8 @@ public class SendMessageWxUtil {
 	 * 
 	 * @param msg
 	 */
-	public void send(CustomServiceVideoMsg msg) {
-		send(FastJsonUtil.toJson(msg));
+	public String send(CustomServiceVideoMsg msg) {
+		return send(FastJsonUtil.toJson(msg));
 	}
 
 	/**
@@ -158,8 +158,8 @@ public class SendMessageWxUtil {
 	 * 
 	 * @param msg
 	 */
-	public void send(MusicMsg msg) {
-		send(FastJsonUtil.toJson(msg));
+	public String send(MusicMsg msg) {
+		return send(FastJsonUtil.toJson(msg));
 	}
 
 	/**
@@ -167,8 +167,8 @@ public class SendMessageWxUtil {
 	 * 
 	 * @param msg
 	 */
-	public void send(CustomServiceMusicMsg msg) {
-		send(FastJsonUtil.toJson(msg));
+	public String send(CustomServiceMusicMsg msg) {
+		return send(FastJsonUtil.toJson(msg));
 	}
 
 	/**
@@ -176,8 +176,8 @@ public class SendMessageWxUtil {
 	 * 
 	 * @param msg
 	 */
-	public void send(NewsMsg msg) {
-		send(FastJsonUtil.toJson(msg));
+	public String send(NewsMsg msg) {
+		return send(FastJsonUtil.toJson(msg));
 	}
 
 	/**
@@ -185,8 +185,8 @@ public class SendMessageWxUtil {
 	 * 
 	 * @param msg
 	 */
-	public void send(CustomServiceNewsMsg msg) {
-		send(FastJsonUtil.toJson(msg));
+	public String send(CustomServiceNewsMsg msg) {
+		return send(FastJsonUtil.toJson(msg));
 	}
 
 	/**
@@ -194,8 +194,8 @@ public class SendMessageWxUtil {
 	 * 
 	 * @param msg
 	 */
-	public void send(MpNewsMsg msg) {
-		send(FastJsonUtil.toJson(msg));
+	public String send(MpNewsMsg msg) {
+		return send(FastJsonUtil.toJson(msg));
 	}
 
 	/**
@@ -203,8 +203,8 @@ public class SendMessageWxUtil {
 	 * 
 	 * @param msg
 	 */
-	public void send(CustomServiceMpNewsMsg msg) {
-		send(FastJsonUtil.toJson(msg));
+	public String send(CustomServiceMpNewsMsg msg) {
+		return send(FastJsonUtil.toJson(msg));
 	}
 
 	/**
@@ -212,8 +212,8 @@ public class SendMessageWxUtil {
 	 * 
 	 * @param msg
 	 */
-	public void send(WxCardMsg msg) {
-		send(FastJsonUtil.toJson(msg));
+	public String send(WxCardMsg msg) {
+		return send(FastJsonUtil.toJson(msg));
 	}
 
 	/**
@@ -221,8 +221,8 @@ public class SendMessageWxUtil {
 	 * 
 	 * @param msg
 	 */
-	public void send(CustomServiceWxCardMsg msg) {
-		send(FastJsonUtil.toJson(msg));
+	public String send(CustomServiceWxCardMsg msg) {
+		return send(FastJsonUtil.toJson(msg));
 	}
 
 	/**
@@ -230,8 +230,9 @@ public class SendMessageWxUtil {
 	 * 
 	 * @param json
 	 */
-	private void send(String json) {
+	private String send(String json) {
 		String url = WxConstantData.sendMsgUrl + "?access_token=" + accessTokenUtil.getAccessToken();
 		postJsonUtil.postJson(url, json, "发送客服消息", ErrMsg.class);
+		return json;
 	}
 }

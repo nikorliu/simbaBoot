@@ -28,6 +28,9 @@ cd ../
 cd simba-ftp
 call mvn clean -U 
 cd ../
+cd simba-git
+call mvn clean -U 
+cd ../
 cd simba-freemarker
 call mvn clean -U 
 cd ../
@@ -96,6 +99,9 @@ call mvn clean -U
 cd ../
 cd simba-mongodb
 call mvn clean -U 
+cd ../
+cd simba-elasticsearch
+call mvn clean -U
 cd ../
 cd simba-aop
 call mvn clean -U 

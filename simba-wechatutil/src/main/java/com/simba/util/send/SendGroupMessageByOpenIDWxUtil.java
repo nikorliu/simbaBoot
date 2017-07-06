@@ -39,7 +39,9 @@ public class SendGroupMessageByOpenIDWxUtil {
 	public GroupResult send(GroupMpNews msg) {
 		String url = WxConstantData.sendGroupByOpenID + "?access_token=" + accessTokenUtil.getAccessToken();
 		String json = FastJsonUtil.toJson(msg);
-		return postJsonUtil.postJson(url, json, "根据OpenID列表群发", GroupResult.class);
+		GroupResult result = postJsonUtil.postJson(url, json, "根据OpenID列表群发", GroupResult.class);
+		result.setJson(json);
+		return result;
 	}
 
 	/**
@@ -50,7 +52,9 @@ public class SendGroupMessageByOpenIDWxUtil {
 	public GroupResult send(GroupText msg) {
 		String url = WxConstantData.sendGroupByOpenID + "?access_token=" + accessTokenUtil.getAccessToken();
 		String json = FastJsonUtil.toJson(msg);
-		return postJsonUtil.postJson(url, json, "根据OpenID列表群发", GroupResult.class);
+		GroupResult result = postJsonUtil.postJson(url, json, "根据OpenID列表群发", GroupResult.class);
+		result.setJson(json);
+		return result;
 	}
 
 	/**
@@ -61,7 +65,9 @@ public class SendGroupMessageByOpenIDWxUtil {
 	public GroupResult send(GroupVoice msg) {
 		String url = WxConstantData.sendGroupByOpenID + "?access_token=" + accessTokenUtil.getAccessToken();
 		String json = FastJsonUtil.toJson(msg);
-		return postJsonUtil.postJson(url, json, "根据OpenID列表群发", GroupResult.class);
+		GroupResult result = postJsonUtil.postJson(url, json, "根据OpenID列表群发", GroupResult.class);
+		result.setJson(json);
+		return result;
 	}
 
 	/**
@@ -72,7 +78,9 @@ public class SendGroupMessageByOpenIDWxUtil {
 	public GroupResult send(GroupImage msg) {
 		String url = WxConstantData.sendGroupByOpenID + "?access_token=" + accessTokenUtil.getAccessToken();
 		String json = FastJsonUtil.toJson(msg);
-		return postJsonUtil.postJson(url, json, "根据OpenID列表群发", GroupResult.class);
+		GroupResult result = postJsonUtil.postJson(url, json, "根据OpenID列表群发", GroupResult.class);
+		result.setJson(json);
+		return result;
 	}
 
 	/**
@@ -83,6 +91,8 @@ public class SendGroupMessageByOpenIDWxUtil {
 	public GroupResult send(GroupVideo msg) {
 		String url = WxConstantData.sendGroupByOpenID + "?access_token=" + accessTokenUtil.getAccessToken();
 		String json = FastJsonUtil.toJson(msg);
-		return postJsonUtil.postJson(url, json, "根据OpenID列表群发", GroupResult.class);
+		GroupResult result = postJsonUtil.postJson(url, json, "根据OpenID列表群发", GroupResult.class);
+		result.setJson(json);
+		return result;
 	}
 }

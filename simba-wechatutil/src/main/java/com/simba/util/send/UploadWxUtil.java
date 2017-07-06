@@ -20,7 +20,7 @@ import com.simba.util.common.WxConstantData;
  *
  */
 @Component
-public class UplodWxUtil {
+public class UploadWxUtil {
 
 	@Autowired
 	private AccessTokenUtil accessTokenUtil;

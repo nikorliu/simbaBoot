@@ -1,18 +1,20 @@
 package com.simba.model.wx.group.openid;
 
+import java.util.List;
+
 public class GroupVideo {
 
-	private ToUser touser;
+	private List<String> touser;
 
 	private MpVideo mpvideo;
 
 	private String msgtype = "mpvideo";
 
-	public ToUser getTouser() {
+	public List<String> getTouser() {
 		return touser;
 	}
 
-	public void setTouser(ToUser touser) {
+	public void setTouser(List<String> touser) {
 		this.touser = touser;
 	}
 
