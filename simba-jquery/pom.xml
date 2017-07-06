@@ -3,7 +3,7 @@
 
 	<groupId>com.simba</groupId>
 	<artifactId>simba-jquery</artifactId>
-	<version>2.0.0-SNAPSHOT</version>
+	<version>2.0.0-RELEASE</version>
 	<packaging>jar</packaging>
 
 	<name>simba-jquery</name>
